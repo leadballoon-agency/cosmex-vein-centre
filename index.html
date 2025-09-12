@@ -1289,6 +1289,229 @@
             opacity: 0.95;
         }
 
+        /* Booking Modal */
+        .booking-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .booking-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+        }
+        
+        .booking-modal-content {
+            background: white;
+            border-radius: 30px;
+            width: 90%;
+            max-width: 900px;
+            height: 85vh;
+            max-height: 700px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .booking-header {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            padding: 25px 30px;
+            color: white;
+            position: relative;
+        }
+        
+        .booking-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .booking-header p {
+            font-size: 15px;
+            opacity: 0.95;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .close-modal:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+        
+        .booking-body {
+            height: calc(100% - 180px);
+            position: relative;
+        }
+        
+        .kerry-strip {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .kerry-strip-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+        
+        .kerry-mini-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FFE5B4 0%, #ffd4a3 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 18px;
+        }
+        
+        .kerry-mini-info {
+            flex: 1;
+        }
+        
+        .kerry-mini-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 3px;
+        }
+        
+        .kerry-mini-info p {
+            font-size: 13px;
+            color: #7f8c8d;
+        }
+        
+        .kerry-quick-contact {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .kerry-quick-btn {
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .kerry-quick-btn.call {
+            background: #4ECDC4;
+            color: white;
+        }
+        
+        .kerry-quick-btn.call:hover {
+            background: #44A08D;
+            transform: translateY(-2px);
+        }
+        
+        .kerry-quick-btn.question {
+            background: white;
+            color: #4ECDC4;
+            border: 2px solid #4ECDC4;
+        }
+        
+        .kerry-quick-btn.question:hover {
+            background: #f0fffe;
+        }
+        
+        .calendar-container {
+            height: calc(100% - 90px);
+            width: 100%;
+            position: relative;
+        }
+        
+        .calendar-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        @media (max-width: 768px) {
+            .booking-modal-content {
+                width: 95%;
+                height: 90vh;
+                border-radius: 20px;
+            }
+            
+            .booking-header {
+                padding: 20px;
+            }
+            
+            .booking-header h2 {
+                font-size: 20px;
+            }
+            
+            .kerry-strip {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .kerry-strip-left {
+                width: 100%;
+            }
+            
+            .kerry-quick-contact {
+                width: 100%;
+            }
+            
+            .kerry-quick-btn {
+                flex: 1;
+                justify-content: center;
+            }
+        }
+        
         /* Loading Overlay */
         .loading-overlay {
             position: fixed;
@@ -1460,7 +1683,7 @@
                 </a>
                 <div class="nav-buttons">
                     <a href="tel:01223567890" class="nav-btn nav-btn-outline">01223 567 890</a>
-                    <button class="nav-btn nav-btn-primary" onclick="scrollToAssessment()">Start Assessment</button>
+                    <button class="nav-btn nav-btn-primary" onclick="bookConsultation()">Book Consultation</button>
                 </div>
             </div>
         </div>
@@ -1819,15 +2042,15 @@
                                     <p class="kerry-message">"I have your complete assessment ready and can discuss your personalized treatment options. Let's find the perfect solution for you."</p>
                                     
                                     <div class="contact-options">
-                                        <button class="contact-btn primary" onclick="callKerry()">
-                                            <span class="btn-icon">📞</span>
-                                            Call Kerry Now
-                                            <span class="btn-subtitle">01223 567 890</span>
-                                        </button>
-                                        <button class="contact-btn secondary" onclick="requestCallback()">
+                                        <button class="contact-btn primary" onclick="bookConsultation()">
                                             <span class="btn-icon">📅</span>
-                                            Request Callback
-                                            <span class="btn-subtitle">Within 30 minutes</span>
+                                            Book Consultation
+                                            <span class="btn-subtitle">Choose your time</span>
+                                        </button>
+                                        <button class="contact-btn secondary" onclick="callKerry()">
+                                            <span class="btn-icon">📞</span>
+                                            Call Kerry Direct
+                                            <span class="btn-subtitle">01223 567 890</span>
                                         </button>
                                     </div>
                                     
@@ -1897,6 +2120,39 @@
         </div>
     </section>
 
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="booking-modal" onclick="if(event.target === this) closeBookingModal()">
+        <div class="booking-modal-content">
+            <div class="booking-header">
+                <h2>Book Your Consultation</h2>
+                <p>Select a convenient time for your personalized vein assessment</p>
+                <button class="close-modal" onclick="closeBookingModal()">×</button>
+            </div>
+            <div class="booking-body">
+                <div class="kerry-strip">
+                    <div class="kerry-strip-left">
+                        <div class="kerry-mini-avatar">KF</div>
+                        <div class="kerry-mini-info">
+                            <h4>Kerry Fraser is here to help</h4>
+                            <p>Your assessment has been sent to Kerry • She's ready to discuss your treatment options</p>
+                        </div>
+                    </div>
+                    <div class="kerry-quick-contact">
+                        <button class="kerry-quick-btn call" onclick="callKerryModal()">
+                            📞 Call Now
+                        </button>
+                        <button class="kerry-quick-btn question" onclick="askKerry()">
+                            💬 Ask Kerry
+                        </button>
+                    </div>
+                </div>
+                <div class="calendar-container">
+                    <iframe id="bookingIframe" class="calendar-iframe" src="" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- Loading Overlay -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-content">
@@ -2368,6 +2624,30 @@
             
             document.getElementById('treatmentRecommendations').innerHTML = html;
             
+            // Add Book Now button after treatments
+            const bookButton = document.createElement('div');
+            bookButton.style.cssText = 'text-align: center; margin-top: 40px;';
+            bookButton.innerHTML = `
+                <button onclick="bookConsultation()" style="
+                    background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+                    color: white;
+                    border: none;
+                    padding: 20px 50px;
+                    border-radius: 50px;
+                    font-size: 18px;
+                    font-weight: 700;
+                    cursor: pointer;
+                    box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+                    transition: all 0.3s ease;
+                " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(78, 205, 196, 0.4)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 10px 30px rgba(78, 205, 196, 0.3)'">
+                    Book Your Consultation Now →
+                </button>
+                <p style="margin-top: 15px; color: #7f8c8d; font-size: 14px;">
+                    Or call Kerry directly: <a href="tel:01223567890" style="color: #4ECDC4; text-decoration: none; font-weight: 600;">01223 567 890</a>
+                </p>
+            `;
+            document.getElementById('treatmentRecommendations').appendChild(bookButton);
+            
             // Send assessment to Kerry
             sendAssessmentToKerry(data);
         }
@@ -2501,7 +2781,48 @@
 
         // Book consultation
         function bookConsultation() {
-            window.open('https://links.hifucambridge.com/widget/booking/LSUjMbBChuSodWiQ5k7R', '_blank');
+            openBookingModal();
+        }
+        
+        // Open booking modal
+        function openBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Load iframe if not already loaded
+            const iframe = document.getElementById('bookingIframe');
+            if (!iframe.src) {
+                iframe.src = 'https://links.hifucambridge.com/widget/booking/LSUjMbBChuSodWiQ5k7R';
+            }
+        }
+        
+        // Close booking modal
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Handle ESC key to close modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeBookingModal();
+            }
+        });
+        
+        // Call Kerry from modal
+        function callKerryModal() {
+            window.location.href = 'tel:01223567890';
+        }
+        
+        // Ask Kerry a question
+        function askKerry() {
+            const question = prompt('What would you like to ask Kerry about your treatment?');
+            if (question) {
+                // In production, this would send the question to Kerry
+                alert('Kerry will respond to your question within 30 minutes. She has your full assessment details.');
+            }
         }
 
         // Header scroll effect with hide/show
