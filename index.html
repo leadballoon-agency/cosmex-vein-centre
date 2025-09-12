@@ -712,12 +712,39 @@
         /* Results Section */
         .results-container {
             padding: 40px;
-            text-align: center;
             display: none;
         }
 
         .results-container.active {
             display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Score Reveal */
+        .score-reveal {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .score-circle {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .score-circle svg {
+            transform: rotate(-90deg);
+        }
+        
+        .score-circle circle {
+            transition: stroke-dashoffset 2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .score-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
         }
 
         .result-score {
@@ -726,23 +753,327 @@
             background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+        
+        .score-label {
+            font-size: 14px;
+            color: #7f8c8d;
+            font-weight: 600;
+        }
+        
+        /* AI Insights */
+        .ai-insights {
+            margin: 40px 0;
+        }
+        
+        .insights-title {
+            font-size: 28px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #2c3e50 0%, #4ECDC4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .insight-card {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.05) 0%, rgba(68, 160, 141, 0.02) 100%);
+            border: 2px solid rgba(78, 205, 196, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            animation: slideUp 0.5s ease backwards;
+        }
+        
+        .insight-card:nth-child(1) { animation-delay: 0.1s; }
+        .insight-card:nth-child(2) { animation-delay: 0.2s; }
+        .insight-card:nth-child(3) { animation-delay: 0.3s; }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .insight-icon {
+            font-size: 32px;
             margin-bottom: 10px;
+        }
+        
+        .insight-label {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+        
+        .insight-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        /* Treatment Section */
+        .treatment-section {
+            margin: 40px 0;
+        }
+        
+        .treatment-heading {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
         }
 
         .treatment-card {
-            background: linear-gradient(135deg, rgba(78, 205, 196, 0.03) 0%, rgba(68, 160, 141, 0.01) 100%);
+            background: white;
             border: 2px solid rgba(78, 205, 196, 0.2);
             border-radius: 20px;
-            padding: 25px;
-            margin: 20px 0;
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 600px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .treatment-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #4ECDC4 0%, #44A08D 100%);
         }
 
         .treatment-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(78, 205, 196, 0.2);
             border-color: #4ECDC4;
-            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(68, 160, 141, 0.04) 100%);
+        }
+        
+        .treatment-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .treatment-description {
+            color: #7f8c8d;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .treatment-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(78, 205, 196, 0.2);
+        }
+        
+        .treatment-stat {
+            text-align: center;
+        }
+        
+        .stat-label {
+            font-size: 11px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .stat-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #4ECDC4;
+        }
+        
+        /* Kerry Section */
+        .kerry-section {
+            margin: 50px 0;
+        }
+        
+        .kerry-card {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            border-radius: 25px;
+            padding: 35px;
+            color: white;
+            max-width: 700px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(78, 205, 196, 0.3);
+        }
+        
+        .kerry-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .kerry-avatar {
+            width: 60px;
+            height: 60px;
+            background: white;
+            color: #4ECDC4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .kerry-info h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        
+        .kerry-info p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        
+        .kerry-message {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-style: italic;
+            opacity: 0.95;
+        }
+        
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-btn {
+            background: white;
+            border: none;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .contact-btn.primary {
+            color: #4ECDC4;
+        }
+        
+        .contact-btn.secondary {
+            color: #44A08D;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-icon {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .btn-subtitle {
+            font-size: 12px;
+            opacity: 0.7;
+            display: block;
+            margin-top: 3px;
+        }
+        
+        .availability {
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Journey Timeline */
+        .journey-section {
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .journey-section h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #4ECDC4 0%, #44A08D 100%);
+        }
+        
+        .timeline-step {
+            position: relative;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .step-dot {
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 3px solid #4ECDC4;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step-dot.active {
+            background: #4ECDC4;
+        }
+        
+        .step-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .step-time {
+            font-size: 12px;
+            color: #7f8c8d;
         }
 
         /* Other Sections */
@@ -1259,15 +1590,77 @@
 
                         <!-- Results -->
                         <div class="results-container" id="results">
-                            <div class="result-score" id="resultScore">95%</div>
-                            <h2 style="font-size: 28px; margin-bottom: 10px;">Treatment Match Score</h2>
-                            <p style="color: #7f8c8d; margin-bottom: 30px;">Based on comprehensive analysis</p>
+                            <!-- Animated Score Reveal -->
+                            <div class="score-reveal">
+                                <div class="score-circle">
+                                    <svg width="200" height="200">
+                                        <circle cx="100" cy="100" r="90" stroke="#e9ecef" stroke-width="10" fill="none"/>
+                                        <circle cx="100" cy="100" r="90" stroke="url(#gradient)" stroke-width="10" fill="none" 
+                                                stroke-dasharray="565" stroke-dashoffset="565" id="scoreCircle"/>
+                                        <defs>
+                                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#4ECDC4;stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:#44A08D;stop-opacity:1" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                    <div class="score-text">
+                                        <div class="result-score" id="resultScore">0%</div>
+                                        <div class="score-label">Match Score</div>
+                                    </div>
+                                </div>
+                            </div>
                             
-                            <div id="treatmentRecommendations"></div>
+                            <!-- AI Insights Section -->
+                            <div class="ai-insights" id="aiInsights">
+                                <h2 class="insights-title">Your Personalized Treatment Analysis</h2>
+                                <div class="insights-grid" id="insightsGrid">
+                                    <!-- Dynamically populated -->
+                                </div>
+                            </div>
                             
-                            <button class="hero-btn hero-btn-primary" style="margin-top: 30px;" onclick="bookConsultation()">
-                                Book Your Consultation
-                            </button>
+                            <!-- Treatment Recommendations -->
+                            <div class="treatment-section">
+                                <h3 class="treatment-heading">Recommended Treatments</h3>
+                                <div id="treatmentRecommendations"></div>
+                            </div>
+                            
+                            <!-- Kerry CTA Section -->
+                            <div class="kerry-section">
+                                <div class="kerry-card">
+                                    <div class="kerry-header">
+                                        <div class="kerry-avatar">KF</div>
+                                        <div class="kerry-info">
+                                            <h3>Speak with Kerry Fraser</h3>
+                                            <p>Senior Patient Care Coordinator</p>
+                                        </div>
+                                    </div>
+                                    <p class="kerry-message">"I have your complete assessment ready and can discuss your personalized treatment options. Let's find the perfect solution for you."</p>
+                                    
+                                    <div class="contact-options">
+                                        <button class="contact-btn primary" onclick="callKerry()">
+                                            <span class="btn-icon">📞</span>
+                                            Call Kerry Now
+                                            <span class="btn-subtitle">01223 567 890</span>
+                                        </button>
+                                        <button class="contact-btn secondary" onclick="requestCallback()">
+                                            <span class="btn-icon">📅</span>
+                                            Request Callback
+                                            <span class="btn-subtitle">Within 30 minutes</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <p class="availability">🟢 Available now (Mon-Sat 9am-6pm)</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Patient Journey Timeline -->
+                            <div class="journey-section">
+                                <h3>Your Journey to Vein-Free Confidence</h3>
+                                <div class="timeline" id="patientTimeline">
+                                    <!-- Dynamically populated -->
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -1628,7 +2021,16 @@
             }
         }
 
-        // Show results
+        // Treatment descriptions
+        const treatmentDescriptions = {
+            'Sclerotherapy': 'A minimally invasive procedure where a solution is injected directly into the vein, causing it to collapse and fade over time. Perfect for spider veins and smaller varicose veins.',
+            'Endovenous Laser': 'Advanced laser technology that seals larger varicose veins from within. Walk-in, walk-out procedure with minimal downtime.',
+            'Foam Sclerotherapy': 'An enhanced version using foam solution for treating larger veins. Highly effective with excellent cosmetic results.',
+            'Microsclerotherapy': 'Precision treatment for thread veins using ultra-fine needles. Ideal for facial and leg spider veins.',
+            'EVLA': 'Endovenous Laser Ablation - gold standard for treating problematic varicose veins with 98% success rate.'
+        };
+        
+        // Show results with wow factor
         function showResults(data) {
             // Hide questions
             document.querySelectorAll('.question-section').forEach(section => {
@@ -1640,20 +2042,43 @@
             // Show results
             document.getElementById('results').classList.add('active');
             
-            // Calculate score
+            // Animate score reveal
             const score = Math.min(98, 75 + (Math.random() * 23));
-            document.getElementById('resultScore').textContent = `${Math.round(score)}%`;
+            setTimeout(() => {
+                animateScore(score);
+            }, 500);
             
-            // Generate recommendations
+            // Generate AI insights
+            generateInsights(data);
+            
+            // Generate timeline
+            generateTimeline(data);
+            
+            // Generate enhanced recommendations
             let html = '';
             if (data.aiTriage && data.aiTriage.treatmentPlan) {
                 const treatments = data.aiTriage.treatmentPlan.options || [];
                 treatments.forEach(treatment => {
+                    const treatmentName = treatment.name || 'Sclerotherapy';
+                    const description = treatmentDescriptions[treatmentName] || treatmentDescriptions['Sclerotherapy'];
                     html += `
                         <div class="treatment-card">
-                            <h4 style="font-size: 20px; margin-bottom: 10px; color: #2c3e50;">${treatment.name || treatment.treatment || 'Treatment Option'}</h4>
-                            <p style="color: #7f8c8d; margin-bottom: 15px;">Success rate: <span style="color: #44A08D; font-weight: 700;">${treatment.successRate || '90-95%'}</span></p>
-                            <p style="color: #2c3e50;">Investment: <span style="background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;">${treatment.cost || '£800-1500'}</span></p>
+                            <div class="treatment-name">${treatmentName}</div>
+                            <div class="treatment-description">${description}</div>
+                            <div class="treatment-stats">
+                                <div class="treatment-stat">
+                                    <div class="stat-label">Success Rate</div>
+                                    <div class="stat-value">${treatment.successRate || '95%'}</div>
+                                </div>
+                                <div class="treatment-stat">
+                                    <div class="stat-label">Sessions</div>
+                                    <div class="stat-value">${treatment.sessions || '2-4'}</div>
+                                </div>
+                                <div class="treatment-stat">
+                                    <div class="stat-label">Investment</div>
+                                    <div class="stat-value">${treatment.cost || '£800-1500'}</div>
+                                </div>
+                            </div>
                         </div>
                     `;
                 });
@@ -1661,14 +2086,152 @@
                 // Default recommendations
                 html = `
                     <div class="treatment-card">
-                        <h4 style="font-size: 20px; margin-bottom: 10px; color: #2c3e50;">Recommended Assessment</h4>
-                        <p style="color: #7f8c8d; margin-bottom: 15px;">Based on your comprehensive assessment, we recommend a <span style="color: #44A08D; font-weight: 700;">${assessmentData.location === 'face' ? '£50 facial' : '£250 comprehensive'} consultation</span></p>
-                        <p style="color: #2c3e50;">Next step: <span style="background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;">Book your consultation</span></p>
+                        <div class="treatment-name">Personalized Consultation</div>
+                        <div class="treatment-description">Your assessment indicates you would benefit from a detailed consultation with our vascular specialist to determine the optimal treatment approach.</div>
+                        <div class="treatment-stats">
+                            <div class="treatment-stat">
+                                <div class="stat-label">Consultation</div>
+                                <div class="stat-value">${assessmentData.location === 'face' ? '£50' : '£250'}</div>
+                            </div>
+                            <div class="treatment-stat">
+                                <div class="stat-label">Duration</div>
+                                <div class="stat-value">45 mins</div>
+                            </div>
+                            <div class="treatment-stat">
+                                <div class="stat-label">Includes</div>
+                                <div class="stat-value">Full Scan</div>
+                            </div>
+                        </div>
                     </div>
                 `;
             }
             
             document.getElementById('treatmentRecommendations').innerHTML = html;
+            
+            // Send assessment to Kerry
+            sendAssessmentToKerry(data);
+        }
+        
+        // Animate score
+        function animateScore(targetScore) {
+            let currentScore = 0;
+            const increment = targetScore / 50;
+            const scoreElement = document.getElementById('resultScore');
+            const circle = document.getElementById('scoreCircle');
+            const circumference = 2 * Math.PI * 90;
+            
+            const timer = setInterval(() => {
+                currentScore += increment;
+                if (currentScore >= targetScore) {
+                    currentScore = targetScore;
+                    clearInterval(timer);
+                }
+                scoreElement.textContent = `${Math.round(currentScore)}%`;
+                const offset = circumference - (currentScore / 100) * circumference;
+                circle.style.strokeDashoffset = offset;
+            }, 40);
+        }
+        
+        // Generate AI insights
+        function generateInsights(data) {
+            const insights = [];
+            
+            if (data.aiTriage) {
+                insights.push({
+                    icon: '⚡',
+                    label: 'Urgency',
+                    value: data.aiTriage.aiConsensus?.urgencyScore?.split('-')[0] || 'Moderate'
+                });
+                insights.push({
+                    icon: '🎯',
+                    label: 'Confidence',
+                    value: data.aiTriage.aiConsensus?.confidenceLevel || '95%'
+                });
+                insights.push({
+                    icon: '⏱️',
+                    label: 'Treatment Time',
+                    value: data.aiTriage.treatmentPlan?.timeline || '6-8 weeks'
+                });
+            } else {
+                insights.push(
+                    { icon: '⚡', label: 'Urgency', value: 'Moderate' },
+                    { icon: '🎯', label: 'Confidence', value: '92%' },
+                    { icon: '⏱️', label: 'Treatment Time', value: '6-8 weeks' }
+                );
+            }
+            
+            let html = '';
+            insights.forEach(insight => {
+                html += `
+                    <div class="insight-card">
+                        <div class="insight-icon">${insight.icon}</div>
+                        <div class="insight-label">${insight.label}</div>
+                        <div class="insight-value">${insight.value}</div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('insightsGrid').innerHTML = html;
+        }
+        
+        // Generate timeline
+        function generateTimeline(data) {
+            const steps = [
+                { title: 'Today', time: 'Book consultation', active: true },
+                { title: 'Week 1', time: 'Initial assessment', active: false },
+                { title: 'Week 2-4', time: 'Treatment begins', active: false },
+                { title: 'Week 6-8', time: 'Results visible', active: false },
+                { title: 'Week 12', time: 'Final review', active: false }
+            ];
+            
+            let html = '';
+            steps.forEach(step => {
+                html += `
+                    <div class="timeline-step">
+                        <div class="step-dot ${step.active ? 'active' : ''}"></div>
+                        <div class="step-title">${step.title}</div>
+                        <div class="step-time">${step.time}</div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('patientTimeline').innerHTML = html;
+        }
+        
+        // Call Kerry
+        function callKerry() {
+            window.location.href = 'tel:01223567890';
+        }
+        
+        // Request callback
+        function requestCallback() {
+            const name = assessmentData.contact.firstName || 'Patient';
+            const email = assessmentData.contact.email || '';
+            const phone = assessmentData.contact.phone || '';
+            
+            // Send callback request
+            fetch(`${API_URL}/callback`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name,
+                    email,
+                    phone,
+                    assessmentId: window.lastAssessmentId,
+                    requestTime: new Date().toISOString()
+                })
+            });
+            
+            alert('Kerry will call you within 30 minutes during business hours!');
+        }
+        
+        // Send assessment to Kerry
+        function sendAssessmentToKerry(data) {
+            // Store assessment ID for callback
+            window.lastAssessmentId = data.assessmentId;
+            
+            // In production, this would send an email to Kerry with full assessment details
+            console.log('Assessment sent to Kerry:', data);
         }
 
         // Show default results
