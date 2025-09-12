@@ -201,42 +201,30 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .hero-content.assessment-active {
-            grid-template-columns: 1fr;
+            justify-content: center;
             max-width: 900px;
             margin: 0 auto;
+            gap: 40px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .hero-text {
             color: white;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 600px;
+            text-align: center;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .hero-text.hidden {
             opacity: 0;
-            transform: translateX(-50px);
+            transform: translateY(-30px);
             pointer-events: none;
+            position: absolute;
         }
         
         @media (max-width: 768px) {
-            .hero-text {
-                background: rgba(0, 0, 0, 0.3);
-                padding: 30px 20px;
-            }
-            
             .hero-text.hidden {
                 display: none;
             }
@@ -273,21 +261,24 @@
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 900;
-            margin-bottom: 20px;
-            line-height: 1.1;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+            line-height: 1.2;
+            text-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+            letter-spacing: -1px;
         }
 
         .hero h1 .highlight {
             color: #FFE5B4;
-            text-shadow: 0 0 30px rgba(255, 229, 180, 0.5);
+            text-shadow: 0 0 40px rgba(255, 229, 180, 0.4);
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            opacity: 0.95;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
             line-height: 1.5;
+            letter-spacing: 0.5px;
+            font-weight: 500;
         }
 
         .trust-row {
@@ -348,6 +339,52 @@
             background: rgba(255, 255, 255, 0.3);
         }
 
+        /* Start Assessment Button - Simple & Elegant */
+        .start-assessment-btn {
+            background: rgba(255, 255, 255, 0.95);
+            color: #4ECDC4;
+            border: none;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .start-assessment-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+            background: white;
+        }
+        
+        .start-assessment-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(78, 205, 196, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .start-assessment-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .start-assessment-btn span {
+            position: relative;
+            z-index: 1;
+        }
+        
         /* AI Assessment Section - Integrated */
         .ai-assessment-wrapper {
             background: rgba(255, 255, 255, 0.98);
@@ -357,13 +394,19 @@
             overflow: hidden;
             box-shadow: 0 30px 100px rgba(0, 0, 0, 0.2);
             position: relative;
-            animation: fadeInUp 0.8s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             border: 2px solid rgba(255, 255, 255, 0.5);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .ai-assessment-wrapper.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .ai-assessment-wrapper.expanded {
-            transform: scale(1.05);
+            transform: scale(1.02);
             box-shadow: 0 40px 120px rgba(0, 0, 0, 0.25);
         }
         
@@ -371,6 +414,11 @@
             .ai-assessment-wrapper.expanded {
                 transform: scale(1);
                 margin-top: 20px;
+            }
+            
+            .start-assessment-btn {
+                padding: 18px 40px;
+                font-size: 16px;
             }
         }
 
@@ -1347,13 +1395,14 @@
         }
         
         @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                margin-bottom: 20px;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 30px;
             }
 
             .option-grid {
@@ -1408,36 +1457,12 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <div class="hero-badge">
-                        <span class="pulse-dot"></span>
-                        ADVANCED ASSESSMENT AVAILABLE
-                    </div>
-                    <h1>Get Your <span class="highlight">Personalized Vein Assessment</span> in 2 Minutes</h1>
-                    <p class="hero-subtitle">Cambridge's most trusted clinic now offers instant comprehensive analysis with precision treatment matching.</p>
+                    <h1>Your Personalized<br><span class="highlight">Vein Treatment Plan</span><br>in 2 Minutes</h1>
+                    <p class="hero-subtitle">Cambridge's most trusted vein clinic • 4.93★ • 600+ Reviews</p>
                     
-                    <div class="trust-row">
-                        <div class="trust-item">
-                            <span class="icon" style="color: #4ECDC4;">⭐</span>
-                            <span>4.93★ Rating</span>
-                        </div>
-                        <div class="trust-item">
-                            <span class="icon" style="color: #4ECDC4;">👥</span>
-                            <span>600+ Reviews</span>
-                        </div>
-                        <div class="trust-item">
-                            <span class="icon" style="color: #4ECDC4;">🏆</span>
-                            <span>20+ Years</span>
-                        </div>
-                    </div>
-
-                    <div class="hero-cta-group">
-                        <button class="hero-btn hero-btn-primary" onclick="startAssessment()">
-                            Start Free Assessment
-                        </button>
-                        <a href="#features" class="hero-btn hero-btn-secondary">
-                            Learn More
-                        </a>
-                    </div>
+                    <button class="start-assessment-btn" onclick="startAssessment()">
+                        <span>Start Assessment</span>
+                    </button>
                 </div>
 
                 <!-- Advanced Assessment Tool -->
@@ -1967,13 +1992,14 @@
 
         // Start assessment
         function startAssessment() {
-            // Hide hero text and expand assessment
+            // Hide hero text and show assessment
             document.querySelector('.hero-text').classList.add('hidden');
-            document.querySelector('.hero-content').classList.add('assessment-active');
-            document.querySelector('.ai-assessment-wrapper').classList.add('expanded');
+            const assessmentWrapper = document.querySelector('.ai-assessment-wrapper');
+            assessmentWrapper.classList.add('visible');
             
-            // Smooth scroll to assessment
+            // After transition, expand it
             setTimeout(() => {
+                assessmentWrapper.classList.add('expanded');
                 scrollToAssessment();
             }, 300);
             
@@ -2087,8 +2113,9 @@
             // Hide hero text if moving past question 1
             if (currentQuestion === 1) {
                 document.querySelector('.hero-text').classList.add('hidden');
-                document.querySelector('.hero-content').classList.add('assessment-active');
-                document.querySelector('.ai-assessment-wrapper').classList.add('expanded');
+                const assessmentWrapper = document.querySelector('.ai-assessment-wrapper');
+                assessmentWrapper.classList.add('visible');
+                assessmentWrapper.classList.add('expanded');
             }
             
             // Validate current question before proceeding
@@ -2139,8 +2166,11 @@
             // Show hero text again if back to question 1
             if (currentQuestion === 1) {
                 document.querySelector('.hero-text').classList.remove('hidden');
-                document.querySelector('.hero-content').classList.remove('assessment-active');
-                document.querySelector('.ai-assessment-wrapper').classList.remove('expanded');
+                const assessmentWrapper = document.querySelector('.ai-assessment-wrapper');
+                assessmentWrapper.classList.remove('expanded');
+                setTimeout(() => {
+                    assessmentWrapper.classList.remove('visible');
+                }, 300);
             }
         }
 
