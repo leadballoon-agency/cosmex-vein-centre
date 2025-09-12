@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Vein Assessment | Cosmex Vein Centre Cambridge</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8fffe 0%, #e8f5f9 100%);
+            color: #2c3e50;
+            -webkit-font-smoothing: antialiased;
+            padding: 20px 0;
+        }
+
+        .assessment-wrapper {
+            max-width: 680px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(78, 205, 196, 0.15);
+            border: 1px solid rgba(78, 205, 196, 0.1);
+        }
+
+        /* Enhanced Header with Cosmex Branding */
+        .assessment-header {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            color: white;
+            padding: 35px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .assessment-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cosmex-logo {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-subtitle {
+            font-size: 15px;
+            font-weight: 500;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            opacity: 0.95;
+        }
+
+        /* Progress Section */
+        .progress-section {
+            padding: 25px 40px;
+            background: rgba(248, 255, 254, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(78, 205, 196, 0.1);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .progress-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .progress-counter {
+            font-size: 14px;
+            color: #4ECDC4;
+            font-weight: 600;
+        }
+
+        .progress-track {
+            height: 3px;
+            background: rgba(78, 205, 196, 0.15);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4ECDC4 0%, #44A08D 100%);
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0%;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        /* Question Container */
+        .question-container {
+            padding: 35px 40px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+        }
+
+        .question-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .question-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            letter-spacing: -0.3px;
+        }
+
+        .question-subtitle {
+            color: #7f8c8d;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Enhanced Answer Options */
+        .answer-grid {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .answer-option {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(78, 205, 196, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .answer-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(78, 205, 196, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .answer-option:hover {
+            border-color: #4ECDC4;
+            background: rgba(78, 205, 196, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.2);
+        }
+
+        .answer-option:hover::before {
+            left: 100%;
+        }
+
+        .answer-option.selected {
+            border-color: #4ECDC4;
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(68, 160, 141, 0.05));
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.25);
+        }
+
+        .option-icon {
+            font-size: 22px;
+            flex-shrink: 0;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(78, 205, 196, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .answer-option.selected .option-icon {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            color: white;
+        }
+
+        .option-content {
+            flex: 1;
+        }
+
+        .option-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .option-description {
+            color: #7f8c8d;
+            font-size: 13px;
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        /* Symptoms Grid */
+        .symptoms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .symptom-item {
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(78, 205, 196, 0.12);
+            border-radius: 12px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            position: relative;
+        }
+
+        .symptom-item:hover {
+            border-color: #4ECDC4;
+            background: rgba(78, 205, 196, 0.05);
+            transform: translateY(-1px);
+        }
+
+        .symptom-item.selected {
+            border-color: #4ECDC4;
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(68, 160, 141, 0.05));
+        }
+
+        .symptom-checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #cbd5e1;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .symptom-item.selected .symptom-checkbox {
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            border-color: #4ECDC4;
+        }
+
+        .symptom-checkbox::after {
+            content: '✓';
+            color: white;
+            font-weight: 700;
+            font-size: 11px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .symptom-item.selected .symptom-checkbox::after {
+            opacity: 1;
+        }
+
+        .symptom-text {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        /* Enhanced Slider */
+        .slider-section {
+            background: rgba(248, 255, 254, 0.6);
+            border: 1px solid rgba(78, 205, 196, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .slider-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .elegant-slider {
+            width: 100%;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(78, 205, 196, 0.2);
+            outline: none;
+            margin-bottom: 12px;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+
+        .elegant-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4ECDC4, #44A08D);
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(78, 205, 196, 0.4);
+            border: 2px solid white;
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            color: #7f8c8d;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* Cost Display */
+        .cost-section {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08), rgba(68, 160, 141, 0.05));
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .cost-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .cost-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .cost-item {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid rgba(78, 205, 196, 0.1);
+        }
+
+        .cost-label {
+            color: #7f8c8d;
+            font-size: 10px;
+            margin-bottom: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cost-amount {
+            font-size: 15px;
+            font-weight: 800;
+            color: #2c3e50;
+        }
+
+        /* Form Styling */
+        .form-section {
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 18px;
+            border: 2px solid rgba(78, 205, 196, 0.15);
+            border-radius: 12px;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c3e50;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-family: inherit;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #4ECDC4;
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+            background: white;
+        }
+
+        .form-input::placeholder {
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        /* Navigation Buttons */
+        .nav-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 100px;
+            font-family: inherit;
+        }
+
+        .nav-btn-primary {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .nav-btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+        }
+
+        .nav-btn-secondary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #7f8c8d;
+            border: 2px solid rgba(78, 205, 196, 0.2);
+        }
+
+        .nav-btn-secondary:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: #4ECDC4;
+            color: #2c3e50;
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* Results Section */
+        .results-section {
+            padding: 40px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+        }
+
+        .results-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .results-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .results-subtitle {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .recommendation {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid rgba(78, 205, 196, 0.15);
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.1);
+        }
+
+        .recommendation-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .price-badge {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 15px;
+            font-weight: 800;
+            font-size: 16px;
+        }
+
+        .recommendation-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+
+        .feature-list li {
+            padding: 6px 0;
+            position: relative;
+            padding-left: 20px;
+            color: #2c3e50;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ECDC4;
+            font-weight: 800;
+            font-size: 12px;
+        }
+
+        .booking-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .book-button {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+            text-align: center;
+            font-family: inherit;
+        }
+
+        .book-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+        }
+
+        .book-button.secondary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c3e50;
+            border: 2px solid rgba(78, 205, 196, 0.2);
+        }
+
+        .book-button.secondary:hover {
+            border-color: #4ECDC4;
+            background: white;
+        }
+
+        .completion-message {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08), rgba(68, 160, 141, 0.05));
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #2c3e50;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .justification-box {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08), rgba(68, 160, 141, 0.05));
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 13px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .urgency-note {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(220, 38, 38, 0.05));
+            border: 2px solid rgba(239, 68, 68, 0.2);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 12px;
+            color: #dc2626;
+            font-weight: 600;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .assessment-wrapper {
+                margin: 0 10px;
+                border-radius: 20px;
+            }
+
+            .assessment-header, .question-container, .progress-section {
+                padding: 25px 25px;
+            }
+
+            .symptoms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-section {
+                flex-direction: column;
+            }
+
+            .booking-buttons {
+                flex-direction: column;
+            }
+
+            .trust-indicators {
+                gap: 15px;
+            }
+
+            .cost-display {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        .fade-in {
+            animation: fade-in 0.6s ease;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .loading-dots::after {
+            content: '';
+            animation: dots 2s linear infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: ''; }
+            40% { content: '.'; }
+            60% { content: '..'; }
+            80%, 100% { content: '...'; }
+        }
+    </style>
+</head>
+<body>
+    <div class="assessment-wrapper">
+        <!-- Enhanced Header with Cosmex Branding -->
+        <div class="assessment-header">
+            <div class="cosmex-logo">COSMEX VEIN CENTRE</div>
+            <h2 class="header-title">Professional Vein Assessment</h2>
+            <p class="header-subtitle">Get expert recommendations from Cambridge's most trusted clinic</p>
+            <div class="trust-indicators">
+                <div class="trust-item">
+                    <span>⭐</span>
+                    <span>4.93★ Rating</span>
+                </div>
+                <div class="trust-item">
+                    <span>👨‍⚕️</span>
+                    <span>20+ Years Experience</span>
+                </div>
+                <div class="trust-item">
+                    <span>🏆</span>
+                    <span>Award Winning</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress -->
+        <div class="progress-section">
+            <div class="progress-header">
+                <span class="progress-title">Assessment Progress</span>
+                <span class="progress-counter">Step <span id="currentStep">1</span> of <span id="totalSteps">4</span></span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="progress-steps">
+                <span>Location</span>
+                <span>Symptoms</span>
+                <span>Goals</span>
+                <span>Contact</span>
+                <span>Results</span>
+            </div>
+        </div>
+
+        <!-- Question 1: Location -->
+        <div class="question-container" id="question1">
+            <div class="question-header">
+                <h3 class="question-title">Where are your veins located?</h3>
+                <p class="question-subtitle">This determines the most appropriate assessment and treatment approach for your specific needs.</p>
+            </div>
+
+            <div class="answer-grid">
+                <div class="answer-option" data-value="face" onclick="selectAnswer(1, 'face', this)">
+                    <span class="option-icon">👤</span>
+                    <div class="option-content">
+                        <div class="option-title">Face & Upper Body</div>
+                        <div class="option-description">Spider veins, thread veins, or broken capillaries</div>
+                    </div>
+                </div>
+
+                <div class="answer-option" data-value="legs" onclick="selectAnswer(1, 'legs', this)">
+                    <span class="option-icon">🦵</span>
+                    <div class="option-content">
+                        <div class="option-title">Legs & Lower Body</div>
+                        <div class="option-description">Varicose veins, spider veins, or thread veins</div>
+                    </div>
+                </div>
+
+                <div class="answer-option" data-value="both" onclick="selectAnswer(1, 'both', this)">
+                    <span class="option-icon">✨</span>
+                    <div class="option-content">
+                        <div class="option-title">Multiple Areas</div>
+                        <div class="option-description">Comprehensive treatment needed</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <div></div>
+                <button class="nav-btn nav-btn-primary" onclick="nextQuestion()" id="next1" disabled>Continue Assessment</button>
+            </div>
+        </div>
+
+        <!-- Question 2: Symptoms -->
+        <div class="question-container hidden" id="question2">
+            <div class="question-header">
+                <h3 class="question-title">What symptoms do you experience?</h3>
+                <p class="question-subtitle">Select all that apply to help our specialists understand your condition and recommend the best treatment approach.</p>
+            </div>
+
+            <div class="symptoms-grid">
+                <div class="symptom-item" data-value="visible" data-severity="2" onclick="toggleSymptom(this)">
+                    <div class="symptom-checkbox"></div>
+                    <span class="symptom-text">Visible veins</span>
+                </div>
+                <div class="symptom-item" data-value="aching" data-severity="3" onclick="toggleSymptom(this)">
+                    <div class="symptom-checkbox"></div>
+                    <span class="symptom-text">Aching legs</span>
+                </div>
+                <div class="symptom-item" data-value="swelling" data-severity="3" onclick="toggleSymptom(this)">
+                    <div class="symptom-checkbox"></div>
+                    <span class="symptom-text">Swelling</span>
+                </div>
+                <div class="symptom-item" data-value="pain" data-severity="4" onclick="toggleSymptom(this)">
+                    <div class="symptom-checkbox"></div>
+                    <span class="symptom-text">Pain/throbbing</span>
+                </div>
+                <div class="symptom-item" data-value="itching" data-severity="2" onclick="toggleSymptom(this)">
+                    <div class="symptom-checkbox"></div>
+                    <span class="symptom-text">Itching</span>
+                </div>
+                <div class="symptom-item" data-value="cramping" data-severity="3" onclick="toggleSymptom(this)">
+                    <div class="symptom-checkbox"></div>
+                    <span class="symptom-text">Cramping</span>
+                </div>
+                <div class="symptom-item" data-value="discoloration" data-severity="4" onclick="toggleSymptom(this)">
+                    <div class="symptom-checkbox"></div>
+                    <span class="symptom-text">Skin discoloration</span>
+                </div>
+                <div class="symptom-item" data-value="restless" data-severity="3" onclick="toggleSymptom(this)">
+                    <div class="symptom-checkbox"></div>
+                    <span class="symptom-text">Restless legs</span>
+                </div>
+                <div class="symptom-item" data-value="ulcers" data-severity="5" onclick="toggleSymptom(this)">
+                    <div class="symptom-checkbox"></div>
+                    <span class="symptom-text">Open sores</span>
+                </div>
+                <div class="symptom-item" data-value="thread-only" data-severity="1" onclick="toggleSymptom(this)">
+                    <div class="symptom-checkbox"></div>
+                    <span class="symptom-text">Thread veins only</span>
+                </div>
+            </div>
+
+            <div class="slider-section">
+                <div class="slider-title">Impact on your daily life</div>
+                <input type="range" class="elegant-slider" id="impactSlider" min="1" max="10" value="5" oninput="updateImpactLabel(this.value)">
+                <div class="slider-labels">
+                    <span>Minimal</span>
+                    <span id="impactLabel">Moderate</span>
+                    <span>Severe</span>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <button class="nav-btn nav-btn-secondary" onclick="previousQuestion()">Back</button>
+                <button class="nav-btn nav-btn-primary" onclick="nextQuestion()">Continue Assessment</button>
+            </div>
+        </div>
+
+        <!-- Question 3: Goals -->
+        <div class="question-container hidden" id="question3">
+            <div class="question-header">
+                <h3 class="question-title">Your treatment goals</h3>
+                <p class="question-subtitle">What matters most to you? This helps us recommend the best treatment approach.</p>
+            </div>
+
+            <div class="answer-grid">
+                <div class="answer-option" data-value="summer" onclick="selectAnswer(3, 'summer', this)">
+                    <span class="option-icon">☀️</span>
+                    <div class="option-content">
+                        <div class="option-title">Ready for Summer</div>
+                        <div class="option-description">Confidence in shorts and swimwear</div>
+                    </div>
+                </div>
+
+                <div class="answer-option" data-value="comfort" onclick="selectAnswer(3, 'comfort', this)">
+                    <span class="option-icon">💪</span>
+                    <div class="option-content">
+                        <div class="option-title">Reduce Discomfort</div>
+                        <div class="option-description">Less pain and daily symptoms</div>
+                    </div>
+                </div>
+
+                <div class="answer-option" data-value="confidence" onclick="selectAnswer(3, 'confidence', this)">
+                    <span class="option-icon">✨</span>
+                    <div class="option-content">
+                        <div class="option-title">Boost Confidence</div>
+                        <div class="option-description">Stop hiding affected areas</div>
+                    </div>
+                </div>
+
+                <div class="answer-option" data-value="prevention" onclick="selectAnswer(3, 'prevention', this)">
+                    <span class="option-icon">🛡️</span>
+                    <div class="option-content">
+                        <div class="option-title">Prevent Worsening</div>
+                        <div class="option-description">Stop progression over time</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <button class="nav-btn nav-btn-secondary" onclick="previousQuestion()">Back</button>
+                <button class="nav-btn nav-btn-primary" onclick="nextQuestion()" id="next3" disabled>Continue Assessment</button>
+            </div>
+        </div>
+
+        <!-- Question 4: Contact & Results -->
+        <div class="question-container hidden" id="question4">
+            <div class="question-header">
+                <h3 class="question-title">Get your professional assessment</h3>
+                <p class="question-subtitle">Receive personalized recommendations and accurate pricing from our specialists.</p>
+            </div>
+
+            <div class="form-section">
+                <div class="form-row">
+                    <input type="text" id="firstName" placeholder="First name" class="form-input" required>
+                    <input type="email" id="email" placeholder="Email address" class="form-input" required>
+                </div>
+                <input type="tel" id="phone" placeholder="Phone number (optional)" class="form-input">
+            </div>
+
+            <div class="cost-section">
+                <div class="cost-title">Investment Estimate</div>
+                <div class="cost-display">
+                    <div class="cost-item">
+                        <div class="cost-label">Consultation</div>
+                        <div class="cost-amount" id="consultationCost">£250</div>
+                    </div>
+                    <div class="cost-item">
+                        <div class="cost-label">Treatment</div>
+                        <div class="cost-amount" id="treatmentCost">£800-1200</div>
+                    </div>
+                    <div class="cost-item">
+                        <div class="cost-label">Total</div>
+                        <div class="cost-amount" id="totalCost">£1050-1450</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-section">
+                <button class="nav-btn nav-btn-secondary" onclick="previousQuestion()">Back</button>
+                <button class="nav-btn nav-btn-primary" onclick="generateResults()" id="generateBtn">
+                    <span id="generateText">Get Professional Assessment</span>
+                    <span id="loadingText" class="loading-dots" style="display: none;">Analyzing</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="results-section hidden" id="results">
+            <div id="resultsContent">
+                <!-- Results populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        let totalSteps = 4;
+        let answers = {};
+        let symptoms = [];
+        let severityScore = 0;
+
+        function init() {
+            updateProgress();
+            calculateCosts();
+        }
+
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('currentStep').textContent = currentStep;
+        }
+
+        function selectAnswer(questionNum, value, element) {
+            const options = element.parentElement.querySelectorAll('.answer-option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            
+            answers[`question${questionNum}`] = value;
+            document.getElementById(`next${questionNum}`).disabled = false;
+            
+            if (navigator.vibrate) navigator.vibrate(25);
+        }
+
+        function toggleSymptom(element) {
+            element.classList.toggle('selected');
+            const value = element.dataset.value;
+            const severity = parseInt(element.dataset.severity) || 1;
+            
+            if (element.classList.contains('selected')) {
+                if (!symptoms.includes(value)) {
+                    symptoms.push(value);
+                    severityScore += severity;
+                }
+            } else {
+                symptoms = symptoms.filter(s => s !== value);
+                severityScore -= severity;
+            }
+            
+            answers.symptoms = symptoms;
+            calculateCosts();
+        }
+
+        function updateImpactLabel(value) {
+            const labels = ['Minimal', 'Slight', 'Mild', 'Moderate', 'Moderate-High', 'High', 'Significant', 'Severe', 'Very Severe', 'Extreme'];
+            document.getElementById('impactLabel').textContent = labels[value - 1];
+            answers.impactLevel = parseInt(value);
+        }
+
+        function calculateCosts() {
+            let consultation = 50;
+            let treatmentMin = 300;
+            let treatmentMax = 800;
+            
+            if (answers.question1 === 'legs' || answers.question1 === 'both') {
+                consultation = 250;
+                treatmentMin = 800;
+                treatmentMax = 1500;
+            }
+            
+            if (severityScore > 10) treatmentMax += 500;
+            
+            document.getElementById('consultationCost').textContent = `£${consultation}`;
+            document.getElementById('treatmentCost').textContent = `£${treatmentMin}-${treatmentMax}`;
+            document.getElementById('totalCost').textContent = `£${consultation + treatmentMin}-${consultation + treatmentMax}`;
+        }
+
+        function nextQuestion() {
+            document.getElementById(`question${currentStep}`).classList.add('hidden');
+            currentStep++;
+            
+            const nextQ = document.getElementById(`question${currentStep}`);
+            nextQ.classList.remove('hidden');
+            nextQ.classList.add('fade-in');
+            
+            updateProgress();
+        }
+
+        function previousQuestion() {
+            document.getElementById(`question${currentStep}`).classList.add('hidden');
+            currentStep--;
+            
+            const prevQ = document.getElementById(`question${currentStep}`);
+            prevQ.classList.remove('hidden');
+            prevQ.classList.add('fade-in');
+            
+            updateProgress();
+        }
+
+        function generateResults() {
+            const firstName = document.getElementById('firstName').value;
+            const email = document.getElementById('email').value;
+            
+            if (!firstName || !email) {
+                alert('Please provide your name and email address to receive your assessment.');
+                return;
+            }
+            
+            answers.contact = { firstName, email, phone: document.getElementById('phone').value };
+            
+            document.getElementById('generateText').style.display = 'none';
+            document.getElementById('loadingText').style.display = 'inline';
+            document.getElementById('generateBtn').disabled = true;
+            
+            setTimeout(() => showResults(), 1500);
+        }
+
+        function showResults() {
+            document.getElementById(`question${currentStep}`).classList.add('hidden');
+            const results = document.getElementById('results');
+            results.classList.remove('hidden');
+            results.classList.add('fade-in');
+            
+            createResults();
+            
+            document.getElementById('progressFill').style.width = '100%';
+            document.getElementById('currentStep').textContent = 'Complete';
+        }
+
+        function showResults(aiTriageResult = null) {
+            document.getElementById(`question${currentStep}`).classList.add('hidden');
+            const results = document.getElementById('results');
+            results.classList.remove('hidden');
+            results.classList.add('fade-in');
+            
+            createResults(aiTriageResult);
+            
+            document.getElementById('progressFill').style.width = '100%';
+            document.getElementById('currentStep').textContent = 'Complete';
+        }
+
+        function createResults(aiTriage = null) {
+            const firstName = answers.contact.firstName;
+            const location = answers.question1;
+            const goal = answers.question3;
+            const impactLevel = answers.impactLevel || 5;
+            
+            let template;
+            
+            if (aiTriage) {
+                // AI-Enhanced Results
+                template = createAIEnhancedResults(firstName, aiTriage);
+            } else {
+                // Fallback to original logic
+                template = createFallbackResults(firstName, location, goal, impactLevel);
+            }
+            
+            template += `
+                <div class="completion-message">
+                    ✓ Professional assessment complete. Our team will contact you within 24 hours to discuss your results, answer any questions, and schedule your appointment at our Cambridge clinic.
+                </div>
+            `;
+            
+            document.getElementById('resultsContent').innerHTML = template;
+        }
+
+        function createAIEnhancedResults(firstName, aiTriage) {
+            const isUrgent = aiTriage.urgencyLevel === 'High' || aiTriage.urgencyLevel === 'Urgent';
+            const isComprehensive = aiTriage.recommendedAssessment === 'comprehensive';
+            
+            let urgencyAlert = '';
+            if (isUrgent) {
+                urgencyAlert = `
+                    <div class="urgency-note">
+                        <strong>⚠️ Priority Assessment Required:</strong> 
+                        ${aiTriage.urgencyReasoning}
+                    </div>
+                `;
+            }
+            
+            const price = isComprehensive ? '£250' : '£50';
+            const assessmentType = isComprehensive ? 'Comprehensive Vein Assessment' : 'Focused Vein Assessment';
+            const icon = isUrgent ? '🚨' : isComprehensive ? '🏆' : '✨';
+            
+            const features = isComprehensive ? [
+                'Professional duplex ultrasound scan by qualified sonographers',
+                'Complete vein mapping and detailed diagnosis',
+                'Identification of hidden underlying causes',
+                'Personalized treatment strategy from our specialists',
+                '12-month treatment guarantee coverage',
+                'Expert assessment by our award-winning vascular team',
+                'Comprehensive follow-up care plan'
+            ] : [
+                'Professional vein assessment by qualified specialists',
+                'Treatment options discussion and planning',
+                'Same-day treatment often possible',
+                'Minimal downtime and quick recovery',
+                'Consultation fee offset against treatment cost',
+                'Expert advice from Cambridge\'s leading clinic'
+            ];
+
+            return `
+                <div class="results-icon">${icon}</div>
+                <h3 class="results-title">${isUrgent ? 'Priority Assessment Needed' : 'Assessment Complete'}, ${firstName}!</h3>
+                <p class="results-subtitle">Our AI-enhanced analysis recommends the following approach:</p>
+                
+                ${urgencyAlert}
+                
+                <div class="justification-box">
+                    <strong>Clinical Analysis - Key Priority Factors:</strong><br>
+                    ${aiTriage.priorityFactors.map(factor => `• ${factor}`).join('<br>')}
+                    <br><br>
+                    <strong>Preparation Advice:</strong><br>
+                    ${aiTriage.preparationAdvice}
+                </div>
+                
+                <div class="recommendation">
+                    <div class="recommendation-header">
+                        <div class="price-badge">${price}</div>
+                        <div class="recommendation-title">${assessmentType}</div>
+                    </div>
+                    <ul class="feature-list">
+                        ${features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+                    <div class="booking-buttons">
+                        <button class="book-button" onclick="bookAppointment('${aiTriage.recommendedAssessment}')">Book ${price} Assessment</button>
+                        <button class="book-button secondary" onclick="bookAppointment('call')">Request Priority Callback</button>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(78, 205, 196, 0.05); border: 1px solid rgba(78, 205, 196, 0.2); border-radius: 12px; padding: 15px; margin-top: 20px; font-size: 12px;">
+                    <strong>Clinical Notes for Your Appointment:</strong><br>
+                    ${aiTriage.clinicalNotes}
+                </div>
+            `;
+        }
+
+        function createFallbackResults(firstName, location, goal, impactLevel) {
+            // Original logic as fallback
+            const hasSerious = symptoms.some(s => ['ulcers', 'pain', 'swelling', 'discoloration'].includes(s));
+            const threadOnly = symptoms.includes('thread-only') && symptoms.length === 1;
+            const numSymptoms = symptoms.length;
+            
+            if (location === 'face') {
+                const justification = generateFaceJustification(symptoms, goal, impactLevel);
+                return `
+                    <div class="results-icon">✨</div>
+                    <h3 class="results-title">Assessment Complete, ${firstName}!</h3>
+                    <p class="results-subtitle">Based on your assessment, here's our professional recommendation:</p>
+                    
+                    <div class="justification-box">
+                        <strong>Why our £50 Facial Vein Assessment is right for you:</strong><br>
+                        ${justification}
+                    </div>
+                    
+                    <div class="recommendation">
+                        <div class="recommendation-header">
+                            <div class="price-badge">£50</div>
+                            <div class="recommendation-title">Facial Vein Assessment</div>
+                        </div>
+                        <ul class="feature-list">
+                            <li>Professional facial vein assessment by qualified specialists</li>
+                            <li>Laser or IPL treatment options discussion</li>
+                            <li>Same-day treatment often possible</li>
+                            <li>Minimal downtime and quick recovery</li>
+                            <li>Consultation fee offset against treatment cost</li>
+                            <li>Expert advice from Cambridge's leading clinic</li>
+                        </ul>
+                        <div class="booking-buttons">
+                            <button class="book-button" onclick="bookAppointment('facial')">Book £50 Assessment</button>
+                            <button class="book-button secondary" onclick="bookAppointment('call')">Request Callback</button>
+                        </div>
+                    </div>
+                `;
+            } else {
+                const justification = generateLegJustification(symptoms, goal, impactLevel, threadOnly, hasSerious, numSymptoms);
+                let urgencyNote = '';
+                if (hasSerious) {
+                    urgencyNote = '<div class="urgency-note"><strong>⚠️ Priority Assessment Recommended:</strong> Your symptoms suggest you should be seen by our specialists as soon as possible for proper evaluation.</div>';
+                }
+                
+                return `
+                    <div class="results-icon">${hasSerious ? '🚨' : '🏆'}</div>
+                    <h3 class="results-title">${hasSerious ? 'Priority Assessment Needed' : 'Assessment Complete'}, ${firstName}!</h3>
+                    <p class="results-subtitle">Based on your assessment, here's our expert recommendation:</p>
+                    
+                    <div class="justification-box">
+                        <strong>Why our £250 Comprehensive Vein Assessment is essential for you:</strong><br>
+                        ${justification}
+                    </div>
+                    
+                    ${urgencyNote}
+                    
+                    <div class="recommendation">
+                        <div class="recommendation-header">
+                            <div class="price-badge">£250</div>
+                            <div class="recommendation-title">Comprehensive Vein Assessment</div>
+                        </div>
+                        <ul class="feature-list">
+                            <li>Professional duplex ultrasound scan by qualified sonographers</li>
+                            <li>Complete vein mapping and detailed diagnosis</li>
+                            <li>Identification of hidden underlying causes</li>
+                            <li>Personalized treatment strategy from our specialists</li>
+                            <li>12-month treatment guarantee coverage</li>
+                            <li>Expert assessment by our award-winning vascular team</li>
+                            <li>Comprehensive follow-up care plan</li>
+                        </ul>
+                        <div class="booking-buttons">
+                            <button class="book-button" onclick="bookAppointment('comprehensive')">Book £250 Assessment</button>
+                            <button class="book-button secondary" onclick="bookAppointment('call')">Request Callback</button>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function generateFaceJustification(symptoms, goal, impactLevel) {
+            let reasons = [];
+            
+            reasons.push("• Facial veins are surface-level and respond excellently to laser/IPL treatment without complex scanning");
+            
+            if (goal === 'summer') {
+                reasons.push("• Your goal to be ready for summer is achievable with our quick facial vein treatment");
+            } else if (goal === 'confidence') {
+                reasons.push("• Facial vein treatment provides immediate confidence boost with minimal downtime");
+            }
+            
+            if (symptoms.includes('visible')) {
+                reasons.push("• Visible facial veins can typically be treated effectively in a single session");
+            }
+            
+            if (impactLevel >= 7) {
+                reasons.push("• High impact on daily life - facial veins are highly treatable with immediate results");
+            }
+            
+            reasons.push("• Our experienced team has 20+ years treating facial veins successfully");
+            reasons.push("• No complex underlying anatomy like leg veins - straightforward treatment approach");
+            
+            return reasons.join('<br>');
+        }
+
+        function generateLegJustification(symptoms, goal, impactLevel, threadOnly, hasSerious, numSymptoms) {
+            let reasons = [];
+            
+            if (hasSerious) {
+                reasons.push("• You reported serious symptoms (pain/swelling/ulcers/discoloration) - comprehensive assessment is essential for safe treatment");
+            } else if (threadOnly) {
+                reasons.push("• Even with only thread veins, leg veins often have hidden underlying causes that require professional scanning");
+                reasons.push("• Without proper ultrasound assessment, thread vein treatment frequently fails within months");
+            } else {
+                reasons.push("• Multiple symptoms indicate potential underlying vein issues requiring professional assessment");
+            }
+            
+            if (numSymptoms >= 4) {
+                reasons.push("• You selected " + numSymptoms + " symptoms - this suggests complex vein issues needing thorough evaluation");
+            } else if (numSymptoms >= 2) {
+                reasons.push("• Multiple symptoms indicate this isn't just a surface cosmetic issue");
+            }
+            
+            if (goal === 'prevention') {
+                reasons.push("• Your goal to prevent worsening requires identifying and treating root causes, not just surface veins");
+            } else if (goal === 'summer') {
+                reasons.push("• To be truly ready for summer, we need to ensure treatment success with proper diagnosis");
+            } else if (goal === 'comfort') {
+                reasons.push("• Reducing discomfort requires treating underlying pressure sources, which ultrasound can identify");
+            }
+            
+            if (impactLevel >= 7) {
+                reasons.push("• High impact on daily life warrants comprehensive assessment to ensure effective treatment");
+            }
+            
+            reasons.push("• Leg veins often have hidden 'feeder veins' - without ultrasound mapping, treatment often fails");
+            reasons.push("• Our comprehensive assessment comes with 12-month guarantee - quick assessments don't");
+            reasons.push("• 20+ years experience shows proper diagnosis is crucial for successful leg vein treatment");
+            
+            return reasons.join('<br>');
+        }
+
+        function bookAppointment(type) {
+            const baseUrl = 'https://links.hifucambridge.com/widget/booking/LSUjMbBChuSodWiQ5k7R';
+            window.open(`${baseUrl}?assessment=completed&service=${type}`, '_blank');
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
