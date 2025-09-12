@@ -205,6 +205,13 @@
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hero-content.assessment-active {
+            grid-template-columns: 1fr;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .hero-text {
@@ -215,12 +222,23 @@
             padding: 40px;
             border-radius: 20px;
             max-width: 600px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hero-text.hidden {
+            opacity: 0;
+            transform: translateX(-50px);
+            pointer-events: none;
         }
         
         @media (max-width: 768px) {
             .hero-text {
                 background: rgba(0, 0, 0, 0.3);
                 padding: 30px 20px;
+            }
+            
+            .hero-text.hidden {
+                display: none;
             }
         }
 
@@ -341,6 +359,19 @@
             position: relative;
             animation: fadeInUp 0.8s ease;
             border: 2px solid rgba(255, 255, 255, 0.5);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .ai-assessment-wrapper.expanded {
+            transform: scale(1.05);
+            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.25);
+        }
+        
+        @media (max-width: 768px) {
+            .ai-assessment-wrapper.expanded {
+                transform: scale(1);
+                margin-top: 20px;
+            }
         }
 
         @keyframes fadeInUp {
@@ -1936,7 +1967,16 @@
 
         // Start assessment
         function startAssessment() {
-            scrollToAssessment();
+            // Hide hero text and expand assessment
+            document.querySelector('.hero-text').classList.add('hidden');
+            document.querySelector('.hero-content').classList.add('assessment-active');
+            document.querySelector('.ai-assessment-wrapper').classList.add('expanded');
+            
+            // Smooth scroll to assessment
+            setTimeout(() => {
+                scrollToAssessment();
+            }, 300);
+            
             currentQuestion = 1;
             showQuestion(1);
             updateProgress();
@@ -2044,6 +2084,13 @@
 
         // Next question
         function nextQuestion() {
+            // Hide hero text if moving past question 1
+            if (currentQuestion === 1) {
+                document.querySelector('.hero-text').classList.add('hidden');
+                document.querySelector('.hero-content').classList.add('assessment-active');
+                document.querySelector('.ai-assessment-wrapper').classList.add('expanded');
+            }
+            
             // Validate current question before proceeding
             if (currentQuestion === 3) {
                 // For symptoms question, ensure at least one symptom is selected
@@ -2087,6 +2134,13 @@
                 currentQuestion--;
                 showQuestion(currentQuestion);
                 updateProgress();
+            }
+            
+            // Show hero text again if back to question 1
+            if (currentQuestion === 1) {
+                document.querySelector('.hero-text').classList.remove('hidden');
+                document.querySelector('.hero-content').classList.remove('assessment-active');
+                document.querySelector('.ai-assessment-wrapper').classList.remove('expanded');
             }
         }
 
