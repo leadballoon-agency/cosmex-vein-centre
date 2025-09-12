@@ -766,9 +766,14 @@
         .score-circle {
             position: relative;
             display: inline-block;
+            width: 200px;
+            height: 200px;
+            max-width: 100%;
         }
         
-        .score-circle svg {
+        .score-svg {
+            width: 100%;
+            height: 100%;
             transform: rotate(-90deg);
         }
         
@@ -1242,6 +1247,75 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .results-container {
+                padding: 20px;
+            }
+            
+            .score-circle {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .result-score {
+                font-size: 36px;
+            }
+            
+            .insights-title {
+                font-size: 20px;
+            }
+            
+            .insights-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .treatment-card {
+                padding: 20px;
+                margin: 15px 0;
+            }
+            
+            .treatment-name {
+                font-size: 20px;
+            }
+            
+            .treatment-stats {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .kerry-card {
+                padding: 25px 20px;
+                border-radius: 20px;
+            }
+            
+            .kerry-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .kerry-message {
+                font-size: 16px;
+            }
+            
+            .contact-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .timeline::before {
+                display: none;
+            }
+            
+            .journey-section h3 {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
             .hero-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -1630,7 +1704,7 @@
                             <!-- Animated Score Reveal -->
                             <div class="score-reveal">
                                 <div class="score-circle">
-                                    <svg width="200" height="200">
+                                    <svg viewBox="0 0 200 200" class="score-svg">
                                         <circle cx="100" cy="100" r="90" stroke="#e9ecef" stroke-width="10" fill="none"/>
                                         <circle cx="100" cy="100" r="90" stroke="url(#gradient)" stroke-width="10" fill="none" 
                                                 stroke-dasharray="565" stroke-dashoffset="565" id="scoreCircle"/>
@@ -2155,7 +2229,7 @@
             const increment = targetScore / 50;
             const scoreElement = document.getElementById('resultScore');
             const circle = document.getElementById('scoreCircle');
-            const circumference = 2 * Math.PI * 90;
+            const circumference = 2 * Math.PI * 90; // Based on SVG r="90"
             
             const timer = setInterval(() => {
                 currentScore += increment;
