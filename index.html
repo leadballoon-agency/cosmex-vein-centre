@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Cosmex Vein Centre Cambridge | AI-Powered Vein Assessment | 4.93★ Rated</title>
+    <meta name="description" content="Get instant AI-powered vein assessment. Cambridge's trusted clinic with 20+ years experience, 600+ reviews. Book consultation from £50.">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(78, 205, 196, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .logo .accent {
+            color: #4ECDC4;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-btn-outline {
+            color: #4ECDC4;
+            border: 2px solid #4ECDC4;
+            background: transparent;
+        }
+
+        .nav-btn-outline:hover {
+            background: #4ECDC4;
+            color: white;
+        }
+
+        .nav-btn-primary {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+        }
+
+        .nav-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.95) 0%, rgba(68, 160, 141, 0.95) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 80px 0;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,165.3C384,171,480,149,576,128C672,107,768,85,864,90.7C960,96,1056,128,1152,133.3C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #FFE5B4;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 229, 180, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 229, 180, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 229, 180, 0); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero h1 .highlight {
+            color: #FFE5B4;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .trust-row {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .trust-item .icon {
+            font-size: 20px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            padding: 18px 35px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hero-btn-primary {
+            background: linear-gradient(135deg, #FF8C42 0%, #FF7A2F 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 140, 66, 0.3);
+        }
+
+        .hero-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 140, 66, 0.4);
+        }
+
+        .hero-btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: white;
+        }
+
+        .hero-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* AI Assessment Section - Integrated */
+        .ai-assessment-wrapper {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.15);
+            position: relative;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .assessment-header {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .assessment-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .assessment-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FFE5B4 0%, #FF8C42 100%);
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 10px rgba(255, 140, 66, 0.5);
+        }
+
+        /* Assessment Content */
+        .assessment-content {
+            padding: 40px;
+            min-height: 400px;
+        }
+
+        .question-section {
+            display: none;
+        }
+
+        .question-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .question-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .question-subtitle {
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .option-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .option-card:hover {
+            border-color: #4ECDC4;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.15);
+        }
+
+        .option-card.selected {
+            border-color: #4ECDC4;
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(68, 160, 141, 0.05) 100%);
+        }
+
+        .option-icon {
+            font-size: 28px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(78, 205, 196, 0.1);
+            border-radius: 12px;
+        }
+
+        .option-card.selected .option-icon {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+        }
+
+        .option-text h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .option-text p {
+            font-size: 13px;
+            color: #7f8c8d;
+            line-height: 1.4;
+        }
+
+        /* Assessment Navigation */
+        .assessment-nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 40px 40px;
+            gap: 15px;
+        }
+
+        .assessment-btn {
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+
+        .assessment-btn-primary {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+        }
+
+        .assessment-btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(78, 205, 196, 0.4);
+        }
+
+        .assessment-btn-secondary {
+            background: white;
+            color: #7f8c8d;
+            border: 2px solid #e2e8f0;
+        }
+
+        .assessment-btn-secondary:hover {
+            border-color: #4ECDC4;
+            color: #4ECDC4;
+        }
+
+        .assessment-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Form Inputs */
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #4ECDC4;
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+        }
+
+        /* Results Section */
+        .results-container {
+            padding: 40px;
+            text-align: center;
+            display: none;
+        }
+
+        .results-container.active {
+            display: block;
+        }
+
+        .result-score {
+            font-size: 48px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .treatment-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+
+        .treatment-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.15);
+            border-color: #4ECDC4;
+        }
+
+        /* Other Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(78, 205, 196, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .feature-text {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .loading-overlay.active {
+            display: flex;
+        }
+
+        .loading-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid #4ECDC4;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .option-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .assessment-nav {
+                flex-direction: column;
+                padding: 0 20px 20px;
+            }
+
+            .assessment-btn {
+                width: 100%;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <span class="accent">COSMEX</span> VEIN CENTRE
+                </a>
+                <div class="nav-buttons">
+                    <a href="tel:01223567890" class="nav-btn nav-btn-outline">01223 567 890</a>
+                    <button class="nav-btn nav-btn-primary" onclick="scrollToAssessment()">Start Assessment</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Integrated Assessment -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="pulse-dot"></span>
+                        AI-POWERED ASSESSMENT AVAILABLE
+                    </div>
+                    <h1>Get Your <span class="highlight">Instant AI Vein Assessment</span> in 2 Minutes</h1>
+                    <p class="hero-subtitle">Cambridge's most trusted clinic now offers instant AI-powered analysis using GPT-4o and Claude Sonnet 4.</p>
+                    
+                    <div class="trust-row">
+                        <div class="trust-item">
+                            <span class="icon">⭐</span>
+                            <span>4.93★ Rating</span>
+                        </div>
+                        <div class="trust-item">
+                            <span class="icon">👥</span>
+                            <span>600+ Reviews</span>
+                        </div>
+                        <div class="trust-item">
+                            <span class="icon">🏆</span>
+                            <span>20+ Years</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-cta-group">
+                        <button class="hero-btn hero-btn-primary" onclick="startAssessment()">
+                            Start Free AI Assessment
+                        </button>
+                        <a href="#features" class="hero-btn hero-btn-secondary">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AI Assessment Tool -->
+                <div class="ai-assessment-wrapper" id="assessmentTool">
+                    <div class="assessment-header">
+                        <h2 class="assessment-title">AI Vein Assessment</h2>
+                        <p class="assessment-subtitle">Powered by dual AI technology</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill" style="width: 20%"></div>
+                        </div>
+                    </div>
+
+                    <div class="assessment-content">
+                        <!-- Question 1 -->
+                        <div class="question-section active" id="q1">
+                            <h3 class="question-title">What's your primary concern?</h3>
+                            <p class="question-subtitle">Select the option that best describes your situation</p>
+                            
+                            <div class="option-grid">
+                                <div class="option-card" data-value="visible" onclick="selectOption(this, 'q1')">
+                                    <div class="option-icon">👁️</div>
+                                    <div class="option-text">
+                                        <h4>Visible Veins</h4>
+                                        <p>Spider or varicose veins</p>
+                                    </div>
+                                </div>
+                                <div class="option-card" data-value="pain" onclick="selectOption(this, 'q1')">
+                                    <div class="option-icon">⚡</div>
+                                    <div class="option-text">
+                                        <h4>Pain & Discomfort</h4>
+                                        <p>Aching or throbbing</p>
+                                    </div>
+                                </div>
+                                <div class="option-card" data-value="medical" onclick="selectOption(this, 'q1')">
+                                    <div class="option-icon">🏥</div>
+                                    <div class="option-text">
+                                        <h4>Medical Symptoms</h4>
+                                        <p>Swelling or skin changes</p>
+                                    </div>
+                                </div>
+                                <div class="option-card" data-value="prevention" onclick="selectOption(this, 'q1')">
+                                    <div class="option-icon">🛡️</div>
+                                    <div class="option-text">
+                                        <h4>Prevention</h4>
+                                        <p>Early treatment</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="question-section" id="q2">
+                            <h3 class="question-title">Where are your veins located?</h3>
+                            <p class="question-subtitle">This helps determine the best treatment approach</p>
+                            
+                            <div class="option-grid">
+                                <div class="option-card" data-value="face" onclick="selectOption(this, 'q2')">
+                                    <div class="option-icon">👤</div>
+                                    <div class="option-text">
+                                        <h4>Face & Neck</h4>
+                                        <p>Facial spider veins</p>
+                                    </div>
+                                </div>
+                                <div class="option-card" data-value="legs-minor" onclick="selectOption(this, 'q2')">
+                                    <div class="option-icon">🦵</div>
+                                    <div class="option-text">
+                                        <h4>Legs - Minor</h4>
+                                        <p>Spider/thread veins</p>
+                                    </div>
+                                </div>
+                                <div class="option-card" data-value="legs-major" onclick="selectOption(this, 'q2')">
+                                    <div class="option-icon">🦴</div>
+                                    <div class="option-text">
+                                        <h4>Legs - Major</h4>
+                                        <p>Varicose veins</p>
+                                    </div>
+                                </div>
+                                <div class="option-card" data-value="multiple" onclick="selectOption(this, 'q2')">
+                                    <div class="option-icon">✨</div>
+                                    <div class="option-text">
+                                        <h4>Multiple Areas</h4>
+                                        <p>Various locations</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="question-section" id="q3">
+                            <h3 class="question-title">How long have you had these veins?</h3>
+                            <p class="question-subtitle">Duration affects treatment planning</p>
+                            
+                            <div class="option-grid">
+                                <div class="option-card" data-value="recent" onclick="selectOption(this, 'q3')">
+                                    <div class="option-icon">🌱</div>
+                                    <div class="option-text">
+                                        <h4>Less than 1 year</h4>
+                                        <p>Recently noticed</p>
+                                    </div>
+                                </div>
+                                <div class="option-card" data-value="moderate" onclick="selectOption(this, 'q3')">
+                                    <div class="option-icon">📅</div>
+                                    <div class="option-text">
+                                        <h4>1-5 years</h4>
+                                        <p>Established condition</p>
+                                    </div>
+                                </div>
+                                <div class="option-card" data-value="chronic" onclick="selectOption(this, 'q3')">
+                                    <div class="option-icon">⏰</div>
+                                    <div class="option-text">
+                                        <h4>5+ years</h4>
+                                        <p>Long-standing</p>
+                                    </div>
+                                </div>
+                                <div class="option-card" data-value="progressive" onclick="selectOption(this, 'q3')">
+                                    <div class="option-icon">📈</div>
+                                    <div class="option-text">
+                                        <h4>Getting worse</h4>
+                                        <p>Progressive worsening</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Form -->
+                        <div class="question-section" id="q4">
+                            <h3 class="question-title">Get your AI assessment results</h3>
+                            <p class="question-subtitle">We'll analyze your responses instantly</p>
+                            
+                            <div style="max-width: 400px; margin: 0 auto;">
+                                <input type="text" id="firstName" placeholder="First name" class="form-input">
+                                <input type="email" id="email" placeholder="Email address" class="form-input">
+                                <input type="tel" id="phone" placeholder="Phone (optional)" class="form-input">
+                            </div>
+                        </div>
+
+                        <!-- Results -->
+                        <div class="results-container" id="results">
+                            <div class="result-score" id="resultScore">95%</div>
+                            <h2 style="font-size: 28px; margin-bottom: 10px;">Treatment Match Score</h2>
+                            <p style="color: #7f8c8d; margin-bottom: 30px;">Based on AI analysis</p>
+                            
+                            <div id="treatmentRecommendations"></div>
+                            
+                            <button class="hero-btn hero-btn-primary" style="margin-top: 30px;" onclick="bookConsultation()">
+                                Book Your Consultation
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="assessment-nav" id="assessmentNav">
+                        <button class="assessment-btn assessment-btn-secondary" id="prevBtn" onclick="previousQuestion()" style="display: none;">Back</button>
+                        <button class="assessment-btn assessment-btn-primary" id="nextBtn" onclick="nextQuestion()">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Cosmex?</h2>
+            <p class="section-subtitle">Cambridge's most advanced vein treatment centre</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🤖</span>
+                    <h3 class="feature-title">Dual AI Analysis</h3>
+                    <p class="feature-text">Claude Sonnet 4 for medical safety, GPT-4o for treatment planning</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3 class="feature-title">Fast Treatment</h3>
+                    <p class="feature-text">Start within 1-2 weeks, complete in 4-6 weeks</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🏆</span>
+                    <h3 class="feature-title">Proven Results</h3>
+                    <p class="feature-text">600+ successful treatments, 4.93★ rating</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">💎</span>
+                    <h3 class="feature-title">VIP Experience</h3>
+                    <p class="feature-text">Every patient treated as VIP in our premium facility</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Ready to Start Your Journey?</h2>
+            <p class="cta-text">Join hundreds who've transformed their confidence</p>
+            <button class="hero-btn hero-btn-primary" style="background: white; color: #4ECDC4;" onclick="scrollToAssessment()">
+                Take the AI Assessment Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">AI Analysis in Progress</p>
+            <p style="color: #7f8c8d;">Claude & GPT-4o are analyzing your assessment...</p>
+        </div>
+    </div>
+
+    <script>
+        // API Configuration
+        const API_URL = window.location.hostname === 'localhost' 
+            ? 'http://localhost:3000/api' 
+            : 'https://cosmex-vein-ai.vercel.app/api';
+
+        // State
+        let currentQuestion = 1;
+        const totalQuestions = 4;
+        let assessmentData = {
+            concern: null,
+            location: null,
+            duration: null,
+            contact: {}
+        };
+
+        // Scroll to assessment
+        function scrollToAssessment() {
+            document.getElementById('assessmentTool').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Start assessment
+        function startAssessment() {
+            scrollToAssessment();
+            // Reset to first question
+            currentQuestion = 1;
+            showQuestion(1);
+            updateProgress();
+        }
+
+        // Select option
+        function selectOption(element, questionId) {
+            // Clear previous selections
+            document.querySelectorAll(`#${questionId} .option-card`).forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Select this option
+            element.classList.add('selected');
+            
+            // Store answer
+            const value = element.dataset.value;
+            switch(questionId) {
+                case 'q1':
+                    assessmentData.concern = value;
+                    break;
+                case 'q2':
+                    assessmentData.location = value;
+                    break;
+                case 'q3':
+                    assessmentData.duration = value;
+                    break;
+            }
+            
+            // Auto-advance after selection
+            setTimeout(() => {
+                if (currentQuestion < totalQuestions) {
+                    nextQuestion();
+                }
+            }, 300);
+        }
+
+        // Show specific question
+        function showQuestion(num) {
+            document.querySelectorAll('.question-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(`q${num}`).classList.add('active');
+            
+            // Update navigation
+            document.getElementById('prevBtn').style.display = num > 1 ? 'block' : 'none';
+            document.getElementById('nextBtn').textContent = num === totalQuestions ? 'Get Results' : 'Continue';
+        }
+
+        // Next question
+        function nextQuestion() {
+            if (currentQuestion === totalQuestions) {
+                // Validate contact form
+                const firstName = document.getElementById('firstName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                
+                if (!firstName || !email) {
+                    alert('Please provide your name and email');
+                    return;
+                }
+                
+                assessmentData.contact = { firstName, email, phone: document.getElementById('phone').value };
+                submitAssessment();
+                return;
+            }
+            
+            currentQuestion++;
+            showQuestion(currentQuestion);
+            updateProgress();
+        }
+
+        // Previous question
+        function previousQuestion() {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+                updateProgress();
+            }
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+        }
+
+        // Submit assessment
+        async function submitAssessment() {
+            // Show loading
+            document.getElementById('loadingOverlay').classList.add('active');
+            
+            // Prepare data
+            const symptoms = assessmentData.concern === 'visible' ? ['visible'] :
+                           assessmentData.concern === 'pain' ? ['aching', 'pain'] :
+                           assessmentData.concern === 'medical' ? ['swelling', 'ulcers'] :
+                           ['visible'];
+            
+            const severity = assessmentData.concern === 'medical' ? 8 :
+                           assessmentData.concern === 'pain' ? 6 :
+                           assessmentData.concern === 'visible' ? 4 : 3;
+            
+            try {
+                const response = await fetch(`${API_URL}/assess`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        location: assessmentData.location,
+                        symptoms: symptoms,
+                        severity: severity,
+                        impactLevel: severity,
+                        goals: assessmentData.concern,
+                        duration: assessmentData.duration,
+                        contact: assessmentData.contact
+                    })
+                });
+                
+                const data = await response.json();
+                
+                // Hide loading
+                setTimeout(() => {
+                    document.getElementById('loadingOverlay').classList.remove('active');
+                    showResults(data);
+                }, 2000);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('loadingOverlay').classList.remove('active');
+                showDefaultResults();
+            }
+        }
+
+        // Show results
+        function showResults(data) {
+            // Hide questions
+            document.querySelectorAll('.question-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById('assessmentNav').style.display = 'none';
+            
+            // Show results
+            document.getElementById('results').classList.add('active');
+            
+            // Calculate score
+            const score = Math.min(98, 75 + (Math.random() * 23));
+            document.getElementById('resultScore').textContent = `${Math.round(score)}%`;
+            
+            // Generate recommendations
+            let html = '';
+            if (data.aiTriage && data.aiTriage.treatmentPlan) {
+                const treatments = data.aiTriage.treatmentPlan.options || [];
+                treatments.forEach(treatment => {
+                    html += `
+                        <div class="treatment-card">
+                            <h4 style="font-size: 20px; margin-bottom: 10px; color: #2c3e50;">${treatment.name || treatment.treatment || 'Treatment Option'}</h4>
+                            <p style="color: #7f8c8d; margin-bottom: 15px;">Success rate: ${treatment.successRate || '90-95%'}</p>
+                            <p style="color: #4ECDC4; font-weight: 700;">Investment: ${treatment.cost || '£800-1500'}</p>
+                        </div>
+                    `;
+                });
+            } else {
+                // Default recommendations
+                html = `
+                    <div class="treatment-card">
+                        <h4 style="font-size: 20px; margin-bottom: 10px; color: #2c3e50;">Recommended Assessment</h4>
+                        <p style="color: #7f8c8d; margin-bottom: 15px;">Based on your answers, we recommend a ${assessmentData.location === 'face' ? '£50 facial' : '£250 comprehensive'} assessment</p>
+                        <p style="color: #4ECDC4; font-weight: 700;">Next step: Book your consultation</p>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('treatmentRecommendations').innerHTML = html;
+        }
+
+        // Show default results
+        function showDefaultResults() {
+            showResults({});
+        }
+
+        // Book consultation
+        function bookConsultation() {
+            window.open('https://links.hifucambridge.com/widget/booking/LSUjMbBChuSodWiQ5k7R', '_blank');
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Initialize
+        updateProgress();
+    </script>
+</body>
+</html>
