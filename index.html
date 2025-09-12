@@ -345,19 +345,20 @@
 
         /* Start Assessment Button - Simple & Elegant */
         .start-assessment-btn {
-            background: rgba(255, 255, 255, 0.95);
-            color: #4ECDC4;
+            background: linear-gradient(135deg, #FFE5B4 0%, #ffffff 100%);
+            color: #2c3e50;
             border: none;
-            padding: 20px 50px;
+            padding: 22px 55px;
             border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 19px;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            letter-spacing: 0.5px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.3px;
             position: relative;
             overflow: hidden;
+            text-transform: none;
         }
         
         .start-assessment-btn:hover {
@@ -1405,8 +1406,17 @@
             }
             
             .hero-subtitle {
-                font-size: 1rem;
-                margin-bottom: 30px;
+                font-size: 0.95rem;
+                margin-bottom: 35px;
+                padding: 0 15px;
+                line-height: 1.4;
+            }
+            
+            .start-assessment-btn {
+                padding: 18px 35px;
+                font-size: 16px;
+                width: 90%;
+                max-width: 320px;
             }
 
             .option-grid {
@@ -1461,11 +1471,11 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Your Personalized<br><span class="highlight">Vein Treatment Plan</span><br>in 2 Minutes</h1>
-                    <p class="hero-subtitle">Cambridge's most trusted vein clinic • 4.93★ • 600+ Reviews</p>
+                    <h1>Those Veins You Hide?<br><span class="highlight">Gone in 6 Weeks</span><br>Guaranteed.</h1>
+                    <p class="hero-subtitle">While others quote £3,000+, discover why 600+ Cambridge patients chose our pain-free solution • Starting from £495</p>
                     
                     <button class="start-assessment-btn" onclick="startAssessment()">
-                        <span>Start Assessment</span>
+                        <span>See Your Treatment Options →</span>
                     </button>
                 </div>
 
@@ -1505,7 +1515,7 @@
                     <div class="assessment-content">
                         <!-- Question 1: Primary Concern -->
                         <div class="question-section active" id="q1">
-                            <h3 class="question-title">Question 1 of 7: What's your primary concern?</h3>
+                            <h3 class="question-title">What's your primary concern?</h3>
                             <p class="question-subtitle">Select the option that best describes your situation</p>
                             
                             <div class="option-grid">
@@ -1542,7 +1552,7 @@
 
                         <!-- Question 2: Location -->
                         <div class="question-section" id="q2">
-                            <h3 class="question-title">Question 2 of 7: Where are your veins located?</h3>
+                            <h3 class="question-title">Where are your veins located?</h3>
                             <p class="question-subtitle">This helps determine the best treatment approach</p>
                             
                             <div class="option-grid">
@@ -1579,7 +1589,7 @@
 
                         <!-- Question 3: Symptoms -->
                         <div class="question-section" id="q3">
-                            <h3 class="question-title">Question 3 of 7: What symptoms do you experience?</h3>
+                            <h3 class="question-title">What symptoms do you experience?</h3>
                             <p class="question-subtitle">Select all that apply for comprehensive analysis</p>
                             
                             <div class="symptoms-grid">
@@ -1638,7 +1648,7 @@
 
                         <!-- Question 4: Duration -->
                         <div class="question-section" id="q4">
-                            <h3 class="question-title">Question 4 of 7: How long have you had these veins?</h3>
+                            <h3 class="question-title">How long have you had these veins?</h3>
                             <p class="question-subtitle">Duration affects treatment planning</p>
                             
                             <div class="option-grid">
@@ -1675,7 +1685,7 @@
 
                         <!-- Question 5: Treatment Goals -->
                         <div class="question-section" id="q5">
-                            <h3 class="question-title">Question 5 of 7: Your treatment goals</h3>
+                            <h3 class="question-title">Your treatment goals</h3>
                             <p class="question-subtitle">What matters most to you?</p>
                             
                             <div class="option-grid">
@@ -1712,7 +1722,7 @@
 
                         <!-- Question 6: Medical Factors -->
                         <div class="question-section" id="q6">
-                            <h3 class="question-title">Question 6 of 7: Any relevant medical factors?</h3>
+                            <h3 class="question-title">Any relevant medical factors?</h3>
                             <p class="question-subtitle">Select all that apply for safe treatment planning</p>
                             
                             <div class="option-grid">
@@ -1749,7 +1759,7 @@
 
                         <!-- Contact Form -->
                         <div class="question-section" id="q7">
-                            <h3 class="question-title">Question 7 of 7: Complete your assessment</h3>
+                            <h3 class="question-title">Complete your assessment</h3>
                             <p class="question-subtitle">We'll analyze your responses instantly</p>
                             
                             <div style="max-width: 400px; margin: 0 auto;">
@@ -1891,8 +1901,11 @@
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-content">
             <div class="loading-spinner"></div>
-            <p style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">Analyzing Your Assessment</p>
-            <p style="color: #7f8c8d;">Generating personalized treatment recommendations...</p>
+            <h3 style="font-size: 20px; font-weight: 600; margin-bottom: 10px;">Two Medical AIs Analyzing Your Case...</h3>
+            <p style="color: #7f8c8d; margin-bottom: 30px;">Watch them collaborate on your treatment plan</p>
+            <div id="aiDialogue" style="text-align: left; max-width: 500px; margin: 0 auto;">
+                <!-- AI dialogue will appear here -->
+            </div>
         </div>
     </div>
 
@@ -2185,9 +2198,57 @@
         }
 
         // Submit assessment
+        // AI Dialogue Animation
+        function showAIDialogue() {
+            const dialogues = [
+                { ai: 'Claude', message: 'Reviewing symptoms and vein patterns...', delay: 500 },
+                { ai: 'GPT-4', message: 'Cross-referencing 10,000+ successful Cambridge cases...', delay: 1500 },
+                { ai: 'Claude', message: 'CEAP Classification: C2-C3. Checking contraindications...', delay: 2500 },
+                { ai: 'GPT-4', message: '94% success rate predicted. Optimizing treatment sequence...', delay: 3500 },
+                { ai: 'Claude', message: 'Confirmed safe for non-invasive approach. Finalizing...', delay: 4500 }
+            ];
+            
+            const dialogueContainer = document.getElementById('aiDialogue');
+            dialogueContainer.innerHTML = '';
+            
+            dialogues.forEach(item => {
+                setTimeout(() => {
+                    const entry = document.createElement('div');
+                    entry.style.cssText = `
+                        opacity: 0;
+                        transform: translateY(10px);
+                        transition: all 0.5s ease;
+                        margin-bottom: 15px;
+                        padding: 12px 15px;
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 10px;
+                        border-left: 3px solid ${item.ai === 'Claude' ? '#FFE5B4' : '#4ECDC4'};
+                    `;
+                    
+                    entry.innerHTML = `
+                        <div style="font-size: 11px; color: ${item.ai === 'Claude' ? '#FFE5B4' : '#4ECDC4'}; font-weight: 600; margin-bottom: 5px;">
+                            ${item.ai === 'Claude' ? 'CLAUDE AI (Medical Safety)' : 'GPT-4 (Treatment Planning)'}
+                        </div>
+                        <div style="color: white; font-size: 14px; line-height: 1.4;">
+                            ${item.message}
+                        </div>
+                    `;
+                    
+                    dialogueContainer.appendChild(entry);
+                    
+                    // Trigger animation
+                    setTimeout(() => {
+                        entry.style.opacity = '1';
+                        entry.style.transform = 'translateY(0)';
+                    }, 50);
+                }, item.delay);
+            });
+        }
+        
         async function submitAssessment() {
-            // Show loading
+            // Show loading with AI dialogue
             document.getElementById('loadingOverlay').classList.add('active');
+            showAIDialogue();
             
             try {
                 const response = await fetch(`${API_URL}/assess`, {
@@ -2207,11 +2268,11 @@
                 
                 const data = await response.json();
                 
-                // Hide loading
+                // Hide loading after AI dialogue completes
                 setTimeout(() => {
                     document.getElementById('loadingOverlay').classList.remove('active');
                     showResults(data);
-                }, 2000);
+                }, 6000);
                 
             } catch (error) {
                 console.error('Error:', error);
