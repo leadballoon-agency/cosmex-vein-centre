@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Test - Cosmex Vein Centre</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .result {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+        }
+        h1 {
+            color: #007bff;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        .status.online {
+            background: #28a745;
+            color: white;
+        }
+        .status.offline {
+            background: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 Cosmex Vein Centre - API Test Dashboard</h1>
+    
+    <div class="test-section">
+        <h2>1. Health Check <span id="healthStatus" class="status offline">Untested</span></h2>
+        <button onclick="testHealth()">Test Health Endpoint</button>
+        <div id="healthResult" class="result" style="display:none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>2. Assessment API <span id="assessStatus" class="status offline">Untested</span></h2>
+        <button onclick="testAssessSimple()">Test Simple Assessment</button>
+        <button onclick="testAssessFull()">Test Full Assessment</button>
+        <div id="assessResult" class="result" style="display:none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>3. Local vs Deployed</h2>
+        <button onclick="testLocalAPI()">Test Local API (localhost:3000)</button>
+        <button onclick="testDeployedAPI()">Test Deployed API (/api)</button>
+        <div id="compareResult" class="result" style="display:none;"></div>
+    </div>
+
+    <script>
+        // Test health endpoint
+        async function testHealth() {
+            const resultDiv = document.getElementById('healthResult');
+            const statusSpan = document.getElementById('healthStatus');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result';
+            resultDiv.textContent = 'Testing health endpoint...';
+            
+            try {
+                const response = await fetch('/api/health');
+                const data = await response.json();
+                
+                resultDiv.className = 'result success';
+                resultDiv.textContent = `✅ Health Check Successful!\n\nResponse:\n${JSON.stringify(data, null, 2)}`;
+                
+                statusSpan.className = 'status online';
+                statusSpan.textContent = 'Online';
+                
+                // Check API keys
+                if (data.apis) {
+                    if (!data.apis.claude || !data.apis.openai) {
+                        resultDiv.className = 'result warning';
+                        resultDiv.textContent += '\n\n⚠️ Warning: Some API keys may not be configured';
+                    }
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.textContent = `❌ Health Check Failed!\n\nError: ${error.message}`;
+                statusSpan.className = 'status offline';
+                statusSpan.textContent = 'Offline';
+            }
+        }
+
+        // Test simple assessment
+        async function testAssessSimple() {
+            const resultDiv = document.getElementById('assessResult');
+            const statusSpan = document.getElementById('assessStatus');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result';
+            resultDiv.textContent = 'Testing assessment API with simple data...';
+            
+            const testData = {
+                location: 'legs',
+                symptoms: ['bulging', 'aching'],
+                severity: 7,
+                impactLevel: 5,
+                goals: 'Remove visible veins',
+                duration: '2-5 years',
+                factors: ['Standing job'],
+                contact: {
+                    firstName: 'Test User',
+                    email: 'test@example.com',
+                    phone: '07700900000'
+                }
+            };
+            
+            try {
+                console.log('Sending test data:', testData);
+                const response = await fetch('/api/assess', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(testData)
+                });
+                
+                const data = await response.json();
+                console.log('Received response:', data);
+                
+                resultDiv.className = 'result success';
+                resultDiv.textContent = `✅ Assessment API Working!\n\nRequest:\n${JSON.stringify(testData, null, 2)}\n\nResponse:\n${JSON.stringify(data, null, 2)}`;
+                
+                statusSpan.className = 'status online';
+                statusSpan.textContent = 'Online';
+                
+                // Check if AI is actually connected
+                if (data.aiTriage?.analysis?.apiStatus) {
+                    const status = data.aiTriage.analysis.apiStatus;
+                    if (status.claude === 'Using Fallback' || status.openai === 'Using Fallback') {
+                        resultDiv.className = 'result warning';
+                        resultDiv.textContent = `⚠️ Assessment API Working (Fallback Mode)\n\nAPI Status:\n- Claude: ${status.claude}\n- OpenAI: ${status.openai}\n\n` + resultDiv.textContent;
+                    }
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.textContent = `❌ Assessment API Failed!\n\nError: ${error.message}\n\nThis might mean:\n1. API is not deployed to Vercel\n2. Environment variables not set\n3. CORS issue`;
+                statusSpan.className = 'status offline';
+                statusSpan.textContent = 'Error';
+            }
+        }
+
+        // Test full assessment
+        async function testAssessFull() {
+            const resultDiv = document.getElementById('assessResult');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result';
+            resultDiv.textContent = 'Testing assessment API with full data...';
+            
+            const testData = {
+                location: 'face',
+                symptoms: ['spider_veins', 'redness', 'visible_vessels'],
+                severity: 12,
+                impactLevel: 8,
+                goals: 'Clear skin for wedding',
+                duration: '5+ years',
+                factors: ['Pregnancy', 'Sun exposure', 'Rosacea'],
+                contact: {
+                    firstName: 'Jane Smith',
+                    email: 'jane@example.com',
+                    phone: '07700900123'
+                }
+            };
+            
+            try {
+                const response = await fetch('/api/assess', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(testData)
+                });
+                
+                const data = await response.json();
+                
+                resultDiv.className = 'result success';
+                resultDiv.textContent = `✅ Full Assessment Successful!\n\nResponse Summary:\n`;
+                resultDiv.textContent += `- Urgency: ${data.aiTriage?.aiConsensus?.urgencyScore || 'N/A'}\n`;
+                resultDiv.textContent += `- Recommended Pathway: ${data.aiTriage?.aiConsensus?.recommendedPathway || 'N/A'}\n`;
+                resultDiv.textContent += `- Treatment Options: ${data.aiTriage?.treatmentPlan?.options?.length || 0}\n`;
+                resultDiv.textContent += `\nFull Response:\n${JSON.stringify(data, null, 2)}`;
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.textContent = `❌ Full Assessment Failed!\n\nError: ${error.message}`;
+            }
+        }
+
+        // Test local API
+        async function testLocalAPI() {
+            const resultDiv = document.getElementById('compareResult');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result';
+            resultDiv.textContent = 'Testing local API at localhost:3000...';
+            
+            try {
+                const response = await fetch('http://localhost:3000/api/assess', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        location: 'test',
+                        symptoms: ['test'],
+                        severity: 5
+                    })
+                });
+                
+                if (response.ok) {
+                    resultDiv.className = 'result success';
+                    resultDiv.textContent = '✅ Local API is running at localhost:3000';
+                } else {
+                    throw new Error(`Status ${response.status}`);
+                }
+            } catch (error) {
+                resultDiv.className = 'result warning';
+                resultDiv.textContent = `⚠️ Local API not running\n\nTo start local server:\n1. cd /Users/marktaylor/Desktop/Cosmex-Vein-Centre\n2. npm start\n\nError: ${error.message}`;
+            }
+        }
+
+        // Test deployed API
+        async function testDeployedAPI() {
+            const resultDiv = document.getElementById('compareResult');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result';
+            resultDiv.textContent = 'Testing deployed API at /api...';
+            
+            try {
+                const response = await fetch('/api/assess', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        location: 'test',
+                        symptoms: ['test'],
+                        severity: 5
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.className = 'result success';
+                    resultDiv.textContent = `✅ Deployed API is working!\n\nAPI Status:\n`;
+                    if (data.aiTriage?.analysis?.apiStatus) {
+                        const status = data.aiTriage.analysis.apiStatus;
+                        resultDiv.textContent += `- Claude: ${status.claude}\n`;
+                        resultDiv.textContent += `- OpenAI: ${status.openai}\n`;
+                    }
+                } else {
+                    throw new Error(`Status ${response.status}`);
+                }
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.textContent = `❌ Deployed API not accessible\n\nThis means:\n1. Need to deploy to Vercel\n2. Or API routes not configured\n\nError: ${error.message}`;
+            }
+        }
+
+        // Run health check on page load
+        window.addEventListener('load', () => {
+            console.log('🚀 API Test Page Loaded');
+            console.log('Testing API endpoints...');
+            testHealth();
+        });
+    </script>
+</body>
+</html>
