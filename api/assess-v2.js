@@ -127,7 +127,7 @@ export default async function handler(req, res) {
                         temperature: 0.3,
                         messages: [{
                             role: 'user',
-                            content: `Analyze this vein condition: Location: ${location}, Symptoms: ${symptoms?.join(', ')}, Severity: ${severity}/15. Provide risk level and urgency in 50 words.`
+                            content: `You are a lead qualification assistant for a vein clinic. Based on this assessment, determine if the patient needs a £50 consultation (facial/minor) or £250 ultrasound scan (leg veins/complex). Location: ${location}, Symptoms: ${symptoms?.join(', ')}, Severity: ${severity}/15. Explain which pathway and why Kerry should prioritize this lead. Keep under 50 words.`
                         }]
                     })
                 });
@@ -152,7 +152,7 @@ export default async function handler(req, res) {
                         model: 'gpt-4o',
                         messages: [{
                             role: 'user',
-                            content: `Recommend treatments for: ${location} veins, symptoms: ${symptoms?.join(', ')}, severity: ${severity}/15. List 2 options with success rates in 50 words.`
+                            content: `As a lead qualification AI, identify key talking points for Kerry to use when calling this lead. ${location} veins, symptoms: ${symptoms?.join(', ')}, severity: ${severity}/15. Focus on: 1) Why they need treatment 2) Which option to recommend (£50 vs £250) 3) Urgency level. Keep under 50 words.`
                         }],
                         max_tokens: 200,
                         temperature: 0.7

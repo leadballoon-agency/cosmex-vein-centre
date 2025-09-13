@@ -2552,6 +2552,9 @@
                 console.log('🤖 Claude response:', data.claudeAnalysis);
                 console.log('🤖 GPT-4 response:', data.gpt4Analysis);
                 
+                // Send lead data to GHL webhook for Kerry
+                sendToGHL(assessmentData);
+                
                 // Hide loading after AI dialogue completes
                 setTimeout(() => {
                     document.getElementById('loadingOverlay').classList.remove('active');
@@ -2906,9 +2909,36 @@
                 console.error('🔧 API health check failed:', err);
             });
         
+        // Send lead data to GoHighLevel for Kerry
+        async function sendToGHL(assessmentData) {
+            console.log('📤 Sending lead to GHL for Kerry to call...');
+            try {
+                const response = await fetch('/api/ghl-webhook', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        ...assessmentData,
+                        severity: severityScore,
+                        impactLevel: assessmentData.impactLevel || severityScore / 2
+                    })
+                });
+                
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log('✅ Lead sent to Kerry:', result);
+                    console.log('📞 Kerry will call to discuss:', result.nextSteps);
+                } else {
+                    console.error('❌ Failed to send to GHL');
+                }
+            } catch (error) {
+                console.error('❌ GHL webhook error:', error);
+            }
+        }
+        
         // Initialize
         updateProgress();
-        console.log('✅ Cosmex Vein Assessment initialized');
+        console.log('✅ Cosmex Lead Generation Tool initialized');
+        console.log('🎯 Purpose: Qualify leads for Kerry to call');
         console.log('📡 API URL configured as:', API_URL);
     </script>
 </body>
