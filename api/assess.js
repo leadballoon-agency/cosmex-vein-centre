@@ -1,2 +1,2 @@
-// Use the advanced dual-AI system
-module.exports = require('./advanced-ai');
+// Use the new Vercel serverless function
+export { default } from './assess-v2';
