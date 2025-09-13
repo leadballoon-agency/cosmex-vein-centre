@@ -62,8 +62,8 @@
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(25px) saturate(200%);
             -webkit-backdrop-filter: blur(25px) saturate(200%);
-            box-shadow: 0 8px 32px rgba(78, 205, 196, 0.15);
-            border-bottom: 1px solid rgba(78, 205, 196, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 123, 255, 0.15);
+            border-bottom: 1px solid rgba(0, 123, 255, 0.2);
         }
 
         .header-content {
@@ -86,11 +86,11 @@
         }
 
         .logo .accent {
-            color: #4ECDC4;
+            color: #007bff;
         }
         
         .header:not(.scrolled) .logo .accent {
-            color: #FFE5B4;
+            color: #e3f2fd;
         }
 
         .nav-buttons {
@@ -111,8 +111,8 @@
         }
 
         .nav-btn-outline {
-            color: #4ECDC4;
-            border: 2px solid #4ECDC4;
+            color: #007bff;
+            border: 2px solid #007bff;
             background: transparent;
             transition: all 0.3s ease;
         }
@@ -124,9 +124,9 @@
         }
 
         .nav-btn-outline:hover {
-            background: #4ECDC4;
+            background: #007bff;
             color: white;
-            border-color: #4ECDC4;
+            border-color: #007bff;
         }
         
         .header:not(.scrolled) .nav-btn-outline:hover {
@@ -135,21 +135,21 @@
         }
 
         .nav-btn-primary {
-            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
             color: white;
-            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
             transition: all 0.3s ease;
         }
         
         .header:not(.scrolled) .nav-btn-primary {
             background: rgba(255, 255, 255, 0.95);
-            color: #4ECDC4;
+            color: #007bff;
             box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
         }
 
         .nav-btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
         }
 
         /* Hero Section */
@@ -189,8 +189,8 @@
             bottom: 0;
             background: linear-gradient(135deg, 
                 rgba(46, 62, 80, 0.8) 0%,
-                rgba(78, 205, 196, 0.85) 50%,
-                rgba(68, 160, 141, 0.9) 100%);
+                rgba(0, 123, 255, 0.85) 50%,
+                rgba(0, 86, 179, 0.9) 100%);
             z-index: 1;
         }
         
@@ -250,15 +250,15 @@
         .pulse-dot {
             width: 8px;
             height: 8px;
-            background: #4ECDC4;
+            background: #007bff;
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(78, 205, 196, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(78, 205, 196, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(78, 205, 196, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 123, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
         }
 
         .hero h1 {
@@ -271,8 +271,8 @@
         }
 
         .hero h1 .highlight {
-            color: #FFE5B4;
-            text-shadow: 0 0 40px rgba(255, 229, 180, 0.4);
+            color: #e3f2fd;
+            text-shadow: 0 0 40px rgba(227, 242, 253, 0.4);
         }
 
         .hero-subtitle {
@@ -323,14 +323,14 @@
         }
 
         .hero-btn-primary {
-            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
             color: white;
-            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
         }
 
         .hero-btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(78, 205, 196, 0.4);
+            box-shadow: 0 12px 35px rgba(0, 123, 255, 0.4);
         }
 
         .hero-btn-secondary {
@@ -345,7 +345,7 @@
 
         /* Start Assessment Button - Simple & Elegant */
         .start-assessment-btn {
-            background: linear-gradient(135deg, #FFE5B4 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
             color: #2c3e50;
             border: none;
             padding: 22px 55px;
@@ -375,7 +375,7 @@
             width: 0;
             height: 0;
             border-radius: 50%;
-            background: rgba(78, 205, 196, 0.1);
+            background: rgba(0, 123, 255, 0.1);
             transform: translate(-50%, -50%);
             transition: width 0.6s, height 0.6s;
         }
@@ -442,7 +442,7 @@
         }
 
         .assessment-header {
-            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
             padding: 30px;
             text-align: center;
             color: white;
@@ -469,16 +469,16 @@
 
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #4ECDC4 0%, #44A08D 100%);
+            background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
             transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
         }
 
         /* AI Real-time Analysis Panel */
         .ai-analysis {
             padding: 20px;
-            background: linear-gradient(135deg, rgba(78, 205, 196, 0.05) 0%, rgba(68, 160, 141, 0.03) 100%);
-            border-bottom: 1px solid rgba(78, 205, 196, 0.1);
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.05) 0%, rgba(0, 86, 179, 0.03) 100%);
+            border-bottom: 1px solid rgba(0, 123, 255, 0.1);
             display: none;
         }
 
@@ -523,8 +523,8 @@
         }
 
         .severity-level.mild.active { 
-            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%); 
-            border-color: #4ECDC4;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%); 
+            border-color: #007bff;
         }
         .severity-level.moderate.active { 
             background: linear-gradient(135deg, #FFB84D 0%, #FF9500 100%); 
@@ -544,9 +544,9 @@
         .metric-item {
             text-align: center;
             padding: 10px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(78, 205, 196, 0.02) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(0, 123, 255, 0.02) 100%);
             border-radius: 10px;
-            border: 1px solid rgba(78, 205, 196, 0.15);
+            border: 1px solid rgba(0, 123, 255, 0.15);
         }
 
         .metric-label {
@@ -617,14 +617,14 @@
         }
 
         .option-card:hover {
-            border-color: #4ECDC4;
+            border-color: #007bff;
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
         }
 
         .option-card.selected {
-            border-color: #4ECDC4;
-            background: linear-gradient(135deg, rgba(78, 205, 196, 0.08) 0%, rgba(68, 160, 141, 0.05) 100%);
+            border-color: #007bff;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.08) 0%, rgba(0, 86, 179, 0.05) 100%);
         }
 
         .option-icon {
@@ -634,12 +634,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(68, 160, 141, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(0, 86, 179, 0.05) 100%);
             border-radius: 12px;
         }
 
         .option-card.selected .option-icon {
-            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
             color: white;
         }
 
@@ -678,14 +678,14 @@
         }
 
         .symptom-item:hover {
-            border-color: #4ECDC4;
-            background: rgba(78, 205, 196, 0.05);
+            border-color: #007bff;
+            background: rgba(0, 123, 255, 0.05);
             transform: translateY(-2px);
         }
 
         .symptom-item.selected {
-            border-color: #4ECDC4;
-            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(68, 160, 141, 0.05) 100%);
+            border-color: #007bff;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(0, 86, 179, 0.05) 100%);
         }
 
         .symptom-checkbox {
@@ -701,8 +701,8 @@
         }
 
         .symptom-item.selected .symptom-checkbox {
-            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
-            border-color: #4ECDC4;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            border-color: #007bff;
         }
 
         .symptom-checkbox::after {
@@ -725,8 +725,8 @@
 
         /* Impact Slider */
         .slider-section {
-            background: rgba(78, 205, 196, 0.05);
-            border: 1px solid rgba(78, 205, 196, 0.15);
+            background: rgba(0, 123, 255, 0.05);
+            border: 1px solid rgba(0, 123, 255, 0.15);
             border-radius: 15px;
             padding: 20px;
             margin-bottom: 25px;
@@ -744,7 +744,7 @@
             width: 100%;
             height: 6px;
             border-radius: 3px;
-            background: rgba(78, 205, 196, 0.2);
+            background: rgba(0, 123, 255, 0.2);
             outline: none;
             margin-bottom: 15px;
             -webkit-appearance: none;
@@ -756,9 +756,9 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
             cursor: pointer;
-            box-shadow: 0 3px 10px rgba(78, 205, 196, 0.4);
+            box-shadow: 0 3px 10px rgba(0, 123, 255, 0.4);
             border: 3px solid white;
         }
 
@@ -790,26 +790,26 @@
         }
 
         .assessment-btn-primary {
-            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
             color: white;
-            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
         }
 
         .assessment-btn-primary:hover:not(:disabled) {
             transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(78, 205, 196, 0.4);
+            box-shadow: 0 12px 35px rgba(0, 123, 255, 0.4);
         }
 
         .assessment-btn-secondary {
             background: white;
             color: #7f8c8d;
-            border: 2px solid rgba(78, 205, 196, 0.3);
+            border: 2px solid rgba(0, 123, 255, 0.3);
         }
 
         .assessment-btn-secondary:hover {
-            border-color: #4ECDC4;
-            color: #4ECDC4;
-            background: rgba(78, 205, 196, 0.05);
+            border-color: #007bff;
+            color: #007bff;
+            background: rgba(0, 123, 255, 0.05);
         }
 
         .assessment-btn:disabled {
@@ -832,8 +832,8 @@
 
         .form-input:focus {
             outline: none;
-            border-color: #4ECDC4;
-            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
         }
 
         /* Results Section */
@@ -882,7 +882,7 @@
         .result-score {
             font-size: 48px;
             font-weight: 900;
-            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 5px;
@@ -904,7 +904,7 @@
             font-weight: 800;
             text-align: center;
             margin-bottom: 30px;
-            background: linear-gradient(135deg, #2c3e50 0%, #4ECDC4 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #007bff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -917,8 +917,8 @@
         }
         
         .insight-card {
-            background: linear-gradient(135deg, rgba(78, 205, 196, 0.05) 0%, rgba(68, 160, 141, 0.02) 100%);
-            border: 2px solid rgba(78, 205, 196, 0.2);
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.05) 0%, rgba(0, 86, 179, 0.02) 100%);
+            border: 2px solid rgba(0, 123, 255, 0.2);
             border-radius: 15px;
             padding: 20px;
             text-align: center;
@@ -972,7 +972,7 @@
 
         .treatment-card {
             background: white;
-            border: 2px solid rgba(78, 205, 196, 0.2);
+            border: 2px solid rgba(0, 123, 255, 0.2);
             border-radius: 20px;
             padding: 30px;
             margin: 20px auto;
@@ -989,13 +989,13 @@
             left: 0;
             width: 100%;
             height: 5px;
-            background: linear-gradient(90deg, #4ECDC4 0%, #44A08D 100%);
+            background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
         }
 
         .treatment-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(78, 205, 196, 0.2);
-            border-color: #4ECDC4;
+            box-shadow: 0 15px 40px rgba(0, 123, 255, 0.2);
+            border-color: #007bff;
         }
         
         .treatment-name {
@@ -1017,7 +1017,7 @@
             gap: 15px;
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid rgba(78, 205, 196, 0.2);
+            border-top: 1px solid rgba(0, 123, 255, 0.2);
         }
         
         .treatment-stat {
@@ -1034,7 +1034,7 @@
         .stat-value {
             font-size: 18px;
             font-weight: 700;
-            color: #4ECDC4;
+            color: #007bff;
         }
         
         /* Kerry Section */
@@ -1043,13 +1043,13 @@
         }
         
         .kerry-card {
-            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
             border-radius: 25px;
             padding: 35px;
             color: white;
             max-width: 700px;
             margin: 0 auto;
-            box-shadow: 0 20px 60px rgba(78, 205, 196, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 123, 255, 0.3);
         }
         
         .kerry-header {
@@ -1063,7 +1063,7 @@
             width: 60px;
             height: 60px;
             background: white;
-            color: #4ECDC4;
+            color: #007bff;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1113,11 +1113,11 @@
         }
         
         .contact-btn.primary {
-            color: #4ECDC4;
+            color: #007bff;
         }
         
         .contact-btn.secondary {
-            color: #44A08D;
+            color: #0056b3;
         }
         
         .contact-btn:hover {
@@ -1172,7 +1172,7 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, #4ECDC4 0%, #44A08D 100%);
+            background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
         }
         
         .timeline-step {
@@ -1185,7 +1185,7 @@
             width: 20px;
             height: 20px;
             background: white;
-            border: 3px solid #4ECDC4;
+            border: 3px solid #007bff;
             border-radius: 50%;
             margin: 0 auto 10px;
             position: relative;
@@ -1193,7 +1193,7 @@
         }
         
         .step-dot.active {
-            background: #4ECDC4;
+            background: #007bff;
         }
         
         .step-title {
@@ -1218,7 +1218,7 @@
             font-weight: 800;
             text-align: center;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, #2c3e50 0%, #4ECDC4 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #007bff 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -1244,17 +1244,17 @@
         .feature-card {
             text-align: center;
             padding: 30px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(78, 205, 196, 0.02) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(0, 123, 255, 0.02) 100%);
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.08);
-            border: 1px solid rgba(78, 205, 196, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.08);
+            border: 1px solid rgba(0, 123, 255, 0.1);
             transition: all 0.3s ease;
         }
 
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(78, 205, 196, 0.25);
-            border: 1px solid rgba(78, 205, 196, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 123, 255, 0.25);
+            border: 1px solid rgba(0, 123, 255, 0.2);
         }
 
         .feature-icon {
@@ -1277,7 +1277,7 @@
 
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
             padding: 80px 0;
             text-align: center;
             color: white;
@@ -1342,7 +1342,7 @@
         }
         
         .booking-header {
-            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
             padding: 25px 30px;
             color: white;
             position: relative;
@@ -1407,7 +1407,7 @@
         .kerry-mini-avatar {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #FFE5B4 0%, #ffd4a3 100%);
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffd4a3 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1452,19 +1452,19 @@
         }
         
         .kerry-quick-btn.call {
-            background: #4ECDC4;
+            background: #007bff;
             color: white;
         }
         
         .kerry-quick-btn.call:hover {
-            background: #44A08D;
+            background: #0056b3;
             transform: translateY(-2px);
         }
         
         .kerry-quick-btn.question {
             background: white;
-            color: #4ECDC4;
-            border: 2px solid #4ECDC4;
+            color: #007bff;
+            border: 2px solid #007bff;
         }
         
         .kerry-quick-btn.question:hover {
@@ -1547,8 +1547,8 @@
         .loading-spinner {
             width: 60px;
             height: 60px;
-            border: 4px solid rgba(78, 205, 196, 0.2);
-            border-top: 4px solid #4ECDC4;
+            border: 4px solid rgba(0, 123, 255, 0.2);
+            border-top: 4px solid #007bff;
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin: 0 auto 20px;
@@ -2009,8 +2009,8 @@
                                                 stroke-dasharray="565" stroke-dashoffset="565" id="scoreCircle"/>
                                         <defs>
                                             <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                <stop offset="0%" style="stop-color:#4ECDC4;stop-opacity:1" />
-                                                <stop offset="100%" style="stop-color:#44A08D;stop-opacity:1" />
+                                                <stop offset="0%" style="stop-color:#007bff;stop-opacity:1" />
+                                                <stop offset="100%" style="stop-color:#0056b3;stop-opacity:1" />
                                             </linearGradient>
                                         </defs>
                                     </svg>
@@ -2120,7 +2120,7 @@
         <div class="container">
             <h2 class="cta-title">Ready to Start Your Journey?</h2>
             <p class="cta-text">Join hundreds who've transformed their confidence</p>
-            <button class="hero-btn" style="background: white; color: #4ECDC4; border: 2px solid white; font-weight: 700;" onclick="scrollToAssessment()">
+            <button class="hero-btn" style="background: white; color: #007bff; border: 2px solid white; font-weight: 700;" onclick="scrollToAssessment()">
                 Take the Assessment Now
             </button>
         </div>
@@ -2482,7 +2482,7 @@
                         padding: 12px 15px;
                         background: rgba(255, 255, 255, 0.1);
                         border-radius: 10px;
-                        border-left: 3px solid ${item.ai === 'Claude' ? '#FFE5B4' : '#4ECDC4'};
+                        border-left: 3px solid ${item.ai === 'Claude' ? '#e3f2fd' : '#007bff'};
                     `;
                     
                     entry.innerHTML = `
@@ -2633,7 +2633,7 @@
             bookButton.style.cssText = 'text-align: center; margin-top: 40px;';
             bookButton.innerHTML = `
                 <button onclick="bookConsultation()" style="
-                    background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+                    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
                     color: white;
                     border: none;
                     padding: 20px 50px;
@@ -2641,13 +2641,13 @@
                     font-size: 18px;
                     font-weight: 700;
                     cursor: pointer;
-                    box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+                    box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
                     transition: all 0.3s ease;
-                " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(78, 205, 196, 0.4)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 10px 30px rgba(78, 205, 196, 0.3)'">
+                " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(0, 123, 255, 0.4)'" onmouseout="this.style.transform=''; this.style.boxShadow='0 10px 30px rgba(0, 123, 255, 0.3)'">
                     Book Your Consultation Now →
                 </button>
                 <p style="margin-top: 15px; color: #7f8c8d; font-size: 14px;">
-                    Or call Kerry directly: <a href="tel:01223567890" style="color: #4ECDC4; text-decoration: none; font-weight: 600;">01223 567 890</a>
+                    Or call Kerry directly: <a href="tel:01223567890" style="color: #007bff; text-decoration: none; font-weight: 600;">01223 567 890</a>
                 </p>
             `;
             document.getElementById('treatmentRecommendations').appendChild(bookButton);
