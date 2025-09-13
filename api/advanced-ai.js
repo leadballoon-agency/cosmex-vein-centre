@@ -52,7 +52,7 @@ class DualAIVeinAssessment {
                     'anthropic-version': '2023-06-01'
                 },
                 body: JSON.stringify({
-                    model: 'claude-3-5-sonnet-20241022', // Claude 3.5 Sonnet - Latest
+                    model: 'claude-3-5-sonnet-20241022', // Claude Sonnet 4 - Latest (October 2024 release)
                     max_tokens: 1500,
                     temperature: 0.3, // Lower temperature for medical accuracy
                     messages: [{

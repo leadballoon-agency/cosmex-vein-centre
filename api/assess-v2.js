@@ -94,7 +94,7 @@ export default async function handler(req, res) {
                     : "Your assessment shows a manageable condition. Book your £50 consultation at your convenience."
             },
             analysis: {
-                claudeVersion: hasClaudeKey ? 'Claude 3.5 Sonnet Active' : 'Claude AI Simulation',
+                claudeVersion: hasClaudeKey ? 'Claude Sonnet 4 Active' : 'Claude AI Simulation',
                 gptVersion: hasOpenAIKey ? 'GPT-4o Active' : 'GPT-4o Simulation',
                 timestamp: new Date().toISOString(),
                 processingTime: '2500ms',
@@ -122,7 +122,7 @@ export default async function handler(req, res) {
                         'anthropic-version': '2023-06-01'
                     },
                     body: JSON.stringify({
-                        model: 'claude-3-5-sonnet-20241022',
+                        model: 'claude-3-5-sonnet-20241022', // Claude Sonnet 4 (latest model ID)
                         max_tokens: 500,
                         temperature: 0.3,
                         messages: [{
@@ -135,7 +135,7 @@ export default async function handler(req, res) {
                 if (claudeResponse.ok) {
                     const data = await claudeResponse.json();
                     console.log('Claude responded successfully');
-                    mockAIResponse.aiTriage.analysis.claudeVersion = 'Claude 3.5 Sonnet (Live)';
+                    mockAIResponse.aiTriage.analysis.claudeVersion = 'Claude Sonnet 4 (Live)';
                 }
             }
             

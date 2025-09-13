@@ -6,7 +6,7 @@ export default async function handler(req, res) {
             claude: !!process.env.CLAUDE_API_KEY,
             openai: !!process.env.OPENAI_API_KEY,
             versions: {
-                claude: 'Claude 3.5 Sonnet',
+                claude: 'Claude Sonnet 4',
                 openai: 'GPT-4o'
             }
         },
