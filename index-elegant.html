@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmex Vein Centre - Cambridge's Premier Vein Clinic</title>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cosmex-blue: #0056b3;
+            --cosmex-light-blue: #e7f2ff;
+            --cosmex-dark: #1a1a2e;
+            --cosmex-gold: #d4af37;
+            --text-primary: #2c3e50;
+            --text-secondary: #64748b;
+            --white: #ffffff;
+            --soft-gray: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--white);
+        }
+
+        /* Elegant Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cosmex-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-mark {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--cosmex-blue), var(--cosmex-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--cosmex-light-blue);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--cosmex-blue);
+        }
+
+        /* Hero Section - Refined */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--cosmex-gold);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            color: var(--cosmex-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-features {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1rem;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--cosmex-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        /* Assessment Card - Elegant */
+        .assessment-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0, 86, 179, 0.1);
+            padding: 2.5rem;
+            position: relative;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .card-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: var(--cosmex-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Progress Indicator - Minimal */
+        .progress-bar {
+            height: 3px;
+            background: var(--soft-gray);
+            border-radius: 3px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--cosmex-blue), var(--cosmex-gold));
+            border-radius: 3px;
+            transition: width 0.4s ease;
+            width: 14%;
+        }
+
+        /* Questions - Clean Design */
+        .question-section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .question-section.active {
+            display: block;
+        }
+
+        .question-label {
+            font-size: 1.1rem;
+            color: var(--cosmex-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .option-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .option-button {
+            background: white;
+            border: 2px solid #e2e8f0;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .option-button:hover {
+            border-color: var(--cosmex-blue);
+            background: var(--cosmex-light-blue);
+            transform: translateY(-2px);
+        }
+
+        .option-button.selected {
+            background: var(--cosmex-blue);
+            color: white;
+            border-color: var(--cosmex-blue);
+        }
+
+        /* Contact Form - Refined */
+        .contact-form {
+            display: grid;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--cosmex-blue);
+            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+        }
+
+        .form-label {
+            position: absolute;
+            left: 1rem;
+            top: -0.5rem;
+            background: white;
+            padding: 0 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Premium Button */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--cosmex-blue), #0066cc);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 86, 179, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--cosmex-blue);
+            border: 2px solid var(--cosmex-blue);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--cosmex-blue);
+            color: white;
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: none;
+            color: var(--cosmex-blue);
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav-btn:hover {
+            background: var(--cosmex-light-blue);
+        }
+
+        /* Results Section - Premium */
+        .results-section {
+            display: none;
+            text-align: center;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .results-section.active {
+            display: block;
+        }
+
+        .result-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--cosmex-gold), #f4d03f);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .result-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--cosmex-dark);
+            margin-bottom: 1rem;
+        }
+
+        .result-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .treatment-card {
+            background: var(--soft-gray);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: left;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .treatment-card.recommended {
+            border-color: var(--cosmex-gold);
+            background: linear-gradient(135deg, #fffef7, #fef9e7);
+        }
+
+        .treatment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .treatment-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--cosmex-dark);
+        }
+
+        .treatment-price {
+            font-size: 1.5rem;
+            color: var(--cosmex-blue);
+            font-weight: 700;
+        }
+
+        .guarantee-badge {
+            display: inline-block;
+            background: var(--cosmex-blue);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Loading State - Elegant */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.98);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loading-content {
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid var(--cosmex-light-blue);
+            border-top-color: var(--cosmex-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 2rem;
+        }
+
+        .loading-text {
+            font-size: 1.1rem;
+            color: var(--cosmex-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .loading-subtext {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .header-content {
+                padding: 1rem;
+            }
+
+            .trust-badge {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .assessment-card {
+                padding: 1.5rem;
+            }
+
+            .option-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Trust Indicators */
+        .trust-section {
+            background: var(--soft-gray);
+            padding: 3rem 0;
+            margin-top: -1px;
+        }
+
+        .trust-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .trust-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--cosmex-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .trust-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--cosmex-dark);
+        }
+
+        .trust-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Premium Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-mark">C</div>
+                <span>Cosmex Vein Centre</span>
+            </div>
+            <div class="header-cta">
+                <div class="trust-badge">
+                    <span>✓</span>
+                    <span>NHS Consultants</span>
+                </div>
+                <button class="btn-secondary" onclick="window.location.href='tel:01223902266'">
+                    Call 01223 902266
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    ⭐ Cambridge's Premier Vein Clinic
+                </div>
+                <h1>Transform Your Confidence in Just 6 Weeks</h1>
+                <p class="hero-subtitle">
+                    Expert vein treatment by NHS vascular surgeons with our 12-month guarantee
+                </p>
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span>Consultation from £50 (was £250)</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span>Advanced ultrasound diagnostics</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span>12-month treatment guarantee</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <span>Same-week appointments available</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assessment Card -->
+            <div class="assessment-card">
+                <div class="card-header">
+                    <h2 class="card-title">Your Personalised Assessment</h2>
+                    <p class="card-subtitle">Takes less than 2 minutes</p>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+
+                <!-- Questions -->
+                <div id="questionContainer">
+                    <!-- Question 1: Location -->
+                    <div class="question-section active" data-question="1">
+                        <div class="question-label">Where are your veins located?</div>
+                        <div class="option-grid">
+                            <button class="option-button" onclick="selectOption('location', 'face')">
+                                Face & Facial Area
+                            </button>
+                            <button class="option-button" onclick="selectOption('location', 'legs')">
+                                Legs & Lower Body
+                            </button>
+                            <button class="option-button" onclick="selectOption('location', 'both')">
+                                Both Face & Legs
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Question 2: Symptoms -->
+                    <div class="question-section" data-question="2">
+                        <div class="question-label">What symptoms are you experiencing?</div>
+                        <div class="option-grid">
+                            <button class="option-button" onclick="selectMultiple('symptoms', 'visible_veins')">
+                                Visible spider or thread veins
+                            </button>
+                            <button class="option-button" onclick="selectMultiple('symptoms', 'bulging')">
+                                Bulging or raised veins
+                            </button>
+                            <button class="option-button" onclick="selectMultiple('symptoms', 'aching')">
+                                Aching or heaviness
+                            </button>
+                            <button class="option-button" onclick="selectMultiple('symptoms', 'cosmetic')">
+                                Cosmetic concerns only
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Question 3: Duration -->
+                    <div class="question-section" data-question="3">
+                        <div class="question-label">How long have you had these veins?</div>
+                        <div class="option-grid">
+                            <button class="option-button" onclick="selectOption('duration', 'recent')">
+                                Less than 1 year
+                            </button>
+                            <button class="option-button" onclick="selectOption('duration', '1-5years')">
+                                1-5 years
+                            </button>
+                            <button class="option-button" onclick="selectOption('duration', '5plus')">
+                                More than 5 years
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Question 4: Impact -->
+                    <div class="question-section" data-question="4">
+                        <div class="question-label">How much do they affect your daily life?</div>
+                        <div class="option-grid">
+                            <button class="option-button" onclick="selectOption('impact', 'minimal')">
+                                Minimal impact
+                            </button>
+                            <button class="option-button" onclick="selectOption('impact', 'moderate')">
+                                Moderate impact
+                            </button>
+                            <button class="option-button" onclick="selectOption('impact', 'significant')">
+                                Significant impact
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Question 5: Goals -->
+                    <div class="question-section" data-question="5">
+                        <div class="question-label">What's your primary treatment goal?</div>
+                        <div class="option-grid">
+                            <button class="option-button" onclick="selectOption('goals', 'cosmetic')">
+                                Improve appearance
+                            </button>
+                            <button class="option-button" onclick="selectOption('goals', 'symptoms')">
+                                Relieve symptoms
+                            </button>
+                            <button class="option-button" onclick="selectOption('goals', 'both')">
+                                Both appearance and symptoms
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="question-section" data-question="6">
+                        <div class="question-label">Final step - How can we contact you?</div>
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-input" id="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-input" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone</label>
+                                <input type="tel" class="form-input" id="phone" required>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div class="results-section" id="results">
+                    <div class="result-badge">Assessment Complete</div>
+                    <h2 class="result-title">Your Personalised Treatment Plan</h2>
+                    <p class="result-description" id="resultDescription">
+                        Based on your assessment, we've identified the best treatment pathway for you.
+                    </p>
+                    
+                    <div id="treatmentOptions"></div>
+                    
+                    <button class="btn-primary" style="margin-top: 2rem" onclick="bookConsultation()">
+                        Book Your Consultation
+                    </button>
+                </div>
+
+                <!-- Navigation -->
+                <div class="nav-buttons" id="navButtons">
+                    <button class="nav-btn" id="prevBtn" onclick="previousQuestion()" style="visibility: hidden">
+                        ← Back
+                    </button>
+                    <button class="btn-primary" id="nextBtn" onclick="nextQuestion()">
+                        Continue →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="trust-container">
+            <div class="trust-item">
+                <div class="trust-icon">🏥</div>
+                <div class="trust-title">NHS Consultants</div>
+                <div class="trust-description">Treated by senior NHS vascular surgeons</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🔬</div>
+                <div class="trust-title">Advanced Technology</div>
+                <div class="trust-description">Latest ultrasound & laser equipment</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">✓</div>
+                <div class="trust-title">12-Month Guarantee</div>
+                <div class="trust-description">Complete peace of mind with treatment</div>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">⭐</div>
+                <div class="trust-title">5-Star Reviews</div>
+                <div class="trust-description">Over 500 satisfied patients</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Analysing your assessment...</div>
+            <div class="loading-subtext">Creating your personalised treatment plan</div>
+        </div>
+    </div>
+
+    <script>
+        // Assessment data
+        let currentQuestion = 1;
+        const totalQuestions = 6;
+        let assessmentData = {
+            location: null,
+            symptoms: [],
+            duration: null,
+            impact: null,
+            goals: null,
+            contact: {}
+        };
+
+        // Select single option
+        function selectOption(field, value) {
+            assessmentData[field] = value;
+            
+            // Update UI
+            const buttons = document.querySelectorAll(`[data-question="${currentQuestion}"] .option-button`);
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            event.target.classList.add('selected');
+            
+            // Auto-advance after selection
+            setTimeout(() => nextQuestion(), 300);
+        }
+
+        // Select multiple options
+        function selectMultiple(field, value) {
+            if (!assessmentData[field]) assessmentData[field] = [];
+            
+            const index = assessmentData[field].indexOf(value);
+            if (index > -1) {
+                assessmentData[field].splice(index, 1);
+                event.target.classList.remove('selected');
+            } else {
+                assessmentData[field].push(value);
+                event.target.classList.add('selected');
+            }
+        }
+
+        // Navigate questions
+        function nextQuestion() {
+            const currentSection = document.querySelector(`[data-question="${currentQuestion}"]`);
+            
+            // Validate current question
+            if (currentQuestion === 6) {
+                // Validate contact form
+                const firstName = document.getElementById('firstName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                
+                if (!firstName || !email || !phone) {
+                    alert('Please complete all fields');
+                    return;
+                }
+                
+                assessmentData.contact = { firstName, email, phone };
+                submitAssessment();
+                return;
+            }
+            
+            // Move to next question
+            currentSection.classList.remove('active');
+            currentQuestion++;
+            
+            if (currentQuestion <= totalQuestions) {
+                const nextSection = document.querySelector(`[data-question="${currentQuestion}"]`);
+                nextSection.classList.add('active');
+                updateProgress();
+                updateNavigation();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 1) {
+                const currentSection = document.querySelector(`[data-question="${currentQuestion}"]`);
+                currentSection.classList.remove('active');
+                currentQuestion--;
+                const prevSection = document.querySelector(`[data-question="${currentQuestion}"]`);
+                prevSection.classList.add('active');
+                updateProgress();
+                updateNavigation();
+            }
+        }
+
+        function updateProgress() {
+            const progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+        }
+
+        function updateNavigation() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.style.visibility = currentQuestion > 1 ? 'visible' : 'hidden';
+            
+            if (currentQuestion === 6) {
+                nextBtn.textContent = 'Get My Results';
+            } else if (currentQuestion === 2) {
+                nextBtn.textContent = 'Continue →';
+            }
+        }
+
+        async function submitAssessment() {
+            // Show loading
+            document.getElementById('loadingOverlay').classList.add('active');
+            
+            // Determine pathway
+            const pathway = assessmentData.location === 'face' ? 'facial' : 'legs';
+            const requiresScan = assessmentData.symptoms?.includes('bulging') || 
+                               assessmentData.duration === '5plus' ||
+                               assessmentData.impact === 'significant';
+            
+            // Send to GHL
+            try {
+                await fetch('/api/ghl-webhook', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(assessmentData)
+                });
+            } catch (error) {
+                console.error('GHL webhook error:', error);
+            }
+            
+            // Simulate processing
+            setTimeout(() => {
+                document.getElementById('loadingOverlay').classList.remove('active');
+                showResults(pathway, requiresScan);
+            }, 2000);
+        }
+
+        function showResults(pathway, requiresScan) {
+            // Hide questions
+            document.getElementById('questionContainer').style.display = 'none';
+            document.getElementById('navButtons').style.display = 'none';
+            
+            // Show results
+            document.getElementById('results').classList.add('active');
+            
+            let treatmentHTML = '';
+            
+            if (pathway === 'facial') {
+                document.getElementById('resultDescription').textContent = 
+                    'Excellent news! Facial veins are straightforward to treat with our advanced laser technology.';
+                
+                treatmentHTML = `
+                    <div class="treatment-card recommended">
+                        <div class="treatment-header">
+                            <div class="treatment-name">IPL/Laser Treatment</div>
+                            <div class="treatment-price">£50</div>
+                        </div>
+                        <p>Consultation includes test patch. Typically requires 1-3 sessions for complete clearance.</p>
+                    </div>
+                `;
+            } else {
+                if (requiresScan) {
+                    document.getElementById('resultDescription').textContent = 
+                        'Based on your symptoms, we strongly recommend our comprehensive ultrasound scan for the best results.';
+                    
+                    treatmentHTML = `
+                        <div class="treatment-card recommended">
+                            <div class="treatment-header">
+                                <div class="treatment-name">Ultrasound Scan & Treatment Plan</div>
+                                <div class="treatment-price">£250</div>
+                            </div>
+                            <p>Comprehensive duplex doppler ultrasound to map all veins and identify hidden feeders.</p>
+                            <div class="guarantee-badge">12-MONTH GUARANTEE INCLUDED</div>
+                        </div>
+                        <div class="treatment-card">
+                            <div class="treatment-header">
+                                <div class="treatment-name">Basic Consultation</div>
+                                <div class="treatment-price">£50</div>
+                            </div>
+                            <p>Surface assessment only. No guarantee. Veins may return if feeders not identified.</p>
+                        </div>
+                    `;
+                } else {
+                    document.getElementById('resultDescription').textContent = 
+                        'You have options for treatment. We recommend discussing both with our specialist.';
+                    
+                    treatmentHTML = `
+                        <div class="treatment-card">
+                            <div class="treatment-header">
+                                <div class="treatment-name">Ultrasound Scan (Recommended)</div>
+                                <div class="treatment-price">£250</div>
+                            </div>
+                            <p>Complete vein mapping with 12-month guarantee on treatment.</p>
+                            <div class="guarantee-badge">12-MONTH GUARANTEE</div>
+                        </div>
+                        <div class="treatment-card">
+                            <div class="treatment-header">
+                                <div class="treatment-name">Basic Consultation</div>
+                                <div class="treatment-price">£50</div>
+                            </div>
+                            <p>Initial assessment without ultrasound. No guarantee included.</p>
+                        </div>
+                    `;
+                }
+            }
+            
+            document.getElementById('treatmentOptions').innerHTML = treatmentHTML;
+        }
+
+        function bookConsultation() {
+            // This would open booking system or call Kerry
+            window.location.href = 'tel:01223902266';
+        }
+
+        // Initialize
+        updateProgress();
+    </script>
+</body>
+</html>
