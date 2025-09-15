@@ -144,7 +144,7 @@
                 "name": "What is the Cosmex Guarantee?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "When you have a full duplex ultrasound assessment (£250), we provide a 12-month guarantee including free re-treatment if veins reappear and one follow-up scan at 1 month post-treatment."
+                    "text": "When you have a full duplex ultrasound assessment (£250), we provide a 12-month guarantee including free re-treatment if veins reappear, all follow-up appointments, and expert monitoring."
                 }
             }
         ]
@@ -253,24 +253,6 @@
             transform: translateY(-1px);
         }
 
-        /* Mobile CTA Button - Hidden on Desktop */
-        .mobile-nav-cta {
-            display: none;
-            background: var(--orange-cta);
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .mobile-nav-cta:hover {
-            background: var(--orange-hover);
-            transform: translateY(-1px);
-        }
-
         /* Elegant Hero with Assessment Focus */
         .hero {
             padding: 80px 2rem 60px;
@@ -320,7 +302,7 @@
         .hero-content {
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 3rem;
         }
 
         .hero-badge {
@@ -1119,224 +1101,30 @@
             padding: 0 2rem 2rem;
         }
 
-        /* Responsive - Mobile First Improvements */
+        /* Responsive */
         @media (max-width: 768px) {
-            /* Hero Section Mobile Optimization */
-            .hero {
-                padding: 70px 1rem 2rem;
-                min-height: 100vh; /* Keep full viewport height */
-                background-attachment: scroll; /* Better mobile performance */
-                display: flex;
-                align-items: center;
-            }
-
-            .hero-container {
-                max-width: 100%;
-                padding: 0;
-            }
-
-            /* Trust Bar - 2x2 Grid on Mobile */
             .trust-bar {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 0.75rem;
-                margin-bottom: 1.5rem;
+                gap: 1.5rem;
             }
-
-            .trust-item {
-                font-size: 0.8rem;
-                padding: 0.5rem;
-                background: rgba(255, 255, 255, 0.1);
-                border-radius: 8px;
-                backdrop-filter: blur(10px);
-            }
-
-            .trust-icon {
-                width: 16px;
-                height: 16px;
-                margin-right: 0.25rem;
-            }
-
-            /* Hero Content - Better Mobile Spacing */
-            .hero-content {
-                margin-bottom: 2rem;
-                text-align: center;
-            }
-
-            .hero-badge {
-                font-size: 0.75rem;
-                padding: 0.4rem 0.8rem;
-                margin-bottom: 1rem;
-            }
-
-            h1 {
-                font-size: 1.75rem;
-                line-height: 1.2;
-                margin-bottom: 1rem;
-            }
-
-            .hero-subtitle {
-                font-size: 0.95rem;
-                line-height: 1.5;
-                padding: 0 0.5rem;
-            }
-
-            /* Assessment Container - Compact Mobile Design */
-            .assessment-container {
-                background: transparent;
-                border-radius: 0;
-                padding: 0;
-                margin: 1rem 0;
-                box-shadow: none;
-            }
-
+            
             .assessment-container.assessment-active {
-                padding: 1rem;
-                background: rgba(255, 255, 255, 0.95);
-                box-shadow: 0 10px 30px rgba(3, 81, 114, 0.15);
-                border-radius: 16px;
+                padding: 2rem 1.5rem;
+                background: white;
+                box-shadow: 0 20px 60px rgba(3, 81, 114, 0.12);
             }
-
-            .assessment-header {
-                display: none; /* Hide header on mobile for welcome state */
+            
+            .hero {
+                padding: 60px 1rem 40px;
             }
-
-            .assessment-container.assessment-active .assessment-header {
-                display: block;
-                margin-bottom: 1rem;
+            
+            h1 {
+                font-size: 2rem;
             }
-
-            .assessment-title {
-                font-size: 1.1rem;
-                margin-bottom: 0.25rem;
-            }
-
-            .assessment-subtitle {
-                font-size: 0.8rem;
-                line-height: 1.2;
-            }
-
-            /* Welcome Card - Simplified for Mobile */
-            .assessment-welcome {
-                padding: 0 !important;
-            }
-
-            .assessment-welcome > div {
-                background: rgba(255, 255, 255, 0.95) !important;
-                backdrop-filter: blur(10px) !important;
-                -webkit-backdrop-filter: blur(10px) !important;
-                padding: 1.25rem !important;
-                max-width: 100% !important;
-                margin: 0 !important;
-                border-radius: 12px !important;
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
-            }
-
-            .assessment-welcome h3 {
-                font-size: 1.1rem !important;
-                margin-bottom: 0.4rem !important;
-                color: var(--cambridge-blue) !important;
-            }
-
-            .assessment-welcome p {
-                font-size: 0.85rem !important;
-                margin-bottom: 0.75rem !important;
-                color: var(--text-secondary) !important;
-            }
-
-            .assessment-welcome button {
-                padding: 0.65rem 1.75rem !important;
-                font-size: 0.9rem !important;
-                width: 100% !important;
-            }
-
-            /* Questions - Mobile Friendly */
-            .question-title {
-                font-size: 1.1rem;
-                margin-bottom: 1rem;
-            }
-
-            /* Section titles on mobile */
-            .section-title, .why-title {
-                font-size: 1.5rem !important;
-                line-height: 1.2;
-            }
-
-            .options {
-                gap: 0.75rem;
-            }
-
-            .option {
-                padding: 1rem;
-            }
-
-            .option-title {
-                font-size: 1rem;
-            }
-
-            .option-description {
-                font-size: 0.85rem;
-            }
-
-            /* Progress Bar - Thinner on Mobile */
-            .progress-bar {
-                height: 4px;
-                margin-bottom: 1rem;
-            }
-
-            /* Navigation Controls - Compact */
-            .assessment-nav {
-                margin-bottom: 1rem;
-                padding: 0 0.5rem;
-            }
-
-            .back-button {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .question-counter {
-                font-size: 0.85rem;
-            }
-
-            /* Results - Mobile Optimized */
-            .assessment-results {
-                padding: 1rem;
-            }
-
-            .result-card {
-                padding: 1.5rem 1rem;
-            }
-
-            .result-title {
-                font-size: 1.25rem;
-            }
-
-            .result-description {
-                font-size: 0.95rem;
-            }
-
-            /* Navigation */
+            
             .nav-links {
                 display: none;
             }
 
-            /* Show mobile CTA button */
-            .mobile-nav-cta {
-                display: block !important;
-            }
-
-            /* Smaller logo on mobile */
-            .logo-img {
-                height: 30px !important;
-            }
-
-            /* Adjust header for mobile */
-            .header {
-                padding: 0.75rem 1rem;
-            }
-
-            /* Modals */
             .modal-content {
                 width: 95%;
                 margin: 1rem;
@@ -1351,7 +1139,6 @@
                 padding: 0 1rem 1rem;
             }
 
-            /* Footer */
             .footer-cta-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -1376,8 +1163,6 @@
                 <a href="#experts" class="nav-link">Our Experts</a>
                 <a href="#assessment" class="nav-cta">Start Assessment</a>
             </nav>
-            <!-- Mobile CTA Button -->
-            <a href="#assessment" class="mobile-nav-cta">Get Started</a>
         </div>
     </header>
 
@@ -1387,20 +1172,48 @@
     <!-- Hero Section with Assessment -->
     <section class="hero">
         <div class="hero-container">
+            <!-- Trust Indicators -->
+            <div class="trust-bar">
+                <div class="trust-item">
+                    <svg class="trust-icon" viewBox="0 0 24 24">
+                        <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                    </svg>
+                    <span>Est. 1999</span>
+                </div>
+                <div class="trust-item">
+                    <svg class="trust-icon" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <span>5-Star Rated</span>
+                </div>
+                <div class="trust-item">
+                    <svg class="trust-icon" viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                    </svg>
+                    <span>CQC Registered</span>
+                </div>
+                <div class="trust-item">
+                    <svg class="trust-icon" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <span>Multi-Award Winning</span>
+                </div>
+            </div>
+
             <!-- Hero Content -->
             <div class="hero-content">
-                <div class="hero-badge">Led by Consultant Vascular Surgeon Mr Faisal Kahloon</div>
-                <h1>Stop Living With Painful,&nbsp;Unsightly&nbsp;Veins</h1>
+                <div class="hero-badge">Cambridge's Leading Vein Specialists Since 1999</div>
+                <h1>Stop Living With Painful, Unsightly Veins</h1>
                 <p class="hero-subtitle">
                     Skip the 2-year NHS wait. Get expert treatment from just £50 with same-week consultations available.
                 </p>
             </div>
 
             <!-- Assessment Tool -->
-            <div class="assessment-container" id="assessment" style="margin-top: 2.5rem; margin-bottom: 2.5rem;">
+            <div class="assessment-container" id="assessment">
                 <div class="assessment-header">
-                    <h2 class="assessment-title">Smart Routing to the Right Specialist</h2>
-                    <p class="assessment-subtitle">Prevents wrong bookings • Saves time • Sets correct expectations</p>
+                    <h2 class="assessment-title">Online Vein Assessment Tool</h2>
+                    <p class="assessment-subtitle">Takes 2 minutes • Find your treatment path • Get consultation pricing</p>
                 </div>
 
                 <div class="progress-bar">
@@ -1419,8 +1232,8 @@
                     <!-- Welcome Card -->
                     <div class="assessment-welcome active" id="assessmentWelcome" style="display: flex; justify-content: center; align-items: center; padding: 2rem 0;">
                         <div style="text-align: center; padding: 2rem 2.5rem; background: rgba(255, 255, 255, 0.75); border-radius: 16px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 8px 32px rgba(3, 81, 114, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); max-width: 360px;">
-                            <h3 style="color: var(--cambridge-blue); font-size: 1.5rem; margin-bottom: 0.75rem; font-family: 'Playfair Display', serif; font-weight: 700;">Let's Route You Correctly</h3>
-                            <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 0.95rem; line-height: 1.4;">Ensures you see the RIGHT specialist first time</p>
+                            <h3 style="color: var(--cambridge-blue); font-size: 1.5rem; margin-bottom: 0.75rem; font-family: 'Playfair Display', serif; font-weight: 700;">Need Vein Treatment?</h3>
+                            <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 0.95rem; line-height: 1.4;">Get your personalised treatment plan in just 2 minutes</p>
                             <button onclick="startActualAssessment()" style="background: linear-gradient(135deg, var(--orange-cta), #e89040); color: white; padding: 0.875rem 2.5rem; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(243, 160, 80, 0.3);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(243, 160, 80, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(243, 160, 80, 0.3)'">Get Started</button>
                         </div>
                     </div>
@@ -1591,34 +1404,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Trust Indicators -->
-            <div class="trust-bar" style="margin-top: 1.5rem;">
-                <div class="trust-item">
-                    <svg class="trust-icon" viewBox="0 0 24 24">
-                        <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
-                    </svg>
-                    <span>Est. 1999</span>
-                </div>
-                <div class="trust-item">
-                    <svg class="trust-icon" viewBox="0 0 24 24">
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                    </svg>
-                    <span>5-Star Rated</span>
-                </div>
-                <div class="trust-item">
-                    <svg class="trust-icon" viewBox="0 0 24 24">
-                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
-                    </svg>
-                    <span>CQC Registered</span>
-                </div>
-                <div class="trust-item">
-                    <svg class="trust-icon" viewBox="0 0 24 24">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
-                    <span>Multi-Award Winning</span>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -1646,7 +1431,7 @@
                     <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
                         <div style="color: var(--cambridge-green); font-size: 1.5rem; margin-bottom: 0.5rem;">✓</div>
                         <h4 style="color: var(--cambridge-blue); margin-bottom: 0.5rem;">Follow-up Included</h4>
-                        <p style="color: var(--text-secondary); font-size: 0.9rem;">One follow-up scan at 1 month post-treatment included</p>
+                        <p style="color: var(--text-secondary); font-size: 0.9rem;">All follow-up appointments and scans within the guarantee period are included</p>
                     </div>
                     <div style="background: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
                         <div style="color: var(--cambridge-green); font-size: 1.5rem; margin-bottom: 0.5rem;">✓</div>
@@ -1794,8 +1579,8 @@
             </div>
 
             <div class="video-tabs">
-                <button class="video-tab active" data-video="spectra">Thread Veins (Laser)</button>
-                <button class="video-tab" data-video="rfa">Varicose Veins (RFA)</button>
+                <button class="video-tab active" data-video="spectra">Spectra Vein Laser</button>
+                <button class="video-tab" data-video="rfa">RFA Treatment</button>
             </div>
 
             <div class="video-content active" id="spectra-video">
@@ -1820,16 +1605,16 @@
 
             <div class="video-content" id="rfa-video">
                 <div class="video-wrapper">
-                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                        <div id="rfaThumb" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('public/images/cosmex-varicose-hero-3.jpg') center/cover no-repeat; z-index: 1; cursor: pointer;" onclick="playRfaVideo()">
+                    <div style="position: relative;">
+                        <div id="rfaThumb" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('public/images/cosmex-varicose-hero-3.jpg') center/cover no-repeat; z-index: 1; cursor: pointer; display: flex; align-items: center; justify-content: center;" onclick="playRfaVideo()">
                             <!-- Animated Play Button -->
-                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: rgba(111, 199, 180, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; animation: pulse 2s infinite;">
+                            <div style="width: 80px; height: 80px; background: rgba(111, 199, 180, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; animation: pulse 2s infinite;">
                                 <svg style="width: 40px; height: 40px; margin-left: 5px; fill: white;" viewBox="0 0 24 24">
                                     <path d="M8 5v14l11-7z"/>
                                 </svg>
                             </div>
                         </div>
-                        <video id="rfaVideo" class="video-player" controls poster="public/images/cosmex-varicose-hero-3.jpg" preload="none" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                        <video id="rfaVideo" class="video-player" controls poster="public/images/cosmex-varicose-hero-3.jpg" preload="none">
                             <source src="https://wordpress-1509115-5792337.cloudwaysapps.com/wp-content/uploads/2025/09/vnus.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -1860,7 +1645,7 @@
                 <div class="expert-card">
                     <img src="public/images/Vascular Scientist Anam Akhtar.jpeg" alt="Anam Akhtar - Vascular Scientist" class="expert-image" loading="lazy">
                     <h3 class="expert-name">Anam Akhtar</h3>
-                    <p class="expert-title">Lead Vascular Scientist</p>
+                    <p class="expert-title">Vascular Scientist</p>
                     <p class="expert-description">
                         Expert in duplex ultrasound diagnostics and vein mapping, ensuring precise treatment planning for optimal patient outcomes
                     </p>
@@ -1879,12 +1664,12 @@
                 
                 <div class="footer-cta-buttons">
                     <div class="footer-cta-option">
-                        <span class="footer-cta-badge">RECOMMENDED - ACCURATE DIAGNOSIS</span>
+                        <span class="footer-cta-badge">MOST COMPREHENSIVE</span>
                         <div class="footer-cta-price">£250</div>
                         <div class="footer-cta-desc">
                             Duplex Ultrasound Scan<br>
                             Full vein mapping & diagnosis<br>
-                            <strong>Essential for varicose veins - The only way to diagnose properly</strong>
+                            <strong>The safer option for varicose veins</strong>
                         </div>
                         <button class="footer-cta-btn" onclick="openDuplexBookingModal()">
                             Book Duplex Scan
@@ -1892,12 +1677,12 @@
                     </div>
                     
                     <div class="footer-cta-option">
-                        <span class="footer-cta-badge">COSMETIC ONLY</span>
+                        <span class="footer-cta-badge">QUICK START</span>
                         <div class="footer-cta-price">£50</div>
                         <div class="footer-cta-desc">
                             Consultation & Patch Test<br>
-                            Thread veins on face ONLY<br>
-                            <strong>No guarantee without scan</strong>
+                            Perfect for thread veins<br>
+                            <strong>Same-week appointments</strong>
                         </div>
                         <button class="footer-cta-btn" onclick="openFacialBookingModal()">
                             Book Consultation
@@ -2059,63 +1844,25 @@
             });
         });
 
-        // Function to reset assessment to initial state
-        function resetAssessmentToWelcome() {
-            const welcomeCard = document.getElementById('assessmentWelcome');
-            const activeQuestion = document.querySelector('.question.active');
-            const activeResults = document.getElementById('assessmentResults');
-            const assessmentContainer = document.querySelector('.assessment-container');
-
-            // Hide any active questions
-            document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
-
-            // Hide results if showing
-            if (activeResults) {
-                activeResults.style.display = 'none';
-            }
-
-            // Show welcome card
-            welcomeCard.classList.add('active');
-            welcomeCard.style.display = 'flex';
-
-            // Remove assessment-active class to reset appearance
-            assessmentContainer.classList.remove('assessment-active');
-
-            // Reset progress and navigation
-            document.getElementById('progressFill').style.width = '0%';
-            document.getElementById('questionCounter').style.display = 'none';
-            document.getElementById('backButton').classList.remove('visible');
-
-            // Reset tracking variables
-            currentQuestion = 1;
-            answers = {};
-            questionHistory = [];
-        }
-
         // Dimmer click handler - remove focus when clicking outside
         document.getElementById('pageDimmer').addEventListener('click', function() {
             // Always allow closing the dimmer when clicking outside
             this.classList.remove('active');
             document.getElementById('assessment').classList.remove('focused');
-
-            // Reset assessment to welcome state
-            resetAssessmentToWelcome();
-        });
-
-        // ESC key handler to exit assessment gracefully
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                const assessmentContainer = document.querySelector('.assessment-container');
-                const dimmer = document.getElementById('pageDimmer');
-
-                // Only reset if assessment is active
-                if (assessmentContainer.classList.contains('assessment-active') || dimmer.classList.contains('active')) {
-                    // Remove dimmer and focus
-                    dimmer.classList.remove('active');
-                    document.getElementById('assessment').classList.remove('focused');
-                    // Reset to welcome
-                    resetAssessmentToWelcome();
-                }
+            
+            // Reset assessment to welcome state if needed
+            const welcomeCard = document.getElementById('assessmentWelcome');
+            const activeQuestion = document.querySelector('.question.active');
+            const activeResults = document.querySelector('.assessment-results.active');
+            
+            // If assessment was in progress, optionally reset to welcome
+            if (activeQuestion || activeResults) {
+                // Keep the assessment state as is - user can resume where they left off
+                // Or uncomment below to reset to welcome:
+                // activeQuestion?.classList.remove('active');
+                // activeResults?.style.display = 'none';
+                // welcomeCard.style.display = 'flex';
+                // welcomeCard.classList.add('active');
             }
         });
 
@@ -2129,8 +1876,8 @@
         
         let currentQuestion = 1;
         const totalQuestions = 7;
-        let answers = {};
-        let questionHistory = [];
+        const answers = {};
+        const questionHistory = [];
 
         // Handle option clicks
         // Function to start the actual assessment from welcome card
@@ -2186,13 +1933,8 @@
             if (currentQuestion === 1 && questionHistory.length === 0) {
                 questions[0].classList.remove('active');
                 document.getElementById('assessmentWelcome').classList.add('active');
-                document.getElementById('assessmentWelcome').style.display = 'flex';
                 document.getElementById('questionCounter').style.display = 'none';
                 backButton.classList.remove('visible');
-                // Remove assessment-active class to reset appearance
-                document.querySelector('.assessment-container').classList.remove('assessment-active');
-                // Reset progress bar
-                document.getElementById('progressFill').style.width = '0%';
                 return;
             }
             
@@ -2354,7 +2096,8 @@
                         <div style="margin-bottom: 2rem;">
                             <h4 style="color: var(--cambridge-green); margin-bottom: 1rem;">Recommended: Full Assessment</h4>
                             <p style="color: var(--text-secondary); line-height: 1.7;">
-                                Only a duplex ultrasound scan can accurately diagnose vein problems. Without it, treatment is guesswork.
+                                For best results and our 12-month guarantee, we recommend a full assessment to identify 
+                                any underlying venous issues before treatment.
                             </p>
                             <div style="background: var(--bg-light); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
                                 <p style="font-weight: 600; color: var(--cambridge-blue); margin-bottom: 0.5rem;">Recommended Package</p>
@@ -2455,9 +2198,12 @@
             const thumb = document.getElementById('spectraThumb');
             const iframe = document.getElementById('spectraIframe');
             thumb.style.display = 'none';
-            // Set YouTube source with mobile-friendly parameters
-            // playsinline=1 for iOS, mute=1 for autoplay on mobile
-            iframe.src = 'https://www.youtube.com/embed/motc4Vgz1jE?enablejsapi=1&rel=0&modestbranding=1&autoplay=1&playsinline=1&mute=1';
+            // Only set the src when actually playing
+            if (!iframe.src || iframe.src === '') {
+                iframe.src = 'https://www.youtube.com/embed/motc4Vgz1jE?enablejsapi=1&rel=0&modestbranding=1&autoplay=1';
+            } else {
+                iframe.src = iframe.src + '&autoplay=1';
+            }
         }
         
         // Function to play RFA video when thumbnail is clicked

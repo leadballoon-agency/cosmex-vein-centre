@@ -32,18 +32,32 @@
             line-height: 1.6;
             overflow-x: hidden;
             background: var(--white);
+            scroll-behavior: smooth;
+            visibility: hidden; /* Prevent flash of content */
+        }
+        
+        /* Prevent page jump on load */
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
-        /* Elegant Header */
+        /* Glassmorphism Header - Hidden by default */
         .header {
             position: fixed;
-            top: 0;
+            top: -100px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(20px);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .header.visible {
+            top: 0;
         }
 
         .header-content {
@@ -94,14 +108,34 @@
             color: var(--cosmex-blue);
         }
 
-        /* Hero Section - Refined */
+        /* Hero Section - Clean & Elegant */
         .hero {
-            min-height: 100vh;
+            height: 100vh;
+            width: 100%;
             display: flex;
             align-items: center;
+            justify-content: center;
             position: relative;
-            background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
-            padding-top: 80px;
+            overflow: hidden;
+            background-image: url('/public/images/cosmex-varicose-hero-3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0.95) 0%,
+                rgba(255, 255, 255, 0.85) 40%,
+                rgba(255, 255, 255, 0.4) 60%,
+                rgba(255, 255, 255, 0.1) 100%);
+            z-index: 1;
         }
 
         .hero-content {
@@ -112,23 +146,45 @@
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-text {
             animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero-text h1 {
+            color: var(--cosmex-dark);
+        }
+        
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            font-weight: 400;
+        }
+        
+        .feature-item {
+            color: var(--text-primary);
+        }
+        
+        .feature-icon {
+            background: var(--cosmex-blue);
+            color: white;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: var(--cosmex-gold);
+            background: var(--cosmex-blue);
             color: white;
-            padding: 0.4rem 1rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: 500;
             margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.2);
         }
 
         h1 {
@@ -175,8 +231,8 @@
         /* Assessment Card - Elegant */
         .assessment-card {
             background: white;
-            border-radius: 24px;
-            box-shadow: 0 20px 60px rgba(0, 86, 179, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
             padding: 2.5rem;
             position: relative;
             animation: fadeInUp 1s ease 0.2s both;
@@ -240,20 +296,19 @@
 
         .option-button {
             background: white;
-            border: 2px solid #e2e8f0;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            padding: 1.25rem;
+            border-radius: 8px;
             text-align: left;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             font-size: 1rem;
             color: var(--text-primary);
         }
 
         .option-button:hover {
             border-color: var(--cosmex-blue);
-            background: var(--cosmex-light-blue);
-            transform: translateY(-2px);
+            background: #f8fafc;
         }
 
         .option-button.selected {
@@ -274,18 +329,18 @@
 
         .form-input {
             width: 100%;
-            padding: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
+            padding: 0.875rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
             font-size: 1rem;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             background: white;
         }
 
         .form-input:focus {
             outline: none;
             border-color: var(--cosmex-blue);
-            box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+            box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.1);
         }
 
         .form-label {
@@ -298,40 +353,39 @@
             color: var(--text-secondary);
         }
 
-        /* Premium Button */
+        /* Clean Buttons */
         .btn-primary {
-            background: linear-gradient(135deg, var(--cosmex-blue), #0066cc);
+            background: var(--cosmex-blue);
             color: white;
             border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
+            padding: 1rem 2rem;
+            border-radius: 8px;
             font-size: 1rem;
             font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 86, 179, 0.2);
+            transition: all 0.2s ease;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 86, 179, 0.3);
+            background: var(--cosmex-dark);
+            transform: translateY(-1px);
         }
 
         .btn-secondary {
-            background: transparent;
+            background: white;
             color: var(--cosmex-blue);
-            border: 2px solid var(--cosmex-blue);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
+            border: 1px solid #e2e8f0;
+            padding: 1rem 2rem;
+            border-radius: 8px;
             font-size: 1rem;
             font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         .btn-secondary:hover {
-            background: var(--cosmex-blue);
-            color: white;
+            border-color: var(--cosmex-blue);
+            background: var(--cosmex-light-blue);
         }
 
         /* Navigation Buttons */
@@ -372,7 +426,7 @@
 
         .result-badge {
             display: inline-block;
-            background: linear-gradient(135deg, var(--cosmex-gold), #f4d03f);
+            background: var(--cosmex-gold);
             color: white;
             padding: 0.5rem 1.5rem;
             border-radius: 50px;
@@ -486,45 +540,251 @@
             color: var(--text-secondary);
             font-size: 0.95rem;
         }
-        
-        /* AI Processing Indicator */
-        .ai-indicator {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
+
+        /* Gorgeous Booking Modal */
+        .booking-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 3000;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: linear-gradient(135deg, var(--cosmex-blue), var(--cosmex-gold));
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .booking-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .modal-container {
+            position: relative;
+            background: white;
+            border-radius: 24px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .booking-modal.active .modal-container {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.1);
+            color: var(--cosmex-dark);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            padding: 2.5rem 3rem 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+            background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .modal-badge {
+            display: inline-block;
+            background: var(--cosmex-gold);
             color: white;
+            padding: 0.4rem 1rem;
             border-radius: 50px;
             font-size: 0.85rem;
-            font-weight: 500;
-            opacity: 0;
-            animation: pulseAI 2s ease infinite;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            animation: pulse 2s ease infinite;
         }
-        
-        .ai-indicator.active {
-            opacity: 1;
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
-        
-        .ai-dot {
-            width: 8px;
-            height: 8px;
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--cosmex-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .modal-body {
+            padding: 2rem 3rem;
+        }
+
+        .booking-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--soft-gray);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 86, 179, 0.1);
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background: white;
+            border-radius: 10px;
+        }
+
+        .info-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .info-text strong {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .info-text span {
+            font-size: 0.95rem;
+            color: var(--cosmex-dark);
+            font-weight: 600;
+        }
+
+        .calendar-container {
+            margin: 2rem 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 86, 179, 0.1);
+            border: 2px solid var(--cosmex-light-blue);
+            background: white;
+        }
+
+        .booking-guarantee {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #e7f2ff 0%, #f0f7ff 100%);
+            border-radius: 16px;
+            margin-top: 2rem;
+        }
+
+        .guarantee-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--cosmex-blue);
+            color: white;
             border-radius: 50%;
-            animation: blink 1.5s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
-        
-        @keyframes pulseAI {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
+
+        .guarantee-text strong {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--cosmex-dark);
+            margin-bottom: 0.25rem;
         }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+
+        .guarantee-text p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .modal-footer {
+            padding: 1.5rem 3rem 2.5rem;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            background: var(--soft-gray);
+            border-radius: 0 0 24px 24px;
+        }
+
+        /* Responsive Modal */
+        @media (max-width: 768px) {
+            .modal-container {
+                width: 95%;
+                max-height: 95vh;
+            }
+
+            .modal-header,
+            .modal-body,
+            .modal-footer {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .booking-info {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            .calendar-container iframe {
+                height: 400px !important;
+            }
         }
 
         /* Animations */
@@ -550,9 +810,22 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .hero {
+                min-height: 100vh;
+                height: auto;
+            }
+            
             .hero-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
+                padding: 1rem;
+            }
+            
+            .hero::before {
+                background: linear-gradient(90deg, 
+                    rgba(255, 255, 255, 0.98) 0%,
+                    rgba(255, 255, 255, 0.9) 50%,
+                    rgba(255, 255, 255, 0.3) 100%);
             }
 
             .header-content {
@@ -569,10 +842,15 @@
 
             .assessment-card {
                 padding: 1.5rem;
+                margin: 1rem;
             }
 
             .option-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .header.visible {
+                background: rgba(255, 255, 255, 0.95);
             }
         }
 
@@ -651,39 +929,35 @@
                 <div class="hero-badge">
                     ⭐ Cambridge's Premier Vein Clinic
                 </div>
-                <h1>Transform Your Confidence in Just 6 Weeks</h1>
+                <h1>Modern Vein Treatment Without Surgery</h1>
                 <p class="hero-subtitle">
-                    Expert vein treatment by NHS vascular surgeons with our 12-month guarantee
+                    Minimally invasive procedures with early intervention for the best results
                 </p>
                 <div class="hero-features">
                     <div class="feature-item">
                         <div class="feature-icon">✓</div>
-                        <span>Consultation from £50 (was £250)</span>
+                        <span>Free online vein assessment</span>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">✓</div>
-                        <span>Advanced ultrasound diagnostics</span>
+                        <span>Minimally invasive procedures</span>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">✓</div>
-                        <span>12-month treatment guarantee</span>
+                        <span>Early intervention recommended</span>
                     </div>
                     <div class="feature-item">
                         <div class="feature-icon">✓</div>
-                        <span>Same-week appointments available</span>
+                        <span>No traditional "stripping" surgery</span>
                     </div>
                 </div>
             </div>
 
             <!-- Assessment Card -->
             <div class="assessment-card">
-                <div class="ai-indicator" id="aiIndicator">
-                    <div class="ai-dot"></div>
-                    <span>AI Analyzing</span>
-                </div>
                 <div class="card-header">
-                    <h2 class="card-title">Your Personalised Assessment</h2>
-                    <p class="card-subtitle">Powered by Advanced AI • Takes less than 2 minutes</p>
+                    <h2 class="card-title">Free Vein Assessment</h2>
+                    <p class="card-subtitle">Find out if you have varicose veins • Takes less than 2 minutes</p>
                 </div>
 
                 <div class="progress-bar">
@@ -806,8 +1080,11 @@
                     <div id="treatmentOptions"></div>
                     
                     <button class="btn-primary" style="margin-top: 2rem" onclick="bookConsultation()">
-                        Book Your Consultation
+                        Book Your Consultation →
                     </button>
+                    <p style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                        Or call Kerry directly: <a href="tel:01223902266" style="color: var(--cosmex-blue); text-decoration: none; font-weight: 600;">01223 902266</a>
+                    </p>
                 </div>
 
                 <!-- Navigation -->
@@ -853,14 +1130,83 @@
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-content">
             <div class="loading-spinner"></div>
-            <div class="loading-text">Analysing your assessment...</div>
+            <div class="loading-text">Analysing your symptoms...</div>
             <div class="loading-subtext">Creating your personalised treatment plan</div>
         </div>
     </div>
 
+    <!-- Gorgeous Booking Modal -->
+    <div class="booking-modal" id="bookingModal">
+        <div class="modal-backdrop" onclick="closeBookingModal()"></div>
+        <div class="modal-container">
+            <button class="modal-close" onclick="closeBookingModal()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            
+            <div class="modal-header">
+                <div class="modal-badge">Limited Availability</div>
+                <h2 class="modal-title">Book Your Consultation</h2>
+                <p class="modal-subtitle">Select your preferred date and time with Kerry</p>
+            </div>
+            
+            <div class="modal-body">
+                <div class="booking-info">
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-text">
+                            <strong>Location</strong>
+                            <span>Cosmex Vein Centre, Cambridge</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">⏱</div>
+                        <div class="info-text">
+                            <strong>Duration</strong>
+                            <span>30-45 minutes</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">💳</div>
+                        <div class="info-text">
+                            <strong>Investment</strong>
+                            <span id="modalPrice">£50 - £250</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- GHL Calendar Container -->
+                <div class="calendar-container" id="ghlCalendarContainer">
+                    <iframe 
+                        id="ghlCalendar"
+                        src="https://links.hifucambridge.com/widget/booking/LSUjMbBChuSodWiQ5k7R"
+                        style="width: 100%; height: 500px; border: none; border-radius: 12px;"
+                        scrolling="no">
+                    </iframe>
+                </div>
+                
+                <div class="booking-guarantee">
+                    <div class="guarantee-icon">✓</div>
+                    <div class="guarantee-text">
+                        <strong>12-Month Guarantee</strong>
+                        <p>Complete peace of mind with ultrasound-guided treatment</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="callKerry()">
+                    📞 Prefer to call? 01223 902266
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // API Configuration
-        const API_URL = '/api';
+        // API Configuration - use localhost for local development
+        const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:3000/api' : '/api';
         
         // Assessment data
         let currentQuestion = 1;
@@ -1015,11 +1361,11 @@
                                assessmentData.duration === '5plus' ||
                                severityScore > 7;
             
-            // Show results after AI processing
+            // Show results after processing
             setTimeout(() => {
                 document.getElementById('loadingOverlay').classList.remove('active');
                 showResults(pathway, requiresScan);
-            }, 3000);
+            }, 2000);
         }
         
         function calculateSeverity() {
@@ -1050,11 +1396,11 @@
             const loadingText = document.querySelector('.loading-text');
             const loadingSubtext = document.querySelector('.loading-subtext');
             
-            // Simulate AI dialogue
+            // Professional analysis messages
             const messages = [
-                { text: 'Analysing your symptoms...', sub: 'Using advanced AI diagnostics' },
-                { text: 'Consulting medical database...', sub: 'Comparing with thousands of cases' },
-                { text: 'Determining optimal pathway...', sub: 'Personalising your treatment plan' }
+                { text: 'Analysing your symptoms...', sub: 'Comprehensive medical evaluation' },
+                { text: 'Reviewing treatment options...', sub: 'Based on thousands of successful cases' },
+                { text: 'Preparing your results...', sub: 'Personalised treatment recommendations' }
             ];
             
             let messageIndex = 0;
@@ -1077,25 +1423,32 @@
             // Show results
             document.getElementById('results').classList.add('active');
             
-            // Add AI insights to description
-            const aiMessage = aiAnalysisData?.aiTriage?.aiConsensus?.personalizedMessage || 
-                            (requiresScan ? 
-                             'Our AI analysis indicates you would benefit most from comprehensive ultrasound scanning.' :
-                             'Based on AI analysis, you have options for treatment.');
+            // Use actual assessment data to customize message
+            const severity = calculateSeverity();
+            const symptoms = assessmentData.symptoms?.join(', ') || 'visible veins';
+            
+            let personalizedMessage = '';
+            if (pathway === 'facial') {
+                personalizedMessage = `For your facial veins, Kerry will arrange a £50 consultation with IPL or laser treatment options.`;
+            } else if (severity > 10) {
+                personalizedMessage = `With symptoms of ${symptoms} lasting ${assessmentData.duration}, you need comprehensive ultrasound scanning (£250) to identify all feeder veins and prevent recurrence.`;
+            } else if (severity > 7) {
+                personalizedMessage = `Your ${symptoms} indicate moderate vein issues. We strongly recommend the £250 ultrasound scan for proper diagnosis and our 12-month guarantee.`;
+            } else {
+                personalizedMessage = `For your ${symptoms}, you can choose between our £250 scan with guarantee or £50 consultation without guarantee.`;
+            }
             
             let treatmentHTML = '';
             
             if (pathway === 'facial') {
-                document.getElementById('resultDescription').innerHTML = 
-                    aiMessage || 'Excellent news! Facial veins are straightforward to treat with our advanced laser technology.';
+                document.getElementById('resultDescription').innerHTML = personalizedMessage;
                 
-                // Add AI confidence score if available
-                if (aiAnalysisData?.aiTriage?.analysis) {
-                    const aiStatus = aiAnalysisData.aiTriage.analysis;
+                // Add clinical confidence if available
+                if (aiAnalysisData?.aiTriage?.aiConsensus?.confidenceLevel) {
                     document.getElementById('resultDescription').innerHTML += `
                         <div style="margin-top: 1rem; padding: 1rem; background: linear-gradient(135deg, #e7f2ff, #f0f7ff); border-radius: 12px; font-size: 0.9rem; color: #0056b3;">
-                            <strong>AI Analysis:</strong> ${aiStatus.claudeVersion || 'Advanced AI'} • 
-                            Confidence: ${aiAnalysisData.aiTriage.aiConsensus?.confidenceLevel || '95%'} • 
+                            <strong>Clinical Assessment:</strong> 
+                            Confidence Level: ${aiAnalysisData.aiTriage.aiConsensus?.confidenceLevel || '95%'} • 
                             Priority: ${aiAnalysisData.aiTriage.safetyAssessment?.level || 'Standard'}
                         </div>`;
                 }
@@ -1103,16 +1456,15 @@
                 treatmentHTML = `
                     <div class="treatment-card recommended">
                         <div class="treatment-header">
-                            <div class="treatment-name">IPL/Laser Treatment</div>
-                            <div class="treatment-price">£50</div>
+                            <div class="treatment-name">Spectra Vein Laser or IPL</div>
+                            <div class="treatment-price">Consultation Required</div>
                         </div>
-                        <p>Consultation includes test patch. Typically requires 1-3 sessions for complete clearance.</p>
+                        <p>Non-invasive treatment using infrared light. Facial thread veins are finer and easier to treat - often in just one session.</p>
                     </div>
                 `;
             } else {
                 if (requiresScan) {
-                    document.getElementById('resultDescription').innerHTML = 
-                        aiMessage || 'Based on your symptoms, we strongly recommend our comprehensive ultrasound scan for the best results.';
+                    document.getElementById('resultDescription').innerHTML = personalizedMessage;
                     
                     // Add AI urgency indicator
                     if (aiAnalysisData?.aiTriage?.safetyAssessment?.urgency) {
@@ -1120,7 +1472,7 @@
                         const urgencyColor = urgency === 'Urgent' ? '#d4af37' : '#0056b3';
                         document.getElementById('resultDescription').innerHTML += `
                             <div style="margin-top: 1rem; padding: 1rem; background: linear-gradient(135deg, ${urgencyColor}15, ${urgencyColor}25); border-left: 4px solid ${urgencyColor}; border-radius: 8px; font-size: 0.9rem;">
-                                <strong>AI Recommendation:</strong> ${urgency} assessment needed • 
+                                <strong>Medical Recommendation:</strong> ${urgency} consultation advised • 
                                 ${aiAnalysisData.aiTriage.treatmentPlan?.timeline || '6-12 weeks total treatment'}
                             </div>`;
                     }
@@ -1143,16 +1495,15 @@
                         </div>
                     `;
                 } else {
-                    document.getElementById('resultDescription').innerHTML = 
-                        aiMessage || 'You have options for treatment. We recommend discussing both with our specialist.';
+                    document.getElementById('resultDescription').innerHTML = personalizedMessage;
                     
                     // Add AI-powered comparison
                     if (aiAnalysisData?.aiTriage?.treatmentPlan?.options) {
                         const successRate = aiAnalysisData.aiTriage.treatmentPlan.options[0]?.successRate || '85-90%';
                         document.getElementById('resultDescription').innerHTML += `
                             <div style="margin-top: 1rem; padding: 1rem; background: #f8fafc; border-radius: 12px; font-size: 0.9rem; color: #64748b;">
-                                <strong>AI Insight:</strong> Expected success rate: ${successRate} • 
-                                Kerry will discuss your best option based on our AI analysis
+                                <strong>Clinical Insight:</strong> Expected success rate: ${successRate} • 
+                                Kerry will discuss your best option based on your assessment
                             </div>`;
                     }
                     
@@ -1180,19 +1531,87 @@
         }
 
         function bookConsultation() {
-            // This would open booking system or call Kerry
+            openBookingModal();
+        }
+        
+        function openBookingModal(treatmentType = null) {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Update price based on treatment type
+            if (treatmentType) {
+                const priceElement = document.getElementById('modalPrice');
+                if (treatmentType === 'facial') {
+                    priceElement.textContent = '£50 Consultation';
+                } else if (treatmentType === 'ultrasound') {
+                    priceElement.textContent = '£250 Ultrasound Scan';
+                } else {
+                    priceElement.textContent = '£50 - £250';
+                }
+            }
+            
+            // Track modal open event
+            console.log('📅 Booking modal opened');
+        }
+        
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        function callKerry() {
             window.location.href = 'tel:01223902266';
         }
+        
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeBookingModal();
+            }
+        });
 
         // Load intelligent assessment system
         const script = document.createElement('script');
         script.src = '/js/intelligent-assessment.js';
         document.head.appendChild(script);
         
+        // Prevent page jump on load
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+            document.body.style.visibility = 'visible';
+        });
+        
+        // Glassmorphism navbar on scroll
+        let lastScrollY = 0;
+        let ticking = false;
+        
+        function updateNavbar() {
+            const navbar = document.querySelector('.header');
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                navbar.classList.add('visible');
+            } else {
+                navbar.classList.remove('visible');
+            }
+            
+            lastScrollY = currentScrollY;
+            ticking = false;
+        }
+        
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(updateNavbar);
+                ticking = true;
+            }
+        });
+        
         // Initialize
         updateProgress();
-        console.log('✨ Cosmex AI-Powered Assessment Ready');
-        console.log('🤖 Dual AI System: Claude Sonnet 4 + GPT-4o');
+        console.log('✨ Cosmex Medical Assessment Ready');
+        console.log('🏥 Professional vein analysis system initialized');
     </script>
 </body>
 </html>

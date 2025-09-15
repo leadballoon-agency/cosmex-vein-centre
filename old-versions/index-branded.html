@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmex Clinic - Advanced Vein Treatment Centre</title>
+    
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cosmex-navy: #003366;
+            --cosmex-blue: #0066cc;
+            --cosmex-light-blue: #e6f2ff;
+            --cosmex-gold: #c9a961;
+            --cosmex-white: #ffffff;
+            --text-dark: #1a1a1a;
+            --text-gray: #666666;
+            --border-light: #e5e5e5;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: var(--cosmex-white);
+        }
+
+        /* Header */
+        .header {
+            background: var(--cosmex-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--cosmex-navy);
+            font-weight: 700;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .phone-cta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--cosmex-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .phone-cta:hover {
+            color: var(--cosmex-navy);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--cosmex-navy) 0%, var(--cosmex-blue) 100%);
+            color: var(--cosmex-white);
+            padding: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -20%;
+            width: 60%;
+            height: 100%;
+            background: url('/public/images/cosmex-varicose-hero-3.jpg') center/cover;
+            opacity: 0.15;
+            transform: skewX(-10deg);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--cosmex-gold);
+            color: var(--cosmex-navy);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .trust-points {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .trust-point {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-point svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--cosmex-gold);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: -3rem auto 4rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Assessment Tool */
+        .assessment-container {
+            background: var(--cosmex-white);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .assessment-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border-light);
+        }
+
+        .assessment-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--cosmex-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .assessment-subtitle {
+            color: var(--text-gray);
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 2rem;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background: var(--border-light);
+            z-index: -1;
+        }
+
+        .step.active::after {
+            background: var(--cosmex-blue);
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--border-light);
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step.active .step-number {
+            background: var(--cosmex-blue);
+            color: var(--cosmex-white);
+        }
+
+        .step.completed .step-number {
+            background: var(--cosmex-gold);
+            color: var(--cosmex-white);
+        }
+
+        .step-label {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        /* Questions */
+        .question-section {
+            display: none;
+        }
+
+        .question-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-label {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--cosmex-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .option-card {
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            padding: 1.25rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .option-card:hover {
+            border-color: var(--cosmex-blue);
+            box-shadow: 0 4px 12px rgba(0,102,204,0.1);
+        }
+
+        .option-card.selected {
+            border-color: var(--cosmex-blue);
+            background: var(--cosmex-light-blue);
+        }
+
+        .option-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: var(--cosmex-light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .option-text {
+            flex: 1;
+        }
+
+        .option-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .option-description {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-secondary {
+            background: var(--cosmex-light-blue);
+            color: var(--cosmex-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--cosmex-blue);
+            color: var(--cosmex-white);
+        }
+
+        .btn-primary {
+            background: var(--cosmex-blue);
+            color: var(--cosmex-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--cosmex-navy);
+        }
+
+        /* Results Section */
+        .results-container {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .results-container.active {
+            display: block;
+        }
+
+        .results-score {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--cosmex-blue);
+            margin-bottom: 1rem;
+        }
+
+        .results-message {
+            font-size: 1.2rem;
+            color: var(--cosmex-navy);
+            margin-bottom: 2rem;
+        }
+
+        .treatment-recommendations {
+            background: var(--cosmex-light-blue);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .treatment-card {
+            background: var(--cosmex-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            text-align: left;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .treatment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .treatment-name {
+            font-weight: 700;
+            color: var(--cosmex-navy);
+            font-size: 1.1rem;
+        }
+
+        .treatment-badge {
+            background: var(--cosmex-gold);
+            color: var(--cosmex-navy);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Surgeon Card */
+        .surgeon-card {
+            background: var(--cosmex-white);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            padding: 2rem;
+            text-align: center;
+            height: fit-content;
+        }
+
+        .surgeon-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--cosmex-light-blue), var(--cosmex-blue));
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--cosmex-white);
+        }
+
+        .surgeon-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--cosmex-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .surgeon-title {
+            color: var(--cosmex-blue);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .surgeon-credentials {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .surgeon-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat {
+            padding: 1rem;
+            background: var(--cosmex-light-blue);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cosmex-blue);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--cosmex-light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cosmex-blue);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .social-link:hover {
+            background: var(--cosmex-blue);
+            color: var(--cosmex-white);
+        }
+
+        /* Trust Section */
+        .trust-section {
+            background: var(--cosmex-light-blue);
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .trust-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .trust-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--cosmex-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .trust-title {
+            font-weight: 700;
+            color: var(--cosmex-navy);
+        }
+
+        .trust-description {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--cosmex-navy);
+            font-size: 0.9rem;
+        }
+
+        .form-input {
+            padding: 0.875rem;
+            border: 2px solid var(--border-light);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--cosmex-blue);
+        }
+
+        /* Loading State */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255,255,255,0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loading-content {
+            text-align: center;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 3px solid var(--cosmex-light-blue);
+            border-top-color: var(--cosmex-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 2rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .content-grid { grid-template-columns: 1fr; }
+            .trust-grid { grid-template-columns: repeat(2, 1fr); }
+            .surgeon-card { margin-top: 2rem; }
+            .trust-points { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div style="width: 50px; height: 50px; background: var(--cosmex-navy); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">C</div>
+                <div class="logo-text">Cosmex Clinic</div>
+            </div>
+            <div class="header-contact">
+                <a href="tel:01223902266" class="phone-cta">
+                    📞 01223 902266
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">⭐ Cambridge's Leading Vein Treatment Centre</div>
+            <h1>Advanced Vein Treatment<br>Without Surgery</h1>
+            <p class="hero-subtitle">
+                NICE-recommended Radio Frequency Ablation and Spectra Vein Laser treatments 
+                with proven results
+            </p>
+            <div class="trust-points">
+                <div class="trust-point">
+                    <svg viewBox="0 0 20 20"><path d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm-1 15l-5-5 1.41-1.41L9 12.17l7.59-7.59L18 6l-9 9z"/></svg>
+                    <span>NHS Consultant Led</span>
+                </div>
+                <div class="trust-point">
+                    <svg viewBox="0 0 20 20"><path d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm-1 15l-5-5 1.41-1.41L9 12.17l7.59-7.59L18 6l-9 9z"/></svg>
+                    <span>15+ Years Experience</span>
+                </div>
+                <div class="trust-point">
+                    <svg viewBox="0 0 20 20"><path d="M10 0C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm-1 15l-5-5 1.41-1.41L9 12.17l7.59-7.59L18 6l-9 9z"/></svg>
+                    <span>5000+ Treated</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="content-grid">
+            <!-- Assessment Tool -->
+            <div class="assessment-container">
+                <div class="assessment-header">
+                    <h2 class="assessment-title">Free Vein Assessment</h2>
+                    <p class="assessment-subtitle">
+                        Get your personalised treatment plan in under 2 minutes
+                    </p>
+                </div>
+
+                <!-- Progress Steps -->
+                <div class="progress-container">
+                    <div class="progress-steps">
+                        <div class="step active" id="step1">
+                            <div class="step-number">1</div>
+                            <div class="step-label">Location</div>
+                        </div>
+                        <div class="step" id="step2">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Symptoms</div>
+                        </div>
+                        <div class="step" id="step3">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Duration</div>
+                        </div>
+                        <div class="step" id="step4">
+                            <div class="step-number">4</div>
+                            <div class="step-label">Impact</div>
+                        </div>
+                        <div class="step" id="step5">
+                            <div class="step-number">5</div>
+                            <div class="step-label">Contact</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Questions Container -->
+                <div id="questionsContainer">
+                    <!-- Question 1: Location -->
+                    <div class="question-section active" data-question="1">
+                        <div class="question-label">Where are you experiencing vein issues?</div>
+                        <div class="options-grid">
+                            <div class="option-card" onclick="selectOption('location', 'face')">
+                                <div class="option-icon">👤</div>
+                                <div class="option-text">
+                                    <div class="option-title">Face & Facial Area</div>
+                                    <div class="option-description">Thread veins, spider veins, rosacea</div>
+                                </div>
+                            </div>
+                            <div class="option-card" onclick="selectOption('location', 'legs')">
+                                <div class="option-icon">🦵</div>
+                                <div class="option-text">
+                                    <div class="option-title">Legs</div>
+                                    <div class="option-description">Varicose veins, spider veins, swelling</div>
+                                </div>
+                            </div>
+                            <div class="option-card" onclick="selectOption('location', 'both')">
+                                <div class="option-icon">👥</div>
+                                <div class="option-text">
+                                    <div class="option-title">Both Face & Legs</div>
+                                    <div class="option-description">Multiple areas affected</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 2: Symptoms -->
+                    <div class="question-section" data-question="2">
+                        <div class="question-label">What symptoms are you experiencing?</div>
+                        <div class="options-grid">
+                            <div class="option-card" onclick="toggleSymptom('visible')">
+                                <div class="option-icon">👁</div>
+                                <div class="option-text">
+                                    <div class="option-title">Visible Veins</div>
+                                    <div class="option-description">Spider veins, thread veins</div>
+                                </div>
+                            </div>
+                            <div class="option-card" onclick="toggleSymptom('bulging')">
+                                <div class="option-icon">🔵</div>
+                                <div class="option-text">
+                                    <div class="option-title">Bulging Veins</div>
+                                    <div class="option-description">Raised, twisted veins</div>
+                                </div>
+                            </div>
+                            <div class="option-card" onclick="toggleSymptom('aching')">
+                                <div class="option-icon">😣</div>
+                                <div class="option-text">
+                                    <div class="option-title">Aching/Heaviness</div>
+                                    <div class="option-description">Pain, discomfort, tired legs</div>
+                                </div>
+                            </div>
+                            <div class="option-card" onclick="toggleSymptom('swelling')">
+                                <div class="option-icon">🦶</div>
+                                <div class="option-text">
+                                    <div class="option-title">Swelling</div>
+                                    <div class="option-description">Ankle or leg swelling</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 3: Duration -->
+                    <div class="question-section" data-question="3">
+                        <div class="question-label">How long have you had these symptoms?</div>
+                        <div class="options-grid">
+                            <div class="option-card" onclick="selectOption('duration', 'recent')">
+                                <div class="option-icon">📅</div>
+                                <div class="option-text">
+                                    <div class="option-title">Less than 1 year</div>
+                                    <div class="option-description">Recently noticed</div>
+                                </div>
+                            </div>
+                            <div class="option-card" onclick="selectOption('duration', '1-5')">
+                                <div class="option-icon">📆</div>
+                                <div class="option-text">
+                                    <div class="option-title">1-5 years</div>
+                                    <div class="option-description">Moderate duration</div>
+                                </div>
+                            </div>
+                            <div class="option-card" onclick="selectOption('duration', '5+')">
+                                <div class="option-icon">🗓</div>
+                                <div class="option-text">
+                                    <div class="option-title">More than 5 years</div>
+                                    <div class="option-description">Long-standing issue</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 4: Impact -->
+                    <div class="question-section" data-question="4">
+                        <div class="question-label">How much do these veins affect your daily life?</div>
+                        <div class="options-grid">
+                            <div class="option-card" onclick="selectOption('impact', 'minimal')">
+                                <div class="option-icon">😊</div>
+                                <div class="option-text">
+                                    <div class="option-title">Minimal Impact</div>
+                                    <div class="option-description">Mainly cosmetic concern</div>
+                                </div>
+                            </div>
+                            <div class="option-card" onclick="selectOption('impact', 'moderate')">
+                                <div class="option-icon">😐</div>
+                                <div class="option-text">
+                                    <div class="option-title">Moderate Impact</div>
+                                    <div class="option-description">Some discomfort or self-consciousness</div>
+                                </div>
+                            </div>
+                            <div class="option-card" onclick="selectOption('impact', 'significant')">
+                                <div class="option-icon">😔</div>
+                                <div class="option-text">
+                                    <div class="option-title">Significant Impact</div>
+                                    <div class="option-description">Affecting work, activities, or confidence</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 5: Contact -->
+                    <div class="question-section" data-question="5">
+                        <div class="question-label">How can Kerry contact you with your results?</div>
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-input" id="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-input" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone</label>
+                                <input type="tel" class="form-input" id="phone" required>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Results Container -->
+                <div class="results-container" id="resultsContainer">
+                    <div class="results-score" id="resultScore">95%</div>
+                    <div class="results-message" id="resultMessage">
+                        Excellent candidate for treatment
+                    </div>
+                    <div class="treatment-recommendations" id="treatmentRecommendations">
+                        <!-- Dynamic content -->
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="bookConsultation()">
+                        Book Your Consultation with Kerry
+                    </button>
+                </div>
+
+                <!-- Navigation -->
+                <div class="nav-buttons" id="navButtons">
+                    <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()" style="visibility: hidden;">
+                        ← Back
+                    </button>
+                    <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">
+                        Continue →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Surgeon Card -->
+            <div class="surgeon-card">
+                <div class="surgeon-image">👨‍⚕️</div>
+                <h3 class="surgeon-name">Mr. Consultant</h3>
+                <div class="surgeon-title">Senior Vascular Surgeon</div>
+                <div class="surgeon-credentials">
+                    MB ChB, FRCS (Ed), FRCS (Vasc)<br>
+                    NHS Consultant<br>
+                    15+ Years Experience
+                </div>
+                <div class="surgeon-stats">
+                    <div class="stat">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">Patients Treated</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Success Rate</div>
+                    </div>
+                </div>
+                <div style="background: var(--cosmex-light-blue); padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                    <p style="font-size: 0.9rem; color: var(--text-gray); font-style: italic;">
+                        "We use the latest NICE-recommended treatments including Radio Frequency Ablation 
+                        and Spectra Vein Laser for optimal results with minimal downtime."
+                    </p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link">in</a>
+                    <a href="#" class="social-link">✉</a>
+                    <a href="#" class="social-link">📞</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="trust-container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">🏥</div>
+                    <div class="trust-title">NHS Standards</div>
+                    <div class="trust-description">Hospital-grade protocols</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🔬</div>
+                    <div class="trust-title">Latest Technology</div>
+                    <div class="trust-description">RFA & Spectra Vein Laser</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">⭐</div>
+                    <div class="trust-title">5-Star Reviews</div>
+                    <div class="trust-description">500+ happy patients</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🛡</div>
+                    <div class="trust-title">Guaranteed Results</div>
+                    <div class="trust-description">Treatment assurance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h3>Analysing your assessment...</h3>
+            <p>Preparing your personalised treatment plan</p>
+        </div>
+    </div>
+
+    <script>
+        // Assessment State
+        let currentQuestion = 1;
+        const totalQuestions = 5;
+        let assessmentData = {
+            location: null,
+            symptoms: [],
+            duration: null,
+            impact: null,
+            contact: {}
+        };
+
+        // Update step indicators
+        function updateSteps() {
+            for (let i = 1; i <= totalQuestions; i++) {
+                const step = document.getElementById(`step${i}`);
+                if (i < currentQuestion) {
+                    step.classList.add('completed');
+                    step.classList.remove('active');
+                } else if (i === currentQuestion) {
+                    step.classList.add('active');
+                    step.classList.remove('completed');
+                } else {
+                    step.classList.remove('active', 'completed');
+                }
+            }
+        }
+
+        // Select single option
+        function selectOption(field, value) {
+            assessmentData[field] = value;
+            
+            // Update UI
+            const cards = document.querySelectorAll(`[data-question="${currentQuestion}"] .option-card`);
+            cards.forEach(card => card.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+            
+            // Auto-advance for single selections
+            setTimeout(() => nextQuestion(), 300);
+        }
+
+        // Toggle symptom selection (multiple)
+        function toggleSymptom(symptom) {
+            if (!assessmentData.symptoms) assessmentData.symptoms = [];
+            
+            const index = assessmentData.symptoms.indexOf(symptom);
+            if (index > -1) {
+                assessmentData.symptoms.splice(index, 1);
+                event.currentTarget.classList.remove('selected');
+            } else {
+                assessmentData.symptoms.push(symptom);
+                event.currentTarget.classList.add('selected');
+            }
+        }
+
+        // Navigate questions
+        function nextQuestion() {
+            // Validate current question
+            if (currentQuestion === 2 && assessmentData.symptoms.length === 0) {
+                alert('Please select at least one symptom');
+                return;
+            }
+            
+            if (currentQuestion === 5) {
+                // Validate contact form
+                const firstName = document.getElementById('firstName').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                
+                if (!firstName || !email || !phone) {
+                    alert('Please complete all fields');
+                    return;
+                }
+                
+                assessmentData.contact = { firstName, email, phone };
+                submitAssessment();
+                return;
+            }
+            
+            // Hide current, show next
+            document.querySelector(`[data-question="${currentQuestion}"]`).classList.remove('active');
+            currentQuestion++;
+            document.querySelector(`[data-question="${currentQuestion}"]`).classList.add('active');
+            
+            updateSteps();
+            updateNavigation();
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 1) {
+                document.querySelector(`[data-question="${currentQuestion}"]`).classList.remove('active');
+                currentQuestion--;
+                document.querySelector(`[data-question="${currentQuestion}"]`).classList.add('active');
+                
+                updateSteps();
+                updateNavigation();
+            }
+        }
+
+        function updateNavigation() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            prevBtn.style.visibility = currentQuestion > 1 ? 'visible' : 'hidden';
+            nextBtn.textContent = currentQuestion === 5 ? 'Get My Results' : 'Continue →';
+        }
+
+        // Submit assessment
+        async function submitAssessment() {
+            document.getElementById('loadingOverlay').classList.add('active');
+            
+            // Simulate processing
+            setTimeout(() => {
+                document.getElementById('loadingOverlay').classList.remove('active');
+                showResults();
+            }, 2000);
+            
+            // Send to backend/GHL webhook
+            try {
+                await fetch('/api/ghl-webhook', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(assessmentData)
+                });
+            } catch (error) {
+                console.error('Webhook error:', error);
+            }
+        }
+
+        // Show results
+        function showResults() {
+            document.getElementById('questionsContainer').style.display = 'none';
+            document.getElementById('navButtons').style.display = 'none';
+            document.getElementById('resultsContainer').classList.add('active');
+            
+            // Calculate score and message
+            let score = 85;
+            let message = '';
+            let treatments = '';
+            
+            if (assessmentData.location === 'face') {
+                score = 95;
+                message = 'Excellent candidate for Spectra Vein Laser or IPL treatment';
+                treatments = `
+                    <div class="treatment-card">
+                        <div class="treatment-header">
+                            <div class="treatment-name">Spectra Vein Laser</div>
+                            <div class="treatment-badge">RECOMMENDED</div>
+                        </div>
+                        <p>Non-invasive infrared treatment. Facial veins often clear in just one session.</p>
+                    </div>
+                    <div class="treatment-card">
+                        <div class="treatment-header">
+                            <div class="treatment-name">IPL Treatment</div>
+                            <div class="treatment-badge">ALTERNATIVE</div>
+                        </div>
+                        <p>Ideal for rosacea and vein networks. Fast and comfortable.</p>
+                    </div>
+                `;
+            } else {
+                if (assessmentData.symptoms.includes('bulging') || assessmentData.duration === '5+') {
+                    score = 90;
+                    message = 'Radio Frequency Ablation recommended for optimal results';
+                    treatments = `
+                        <div class="treatment-card">
+                            <div class="treatment-header">
+                                <div class="treatment-name">Radio Frequency Ablation</div>
+                                <div class="treatment-badge">NICE RECOMMENDED</div>
+                            </div>
+                            <p>Gold standard treatment. Walk out and resume normal life within minutes.</p>
+                        </div>
+                        <div class="treatment-card">
+                            <div class="treatment-header">
+                                <div class="treatment-name">Foam Sclerotherapy</div>
+                                <div class="treatment-badge">COMPLEMENTARY</div>
+                            </div>
+                            <p>For remaining narrow branches after RFA treatment.</p>
+                        </div>
+                    `;
+                } else {
+                    score = 85;
+                    message = 'Early intervention recommended to prevent progression';
+                    treatments = `
+                        <div class="treatment-card">
+                            <div class="treatment-header">
+                                <div class="treatment-name">Ultrasound Assessment</div>
+                                <div class="treatment-badge">FIRST STEP</div>
+                            </div>
+                            <p>Comprehensive duplex scan to map your veins and plan treatment.</p>
+                        </div>
+                    `;
+                }
+            }
+            
+            document.getElementById('resultScore').textContent = `${score}%`;
+            document.getElementById('resultMessage').textContent = message;
+            document.getElementById('treatmentRecommendations').innerHTML = treatments;
+        }
+
+        function bookConsultation() {
+            window.location.href = 'tel:01223902266';
+        }
+
+        // Initialize
+        updateSteps();
+    </script>
+</body>
+</html>
