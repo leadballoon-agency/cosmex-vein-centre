@@ -2498,6 +2498,9 @@
                 if (results.style.display === 'block') {
                     results.style.display = 'none';
                     currentQuestion = totalQuestions;
+                } else if (typeof currentQuestion === 'string' && currentQuestion.startsWith('face-')) {
+                    // Hide current face question
+                    document.querySelector(`.question[data-question="${currentQuestion}"]`).classList.remove('active');
                 } else {
                     questions[currentQuestion - 1].classList.remove('active');
                 }
@@ -2534,7 +2537,14 @@
                 }
                 
                 // Update progress
-                const progress = ((currentQuestion - 1) / totalQuestions) * 100;
+                let progress;
+                if (typeof currentQuestion === 'string' && currentQuestion.startsWith('face-')) {
+                    // Calculate progress for face questions
+                    const faceStep = parseInt(currentQuestion.split('-')[1]);
+                    progress = ((faceStep - 1) / 5) * 100;
+                } else {
+                    progress = ((currentQuestion - 1) / totalQuestions) * 100;
+                }
                 progressFill.style.width = progress + '%';
                 
                 // Update navigation UI
