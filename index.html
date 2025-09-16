@@ -1759,7 +1759,7 @@
                     <!-- Results -->
                     <div class="assessment-results" id="assessmentResults">
                         <div class="result-card">
-                            <h3 class="result-title">Your Personalized Treatment Plan</h3>
+                            <h3 class="result-title">Your Personalised Treatment Plan</h3>
                             <p class="result-description" id="resultDescription">
                                 Based on your assessment, we recommend scheduling a consultation to discuss your treatment options.
                             </p>
@@ -2334,8 +2334,8 @@
         
         document.querySelectorAll('.option').forEach(option => {
             option.addEventListener('click', function() {
-                // Skip checkbox options - they're handled differently
-                if (this.classList.contains('checkbox-option')) {
+                // Skip checkbox options and face options - they're handled differently
+                if (this.classList.contains('checkbox-option') || this.classList.contains('face-option')) {
                     return;
                 }
 
@@ -2713,9 +2713,9 @@
             } else {
                 recommendation = `
                     <div style="margin-bottom: 2rem;">
-                        <h4 style="color: var(--cambridge-green); margin-bottom: 1rem;">Personalized Treatment Plan</h4>
+                        <h4 style="color: var(--cambridge-green); margin-bottom: 1rem;">Personalised Treatment Plan</h4>
                         <p style="color: var(--text-secondary); line-height: 1.7;">
-                            Our specialists will create a customized treatment plan based on your specific needs 
+                            Our specialists will create a customised treatment plan based on your specific needs 
                             and concerns during your consultation.
                         </p>
                         <div style="background: var(--bg-light); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
