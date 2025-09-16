@@ -369,9 +369,29 @@
 
         .assessment-tool {
             width: 100%;
+        }
+
+        /* When container is in welcome state (not active) */
+        .assessment-container:not(.assessment-active) .assessment-tool {
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .assessment-welcome {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .assessment-welcome > div {
+            margin: 0 auto;
         }
 
         .assessment-container.assessment-active {
@@ -1494,7 +1514,7 @@
 
                 <div class="assessment-tool" id="assessmentTool">
                     <!-- Welcome Card -->
-                    <div class="assessment-welcome active" id="assessmentWelcome" style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                    <div class="assessment-welcome active" id="assessmentWelcome">
                         <div style="text-align: center; padding: 2rem 2.5rem; background: rgba(255, 255, 255, 0.75); border-radius: 16px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 8px 32px rgba(3, 81, 114, 0.08); border: 1px solid rgba(255, 255, 255, 0.18); max-width: 360px;">
                             <h3 style="color: var(--cambridge-blue); font-size: 1.5rem; margin-bottom: 0.75rem; font-family: 'Playfair Display', serif; font-weight: 700;">Let's Route You Correctly</h3>
                             <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 0.95rem; line-height: 1.4;">Ensures you see the RIGHT specialist first time</p>
