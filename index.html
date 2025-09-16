@@ -544,6 +544,54 @@
             transform: translateX(4px);
         }
 
+        /* Checkbox option styles */
+        .checkbox-option {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            padding: 0 !important;
+        }
+
+        .checkbox-option input[type="checkbox"] {
+            position: absolute;
+            left: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--cambridge-green);
+        }
+
+        .checkbox-option label {
+            padding: 1.25rem 1.25rem 1.25rem 3.5rem;
+            cursor: pointer;
+            width: 100%;
+            display: block;
+        }
+
+        .checkbox-option input:checked + label {
+            background: rgba(111, 199, 180, 0.1);
+        }
+
+        .continue-button {
+            background: var(--cambridge-green);
+            color: white;
+            border: none;
+            padding: 0.875rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .continue-button:hover {
+            background: var(--cambridge-blue);
+            transform: translateY(-2px);
+        }
+
         .option-title {
             font-weight: 600;
             color: var(--cambridge-blue);
@@ -1492,25 +1540,38 @@
 
                     <!-- Question 4: Risk Factors -->
                     <div class="question" data-question="4">
-                        <h3 class="question-title">Do any of these apply to you?</h3>
-                        <div class="options">
-                            <div class="option" data-value="family-history">
-                                <div class="option-title">Family History</div>
-                                <div class="option-description">Parents or siblings have/had varicose veins</div>
+                        <h3 class="question-title">Do any of these apply to you? (Select all that apply)</h3>
+                        <div class="options checkbox-options">
+                            <div class="option checkbox-option" data-value="family-history">
+                                <input type="checkbox" id="risk-family" class="risk-checkbox" value="family-history">
+                                <label for="risk-family">
+                                    <div class="option-title">Family History</div>
+                                    <div class="option-description">Parents or siblings have/had varicose veins</div>
+                                </label>
                             </div>
-                            <div class="option" data-value="pregnancy">
-                                <div class="option-title">Pregnancy Related</div>
-                                <div class="option-description">Currently pregnant or veins appeared during/after pregnancy</div>
+                            <div class="option checkbox-option" data-value="pregnancy">
+                                <input type="checkbox" id="risk-pregnancy" class="risk-checkbox" value="pregnancy">
+                                <label for="risk-pregnancy">
+                                    <div class="option-title">Pregnancy Related</div>
+                                    <div class="option-description">Currently pregnant or veins appeared during/after pregnancy</div>
+                                </label>
                             </div>
-                            <div class="option" data-value="occupation">
-                                <div class="option-title">Standing/Sitting Job</div>
-                                <div class="option-description">Long periods of standing or sitting at work</div>
+                            <div class="option checkbox-option" data-value="occupation">
+                                <input type="checkbox" id="risk-occupation" class="risk-checkbox" value="occupation">
+                                <label for="risk-occupation">
+                                    <div class="option-title">Standing/Sitting Job</div>
+                                    <div class="option-description">Long periods of standing or sitting at work</div>
+                                </label>
                             </div>
-                            <div class="option" data-value="none">
-                                <div class="option-title">None of These</div>
-                                <div class="option-description">No known risk factors</div>
+                            <div class="option checkbox-option" data-value="none">
+                                <input type="checkbox" id="risk-none" class="risk-checkbox" value="none">
+                                <label for="risk-none">
+                                    <div class="option-title">None of These</div>
+                                    <div class="option-description">No known risk factors</div>
+                                </label>
                             </div>
                         </div>
+                        <button class="continue-button" onclick="handleRiskFactorsContinue()" style="display: none; margin-top: 1rem;">Continue</button>
                     </div>
                     
                     <!-- Question 5: Duration -->
@@ -2156,19 +2217,32 @@
         
         document.querySelectorAll('.option').forEach(option => {
             option.addEventListener('click', function() {
+                // Skip checkbox options - they're handled differently
+                if (this.classList.contains('checkbox-option')) {
+                    return;
+                }
+
                 // Keep dimmer active during assessment
                 const question = this.closest('.question');
                 const questionNum = parseInt(question.dataset.question);
                 const value = this.dataset.value;
-                
+
                 // Store answer and history
                 answers[`q${questionNum}`] = value;
                 questionHistory.push(questionNum);
-                
+
+                // Check if face was selected - skip to results
+                if (questionNum === 1 && value === 'face') {
+                    // Face only needs treatment type, skip other questions
+                    progressFill.style.width = '100%';
+                    showResults();
+                    return;
+                }
+
                 // Update progress
                 const progress = (questionNum / totalQuestions) * 100;
                 progressFill.style.width = progress + '%';
-                
+
                 // Move to next question or show results
                 if (questionNum < totalQuestions) {
                     question.classList.remove('active');
@@ -2180,6 +2254,48 @@
                 }
             });
         });
+
+        // Handle checkbox changes for Question 4
+        document.querySelectorAll('.risk-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const continueBtn = document.querySelector('.question[data-question="4"] .continue-button');
+                const checkedBoxes = document.querySelectorAll('.risk-checkbox:checked');
+
+                // Handle "None" checkbox - uncheck others if None is selected
+                if (this.value === 'none' && this.checked) {
+                    document.querySelectorAll('.risk-checkbox:not(#risk-none)').forEach(cb => {
+                        cb.checked = false;
+                    });
+                } else if (this.value !== 'none' && this.checked) {
+                    // Uncheck "None" if other options are selected
+                    document.getElementById('risk-none').checked = false;
+                }
+
+                // Show/hide continue button based on selections
+                const hasSelection = document.querySelectorAll('.risk-checkbox:checked').length > 0;
+                continueBtn.style.display = hasSelection ? 'block' : 'none';
+            });
+        });
+
+        // Handle risk factors continue button
+        function handleRiskFactorsContinue() {
+            const checkedBoxes = document.querySelectorAll('.risk-checkbox:checked');
+            const selectedRisks = Array.from(checkedBoxes).map(cb => cb.value);
+
+            // Store the multiple selections
+            answers['q4'] = selectedRisks;
+            questionHistory.push(4);
+
+            // Update progress
+            const progress = (4 / totalQuestions) * 100;
+            progressFill.style.width = progress + '%';
+
+            // Move to next question
+            document.querySelector('.question[data-question="4"]').classList.remove('active');
+            questions[4].classList.add('active');
+            currentQuestion = 5;
+            updateNavigationUI();
+        }
 
         // Back button functionality
         function goToPreviousQuestion() {
@@ -2212,6 +2328,13 @@
                 // Show previous question
                 questions[previousQuestion - 1].classList.add('active');
                 currentQuestion = previousQuestion;
+
+                // If going back to Question 4, reset checkboxes and hide continue button
+                if (previousQuestion === 4) {
+                    document.querySelectorAll('.risk-checkbox').forEach(cb => cb.checked = false);
+                    const continueBtn = document.querySelector('.question[data-question="4"] .continue-button');
+                    if (continueBtn) continueBtn.style.display = 'none';
+                }
                 
                 // Update progress
                 const progress = ((currentQuestion - 1) / totalQuestions) * 100;
@@ -2257,7 +2380,7 @@
             console.log('Q1:', answers.q1, 'Q2:', answers.q2, 'Q3:', answers.q3, 'Q4:', answers.q4);
             
             // Enhanced recommendations based on comprehensive assessment
-            const hasRiskFactors = answers.q4 && answers.q4 !== 'none';
+            const hasRiskFactors = answers.q4 && (Array.isArray(answers.q4) ? !answers.q4.includes('none') : answers.q4 !== 'none');
             const isLongStanding = answers.q5 === 'years' || answers.q5 === 'longtime';
             const hadPreviousTreatment = answers.q6 && answers.q6 !== 'no-treatment';
             const isUrgent = answers.q7 === 'immediate';

@@ -10,11 +10,13 @@ This document outlines how our assessment tool intelligently routes patients to 
 ### Question 1: Which area concerns you most?
 
 #### → FACE (Thread veins on face)
-**Routes to: COSMEX TEAM**
+**IMMEDIATE ROUTING to: COSMEX TEAM**
+- **Action:** Skips all other questions, goes straight to results
 - **Booking:** £50 Facial Consultation
 - **Team:** Cosmex Me or Consi
 - **Treatment:** 980nm laser or IPL
 - **Guarantee:** No guarantee (cosmetic treatment)
+- **Note:** Face veins NEVER involve varicose veins
 
 #### → LEGS
 *Continues to Question 2...*
@@ -72,14 +74,19 @@ This document outlines how our assessment tool intelligently routes patients to 
 
 ---
 
-### Questions 4-7: Risk Factor Assessment
+### Question 4: Risk Factor Assessment (Multiple Selection Allowed)
 
-The tool evaluates additional risk factors:
+The tool allows patients to select ALL applicable risk factors:
 - **Family history**
 - **Pregnancy-related veins**
 - **Occupation (standing/sitting)**
-- **Previous treatments**
+- **None of these**
+
+**Note:** Patients can select multiple risk factors (e.g., both family history AND pregnancy)
+
+### Questions 5-7: Additional Assessment
 - **Duration of problem**
+- **Previous treatments**
 - **Treatment urgency**
 
 ### RISK FACTOR ROUTING RULES:
