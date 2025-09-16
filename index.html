@@ -435,10 +435,12 @@
             margin-bottom: 2rem;
             opacity: 0;
             transition: opacity 0.3s ease;
+            display: none; /* Hide completely when not active */
         }
-        
+
         .assessment-active .assessment-header {
             opacity: 1;
+            display: block; /* Show when active */
         }
 
         .assessment-title {
@@ -462,10 +464,12 @@
             overflow: hidden;
             opacity: 0;
             transition: opacity 0.3s ease;
+            display: none; /* Hide when not active */
         }
-        
+
         .assessment-active .progress-bar {
             opacity: 1;
+            display: block; /* Show when active */
         }
 
         .progress-fill {
@@ -478,7 +482,7 @@
 
         /* Navigation Controls */
         .assessment-nav {
-            display: flex;
+            display: none; /* Hide by default */
             justify-content: space-between;
             align-items: center;
             margin-bottom: 2rem;
@@ -487,8 +491,9 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-        
+
         .assessment-active .assessment-nav {
+            display: flex; /* Show as flex when active */
             opacity: 1;
         }
 
