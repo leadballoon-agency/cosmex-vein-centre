@@ -356,17 +356,23 @@
             border-radius: 20px;
             padding: 0;
             max-width: 900px;
+            min-height: 450px; /* Prevent page jumping */
             margin: 0 auto;
             border: none;
             position: relative;
             z-index: 10;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        
+
         .assessment-container.assessment-active {
             background: white;
             padding: 3rem;
+            min-height: 550px; /* Consistent height during assessment */
             box-shadow: 0 20px 60px rgba(3, 81, 114, 0.12);
+            display: block; /* Reset to block when active */
         }
 
         .assessment-container.focused {
@@ -494,6 +500,7 @@
         .question {
             display: none;
             animation: fadeIn 0.5s ease;
+            min-height: 300px; /* Consistent minimum height */
         }
 
         .question.active {
@@ -1244,11 +1251,13 @@
                 border-radius: 0;
                 padding: 0;
                 margin: 1rem 0;
+                min-height: 350px; /* Prevent jumping on mobile */
                 box-shadow: none;
             }
 
             .assessment-container.assessment-active {
                 padding: 1rem;
+                min-height: 400px; /* Consistent height on mobile */
                 background: rgba(255, 255, 255, 0.95);
                 box-shadow: 0 10px 30px rgba(3, 81, 114, 0.15);
                 border-radius: 16px;
