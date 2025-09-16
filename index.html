@@ -1492,6 +1492,123 @@
                         </div>
                     </div>
 
+                    <!-- Face-Specific Questions (only shown if Face selected) -->
+                    <!-- Face Question 2: Areas affected -->
+                    <div class="question face-question" data-question="face-2">
+                        <h3 class="question-title">Which facial areas are affected? (Select all that apply)</h3>
+                        <div class="options checkbox-options">
+                            <div class="option checkbox-option" data-value="cheeks">
+                                <input type="checkbox" id="face-cheeks" class="face-area-checkbox" value="cheeks">
+                                <label for="face-cheeks">
+                                    <div class="option-title">Cheeks</div>
+                                    <div class="option-description">Red veins or general redness on cheeks</div>
+                                </label>
+                            </div>
+                            <div class="option checkbox-option" data-value="nose">
+                                <input type="checkbox" id="face-nose" class="face-area-checkbox" value="nose">
+                                <label for="face-nose">
+                                    <div class="option-title">Nose</div>
+                                    <div class="option-description">Visible veins on or around the nose</div>
+                                </label>
+                            </div>
+                            <div class="option checkbox-option" data-value="chin">
+                                <input type="checkbox" id="face-chin" class="face-area-checkbox" value="chin">
+                                <label for="face-chin">
+                                    <div class="option-title">Chin</div>
+                                    <div class="option-description">Thread veins on chin area</div>
+                                </label>
+                            </div>
+                            <div class="option checkbox-option" data-value="around-eyes">
+                                <input type="checkbox" id="face-eyes" class="face-area-checkbox" value="around-eyes">
+                                <label for="face-eyes">
+                                    <div class="option-title">Around Eyes</div>
+                                    <div class="option-description">Delicate veins near eye area</div>
+                                </label>
+                            </div>
+                            <div class="option checkbox-option" data-value="forehead">
+                                <input type="checkbox" id="face-forehead" class="face-area-checkbox" value="forehead">
+                                <label for="face-forehead">
+                                    <div class="option-title">Forehead</div>
+                                    <div class="option-description">Visible veins on forehead</div>
+                                </label>
+                            </div>
+                        </div>
+                        <button class="continue-button" onclick="handleFaceAreasContinue()" style="display: none; margin-top: 1rem;">Continue</button>
+                    </div>
+
+                    <!-- Face Question 3: Type of veins -->
+                    <div class="question face-question" data-question="face-3">
+                        <h3 class="question-title">What type of facial veins do you see?</h3>
+                        <div class="options">
+                            <div class="option face-option" data-value="red-thread">
+                                <div class="option-title">Small Red Thread Veins</div>
+                                <div class="option-description">Fine, red capillaries visible on skin</div>
+                            </div>
+                            <div class="option face-option" data-value="blue-purple">
+                                <div class="option-title">Blue/Purple Veins</div>
+                                <div class="option-description">Slightly larger, darker colored veins</div>
+                            </div>
+                            <div class="option face-option" data-value="rosacea">
+                                <div class="option-title">Rosacea/General Redness</div>
+                                <div class="option-description">Overall redness and flushing</div>
+                            </div>
+                            <div class="option face-option" data-value="broken-capillaries">
+                                <div class="option-title">Broken Capillaries</div>
+                                <div class="option-description">Small burst blood vessels</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Face Question 4: Duration -->
+                    <div class="question face-question" data-question="face-4">
+                        <h3 class="question-title">How long have you had these facial veins?</h3>
+                        <div class="options">
+                            <div class="option face-option" data-value="recent-face">
+                                <div class="option-title">Less than 6 months</div>
+                                <div class="option-description">Recently appeared</div>
+                            </div>
+                            <div class="option face-option" data-value="months-face">
+                                <div class="option-title">6 months - 2 years</div>
+                                <div class="option-description">Developed over past year or two</div>
+                            </div>
+                            <div class="option face-option" data-value="years-face">
+                                <div class="option-title">2-5 years</div>
+                                <div class="option-description">Present for several years</div>
+                            </div>
+                            <div class="option face-option" data-value="longtime-face">
+                                <div class="option-title">More than 5 years</div>
+                                <div class="option-description">Long-standing issue</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Face Question 5: Triggers -->
+                    <div class="question face-question" data-question="face-5">
+                        <h3 class="question-title">Have you noticed any triggers?</h3>
+                        <div class="options">
+                            <div class="option face-option" data-value="sun">
+                                <div class="option-title">Sun Exposure</div>
+                                <div class="option-description">Worsens with sun or UV exposure</div>
+                            </div>
+                            <div class="option face-option" data-value="temperature">
+                                <div class="option-title">Temperature Changes</div>
+                                <div class="option-description">Hot/cold weather affects them</div>
+                            </div>
+                            <div class="option face-option" data-value="lifestyle">
+                                <div class="option-title">Alcohol/Spicy Foods</div>
+                                <div class="option-description">Certain foods or drinks trigger flushing</div>
+                            </div>
+                            <div class="option face-option" data-value="hormones">
+                                <div class="option-title">Pregnancy/Hormones</div>
+                                <div class="option-description">Related to hormonal changes</div>
+                            </div>
+                            <div class="option face-option" data-value="none-face">
+                                <div class="option-title">No Clear Triggers</div>
+                                <div class="option-description">Haven't noticed specific triggers</div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Question 2 -->
                     <div class="question" data-question="2">
                         <h3 class="question-title">What type of veins are you seeing?</h3>
@@ -2231,11 +2348,14 @@
                 answers[`q${questionNum}`] = value;
                 questionHistory.push(questionNum);
 
-                // Check if face was selected - skip to results
+                // Check if face was selected - go to face-specific questions
                 if (questionNum === 1 && value === 'face') {
-                    // Face only needs treatment type, skip other questions
-                    progressFill.style.width = '100%';
-                    showResults();
+                    // Show face-specific questions
+                    question.classList.remove('active');
+                    document.querySelector('.question[data-question="face-2"]').classList.add('active');
+                    currentQuestion = 'face-2';
+                    progressFill.style.width = '25%';
+                    updateNavigationUI();
                     return;
                 }
 
@@ -2297,6 +2417,66 @@
             updateNavigationUI();
         }
 
+        // Handle face area checkboxes
+        document.querySelectorAll('.face-area-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const continueBtn = document.querySelector('.question[data-question="face-2"] .continue-button');
+                const hasSelection = document.querySelectorAll('.face-area-checkbox:checked').length > 0;
+                continueBtn.style.display = hasSelection ? 'block' : 'none';
+            });
+        });
+
+        // Handle face areas continue button
+        function handleFaceAreasContinue() {
+            const checkedBoxes = document.querySelectorAll('.face-area-checkbox:checked');
+            const selectedAreas = Array.from(checkedBoxes).map(cb => cb.value);
+
+            // Store the face areas
+            answers['face-areas'] = selectedAreas;
+            questionHistory.push('face-2');
+
+            // Move to next face question
+            document.querySelector('.question[data-question="face-2"]').classList.remove('active');
+            document.querySelector('.question[data-question="face-3"]').classList.add('active');
+            currentQuestion = 'face-3';
+            progressFill.style.width = '40%';
+            updateNavigationUI();
+        }
+
+        // Handle face-specific option clicks
+        document.querySelectorAll('.face-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const question = this.closest('.question');
+                const questionId = question.dataset.question;
+                const value = this.dataset.value;
+
+                // Store answer
+                answers[questionId] = value;
+                questionHistory.push(questionId);
+
+                // Determine next step
+                if (questionId === 'face-3') {
+                    // Move to face-4
+                    question.classList.remove('active');
+                    document.querySelector('.question[data-question="face-4"]').classList.add('active');
+                    currentQuestion = 'face-4';
+                    progressFill.style.width = '60%';
+                } else if (questionId === 'face-4') {
+                    // Move to face-5
+                    question.classList.remove('active');
+                    document.querySelector('.question[data-question="face-5"]').classList.add('active');
+                    currentQuestion = 'face-5';
+                    progressFill.style.width = '80%';
+                } else if (questionId === 'face-5') {
+                    // Show results
+                    progressFill.style.width = '100%';
+                    showResults();
+                }
+
+                updateNavigationUI();
+            });
+        });
+
         // Back button functionality
         function goToPreviousQuestion() {
             // Check if we're at question 1, go back to welcome
@@ -2324,16 +2504,33 @@
                 
                 // Get previous question
                 const previousQuestion = questionHistory.pop();
-                
-                // Show previous question
-                questions[previousQuestion - 1].classList.add('active');
-                currentQuestion = previousQuestion;
 
-                // If going back to Question 4, reset checkboxes and hide continue button
-                if (previousQuestion === 4) {
-                    document.querySelectorAll('.risk-checkbox').forEach(cb => cb.checked = false);
-                    const continueBtn = document.querySelector('.question[data-question="4"] .continue-button');
-                    if (continueBtn) continueBtn.style.display = 'none';
+                // Handle face questions
+                if (typeof previousQuestion === 'string' && previousQuestion.startsWith('face-')) {
+                    // Hide all face questions
+                    document.querySelectorAll('.face-question').forEach(q => q.classList.remove('active'));
+
+                    // Show previous face question
+                    document.querySelector(`.question[data-question="${previousQuestion}"]`).classList.add('active');
+                    currentQuestion = previousQuestion;
+
+                    // Reset face area checkboxes if going back to face-2
+                    if (previousQuestion === 'face-2') {
+                        document.querySelectorAll('.face-area-checkbox').forEach(cb => cb.checked = false);
+                        const continueBtn = document.querySelector('.question[data-question="face-2"] .continue-button');
+                        if (continueBtn) continueBtn.style.display = 'none';
+                    }
+                } else {
+                    // Show previous regular question
+                    questions[previousQuestion - 1].classList.add('active');
+                    currentQuestion = previousQuestion;
+
+                    // If going back to Question 4, reset checkboxes and hide continue button
+                    if (previousQuestion === 4) {
+                        document.querySelectorAll('.risk-checkbox').forEach(cb => cb.checked = false);
+                        const continueBtn = document.querySelector('.question[data-question="4"] .continue-button');
+                        if (continueBtn) continueBtn.style.display = 'none';
+                    }
                 }
                 
                 // Update progress
@@ -2353,9 +2550,13 @@
             } else {
                 backButton.classList.remove('visible');
             }
-            
+
             // Update question counter
-            if (currentQuestion <= totalQuestions) {
+            if (typeof currentQuestion === 'string' && currentQuestion.startsWith('face-')) {
+                const faceStep = currentQuestion.split('-')[1];
+                questionCounter.textContent = `Face Assessment - Step ${parseInt(faceStep) - 1} of 5`;
+                questionCounter.style.display = 'block';
+            } else if (currentQuestion <= totalQuestions) {
                 questionCounter.textContent = `Question ${currentQuestion} of 7`;
                 questionCounter.style.display = 'block';
             } else {
@@ -2364,8 +2565,9 @@
         }
 
         function showResults() {
-            // Hide ALL questions
+            // Hide ALL questions (both regular and face questions)
             questions.forEach(q => q.classList.remove('active'));
+            document.querySelectorAll('.face-question').forEach(q => q.classList.remove('active'));
 
             // Update navigation for results
             backButton.classList.add('visible');
