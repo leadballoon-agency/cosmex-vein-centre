@@ -500,6 +500,15 @@
             display: block;
         }
 
+        /* Hide face questions by default */
+        .face-question {
+            display: none !important;
+        }
+
+        .face-question.active {
+            display: block !important;
+        }
+
         @keyframes pulse {
             0% {
                 box-shadow: 0 0 0 0 rgba(111, 199, 180, 0.7);
@@ -2301,7 +2310,7 @@
         // Assessment Tool Logic
         const assessmentTool = document.getElementById('assessmentTool');
         const progressFill = document.getElementById('progressFill');
-        const questions = document.querySelectorAll('.question');
+        const questions = document.querySelectorAll('.question:not(.face-question)');
         const results = document.getElementById('assessmentResults');
         const backButton = document.getElementById('backButton');
         const questionCounter = document.getElementById('questionCounter');
