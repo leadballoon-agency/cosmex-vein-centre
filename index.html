@@ -2364,9 +2364,9 @@
         }
 
         function showResults() {
-            // Hide last question
-            questions[totalQuestions - 1].classList.remove('active');
-            
+            // Hide ALL questions
+            questions.forEach(q => q.classList.remove('active'));
+
             // Update navigation for results
             backButton.classList.add('visible');
             questionCounter.style.display = 'none';
