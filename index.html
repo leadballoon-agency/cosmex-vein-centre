@@ -2710,8 +2710,26 @@
                     ctaText = 'Book Ultrasound Scan';
                     modalFunction = openDuplexBookingModal;
                     console.log('Setting duplex booking modal for varicose/severe symptoms');
-                } else if (answers.q2 === 'spider' && (answers.q3 === 'no-symptoms' || answers.q3 === 'mild')) {
-                    // Spider veins with no/mild symptoms - offer choice
+                } else if (answers.q2 === 'spider' && answers.q3 === 'mild' && hasRiskFactors) {
+                    // Spider veins with mild symptoms AND risk factors - recommend scan
+                    recommendation = `
+                        <div style="margin-bottom: 2rem;">
+                            <h4 style="color: var(--cambridge-green); margin-bottom: 1rem;">Ultrasound Scan Recommended</h4>
+                            <p style="color: var(--text-secondary); line-height: 1.7;">
+                                With your leg heaviness and ${answers.q4.includes('occupation') ? 'standing/sitting job' : 'risk factors'},
+                                an ultrasound scan is strongly recommended to check for underlying venous insufficiency.
+                            </p>
+                            <div style="background: var(--bg-light); border-radius: 12px; padding: 1.5rem; margin-top: 1.5rem;">
+                                <p style="font-weight: 600; color: var(--cambridge-blue); margin-bottom: 0.5rem;">Recommended Assessment</p>
+                                <p style="color: var(--text-primary);">£250 duplex ultrasound scan & consultation</p>
+                                <p style="color: var(--cambridge-green); font-size: 0.9rem; margin-top: 0.5rem;">✓ Treatments following scan include 12-month guarantee</p>
+                            </div>
+                        </div>
+                    `;
+                    ctaText = 'Book Ultrasound Scan';
+                    modalFunction = openDuplexBookingModal;
+                } else if (answers.q2 === 'spider' && answers.q3 === 'no-symptoms' && !hasRiskFactors) {
+                    // Spider veins with NO symptoms and NO risk factors - offer choice
                 recommendation = `
                     <div style="margin-bottom: 2rem;">
                         <h4 style="color: var(--cambridge-green); margin-bottom: 1rem;">Thread Veins Treatment Options</h4>
@@ -2727,17 +2745,20 @@
                                 <p style="font-weight: 600; color: var(--cambridge-blue); margin-bottom: 0.5rem;">Recommended: Full Assessment</p>
                                 <p style="color: var(--text-primary);">£250 duplex scan & consultation</p>
                                 <p style="color: var(--cambridge-green); font-size: 0.9rem; margin-top: 0.5rem;">✓ Any treatment after scan includes guarantee</p>
+                                <button class="result-cta" style="margin-top: 1rem; width: 100%;" onclick="openDuplexBookingModal()">Book £250 Scan</button>
                             </div>
                             <div style="background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid #e5e7eb;">
                                 <p style="font-weight: 600; color: var(--cambridge-blue); margin-bottom: 0.5rem;">Basic Consultation</p>
                                 <p style="color: var(--text-primary);">£50 consultation</p>
                                 <p style="color: #ef4444; font-size: 0.9rem; margin-top: 0.5rem;">✗ No guarantee included</p>
+                                <button class="result-cta" style="margin-top: 1rem; width: 100%; background: white; color: var(--cambridge-blue); border: 2px solid var(--cambridge-blue);" onclick="openFacialBookingModal()">Book £50 Consultation</button>
                             </div>
                         </div>
                     </div>
                 `;
-                    ctaText = 'Book Consultation';
-                    modalFunction = openFacialBookingModal;
+                    // Hide the default single CTA button when showing dual options
+                    ctaText = '';
+                    modalFunction = null;
                 } else {
                     // Default leg treatment
                     recommendation = `
@@ -2795,12 +2816,21 @@
             // Update results
             document.getElementById('resultRecommendation').innerHTML = recommendation;
             const ctaButton = document.getElementById('resultCTA');
-            ctaButton.textContent = ctaText;
-            // Properly assign the onclick handler
-            if (modalFunction) {
-                ctaButton.onclick = function() {
-                    modalFunction();
-                };
+
+            // Hide or show the default button based on whether we have dual options
+            if (ctaText === '') {
+                // Hide default button when we have dual options with embedded buttons
+                ctaButton.style.display = 'none';
+            } else {
+                // Show default button for single option scenarios
+                ctaButton.style.display = 'block';
+                ctaButton.textContent = ctaText;
+                // Properly assign the onclick handler
+                if (modalFunction) {
+                    ctaButton.onclick = function() {
+                        modalFunction();
+                    };
+                }
             }
             
             // Show results with animation
