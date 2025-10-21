@@ -27,7 +27,25 @@
     <meta property="twitter:title" content="Cosmex Vein Clinic Cambridge - Expert Vein Treatment">
     <meta property="twitter:description" content="Cambridge's leading vein specialists. Same-week consultations from £50. Skip the NHS wait.">
     <meta property="twitter:image" content="https://cosmexveincentre.co.uk/public/images/hero-1.jpg">
-    
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '407425131695423');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=407425131695423&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://cosmexveincentre.co.uk/">
     
@@ -2225,6 +2243,16 @@
             document.getElementById('assessment').classList.remove('focused');
             document.getElementById('facialBookingModal').classList.add('active');
             document.body.style.overflow = 'hidden';
+
+            // Track Facebook Pixel event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    content_name: 'Facial Consultation Booking',
+                    content_category: 'Facial Veins',
+                    value: 50,
+                    currency: 'GBP'
+                });
+            }
         }
 
         function closeFacialBookingModal() {
@@ -2239,6 +2267,16 @@
             document.getElementById('assessment').classList.remove('focused');
             document.getElementById('duplexBookingModal').classList.add('active');
             document.body.style.overflow = 'hidden';
+
+            // Track Facebook Pixel event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    content_name: 'Duplex Ultrasound Scan Booking',
+                    content_category: 'Leg Veins',
+                    value: 250,
+                    currency: 'GBP'
+                });
+            }
         }
 
         function closeDuplexBookingModal() {
@@ -2400,19 +2438,27 @@
             // Keep dimmer active during assessment
             const dimmer = document.getElementById('pageDimmer');
             const assessmentContainer = document.getElementById('assessment');
-            
+
             // Ensure dimmer stays active
             if (!dimmer.classList.contains('active')) {
                 dimmer.classList.add('active');
                 assessmentContainer.classList.add('focused');
             }
-            
+
             document.getElementById('assessmentWelcome').classList.remove('active');
             document.getElementById('assessmentWelcome').style.display = 'none';
             document.querySelector('.question[data-question="1"]').classList.add('active');
             document.getElementById('questionCounter').style.display = 'block';
             document.querySelector('.assessment-container').classList.add('assessment-active');
             updateNavigationUI();
+
+            // Track Facebook Pixel event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead', {
+                    content_name: 'Vein Assessment Started',
+                    content_category: 'Assessment'
+                });
+            }
         }
         
         document.querySelectorAll('.option').forEach(option => {
@@ -2868,10 +2914,19 @@
             // Show results with animation
             results.style.display = 'block';
             results.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
+
             // Update progress to 100%
             progressFill.style.width = '100%';
-            
+
+            // Track Facebook Pixel event for assessment completion
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'CompleteRegistration', {
+                    content_name: 'Vein Assessment Completed',
+                    content_category: 'Assessment',
+                    status: 'completed'
+                });
+            }
+
             // Send to backend (if needed)
             sendAssessmentData(answers);
         }
