@@ -2235,12 +2235,10 @@
 
     <!-- Verify Facebook Pixel Loaded -->
     <script>
-        // Verify pixel is loaded and fire PageView again to ensure it's tracked
+        // Verify pixel is loaded
         window.addEventListener('load', function() {
             if (typeof fbq !== 'undefined') {
                 console.log('✅ Facebook Pixel loaded successfully');
-                // Fire PageView event again after page fully loads
-                fbq('track', 'PageView');
             } else {
                 console.error('❌ Facebook Pixel failed to load');
             }
