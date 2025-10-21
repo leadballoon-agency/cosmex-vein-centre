@@ -2232,6 +2232,21 @@
     </div>
 
     <script src="https://links.hifucambridge.com/js/form_embed.js" type="text/javascript"></script>
+
+    <!-- Verify Facebook Pixel Loaded -->
+    <script>
+        // Verify pixel is loaded and fire PageView again to ensure it's tracked
+        window.addEventListener('load', function() {
+            if (typeof fbq !== 'undefined') {
+                console.log('✅ Facebook Pixel loaded successfully');
+                // Fire PageView event again after page fully loads
+                fbq('track', 'PageView');
+            } else {
+                console.error('❌ Facebook Pixel failed to load');
+            }
+        });
+    </script>
+
     <script>
         // Only scroll to top on actual page refresh (not during normal scrolling)
         // Removed aggressive scroll-to-top behavior that was causing jumping
