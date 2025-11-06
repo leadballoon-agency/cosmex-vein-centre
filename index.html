@@ -2464,14 +2464,6 @@
             document.getElementById('questionCounter').style.display = 'block';
             document.querySelector('.assessment-container').classList.add('assessment-active');
             updateNavigationUI();
-
-            // Track Facebook Pixel event
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'Lead', {
-                    content_name: 'Vein Assessment Started',
-                    content_category: 'Assessment'
-                });
-            }
         }
         
         document.querySelectorAll('.option').forEach(option => {
@@ -2930,15 +2922,6 @@
 
             // Update progress to 100%
             progressFill.style.width = '100%';
-
-            // Track Facebook Pixel event for assessment completion
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'CompleteRegistration', {
-                    content_name: 'Vein Assessment Completed',
-                    content_category: 'Assessment',
-                    status: 'completed'
-                });
-            }
 
             // Send to backend (if needed)
             sendAssessmentData(answers);
